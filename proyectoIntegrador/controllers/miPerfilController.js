@@ -1,7 +1,7 @@
 let controller = {
     index: function(req,res){
-        return res.render('miPerfil');
+        return res.render('miPerfilVista');
     },
-
 }
+
 module.exports = controller;
