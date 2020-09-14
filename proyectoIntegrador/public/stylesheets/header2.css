@@ -1,0 +1,44 @@
+body{
+    margin: 0px;
+}
+.header-container{
+width: 100vw;
+height: 60px;
+left: 0px;
+top: 0px;
+
+background: #393333;
+box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.14);
+border-radius: 0px 0px 20px 20px;
+
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+}
+.logo-container{
+    display: flex;
+    align-items: center;
+}
+a{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    width: 180px;
+    height: auto;
+}
+.search-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.nav-icon{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
