@@ -4,3 +4,17 @@
 main{
     margin-bottom: 40px;
 }
+.logo1,.logo2{
+    font-family: "Kumbh Sans";
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: 1px; 
+    text-transform: lowercase;
+    border: #393333;
+}
+.logo1{
+    color:#d9a785;
+}
+.logo2{
+    color:whitesmoke;
+}

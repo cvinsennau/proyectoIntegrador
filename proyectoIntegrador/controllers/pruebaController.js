@@ -1,6 +1,6 @@
 let controller = {
     index: function(req,res){
-        return res.render('pruebaVista');
+        return res.render('prueba');
     },
 
 }

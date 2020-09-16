@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FalseBook</title>
-    <link rel="icon"
-        href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
-        type="image/x-icon">
+    <title>foodiegram</title>
+    <link rel="icon" href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="/stylesheets/agregarPost.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Kumbh+Sans:wght@300;700&family=Poppins:wght@300&family=Questrial&display=swap" rel="stylesheet">
+        
     <!-- UiKit -->
     <!-- <link rel="stylesheet" href="css/uikit.min.css">
     <script src="js/uikit-icons.min.js"></script>
@@ -29,18 +30,19 @@
 </head>
 
 <body>
-    <header class="uk-background-primary">
+    <header >
         <section class=" uk-container uk-container-large">
             <div class="">
                 <nav class="" uk-navbar>
                     <div class="uk-navbar-left">
-                        <h2 class="logo"><a href="home.html">FalseBook</a></h2>
+                        <span><a class="logo1" href="home.html">foodie</span><span class="logo2">gram</a></span>
                     </div>
                     <div class="uk-navbar-center">
                         <ul class="uk-flex uk-flex-between uk-flex-middle">
                             <li><a href="home.html">Home</a></li>
-                            <li><a href="agregarPost.html">Postear</a></li>
-                            <li><a href="miPerfil.html">Perfil</a></li>
+                            <li><a href="addPost.html">Postear</a></li>
+                            <li><a href="registracion">Registración</a></li>
+                            <li><a href="login.html">Login</a></li>
                         </ul>
                     </div>
                     <div class="uk-navbar-right">
@@ -60,17 +62,28 @@
 
     <main>
         <div class="uk-section uk-section-small">
-            <div class="uk-container uk-container-large uk-flex">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 <form action="">
-                    <h2>(Formulario para agregar un post)</h2>
 
+                    <form action="miPerfilVista.ejs" method="POST">
+                        <span class="logo1">foodie</span><span class="logo2">gram</span>
+                        <div class="container">
+                                
+                            <input type="text" placeholder="email" name="user" required><br>
+                            <input type="password" placeholder="contraseña" name="pass" required><br>
+    
+                            <button type="submit">Registrarme</button><br>
+                            <span class="login">¿No tenes cuenta?<a href="/registracion"> Registrate </a></span>
+                        </div>
+                    </form>
+                
                 </form>
-
             </div>
         </div>
     </main>
-    
+
     <%- include('./partials/footer') %> 
+
 </body>
 
 </html>

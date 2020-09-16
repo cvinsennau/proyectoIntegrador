@@ -1,0 +1,20 @@
+form{
+    text-align: center;
+}
+input, button,.login, .login a{
+    font-family: "Poppins";
+}
+input{    
+    width:100%;
+    padding:10px;
+    margin: 8px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+button{
+    padding:10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}

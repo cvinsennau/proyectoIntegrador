@@ -1,6 +1,6 @@
 let controller = {
     index: function(req,res){
-        return res.send('detallePostVista');
+        return res.send('detallePost');
     },
 
 }
