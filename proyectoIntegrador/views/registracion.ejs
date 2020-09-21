@@ -31,49 +31,20 @@
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
 </head>
 
-<body>
-    <header >
-        <section class=" uk-container uk-container-large">
-            <div class="">
-                <nav class="" uk-navbar>
-                    <div class="uk-navbar-left">
-                        <span><a class="logo1" href="home.html">foodie</span><span class="logo2">gram</a></span>
-                    </div>
-                    <div class="uk-navbar-center">
-                        <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li><a href="home.html">Home</a></li>
-                            <li><a href="addPost.html">Postear</a></li>
-                            <li><a href="registracion">Registración</a></li>
-                            <li><a href="login.html">Login</a></li>
-                        </ul>
-                    </div>
-                    <div class="uk-navbar-right">
-                        <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li>
-                                <form action="" class="uk-search uk-search-default">
-                                    <span uk-search-icon></span>
-                                    <input type="search" class="uk-search-input" placeholder="Buscar...">
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </section>
-    </header>
+    <%- include('./partials/header2') %>
 
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 
-                <form action="miPerfilVista.ejs" method="POST">
+                <form action="miPerfilVista" method="POST">
                     <span class="logo1">foodie</span><span class="logo2">gram</span>
                     <div class="container">
                             
                         <input type="text" placeholder="usuario" name="user" required><br>
-                        <input type="text" placeholder="email" name="user" required><br>
+                        <input type="date" placeholder="fecha de nacimiento" name="fecha" required><br>
+                        <input type="email" placeholder="email" name="email" required><br>
                         <input type="password" placeholder="contraseña" name="pass" required><br>
-                        <input type="password" placeholder="repetir contraseña" name="pass" required><br>
 
                         <button type="submit">Registrarme</button><br>
                         <span class="login">¿Ya tenes una cuenta?<a href="/login"> Inicia sesion </a></span>
