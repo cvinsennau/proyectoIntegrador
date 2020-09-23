@@ -1,7 +1,0 @@
-CREATE TABLE datos_post (
-id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-id_usuario INT UNSIGNED NOT NULL,
-imagen_usuario VARCHAR(100) NOT NULL,
-texto_post VARCHAR(140) NULL,
-fecha_de_post DATE NOT NULL
-)
