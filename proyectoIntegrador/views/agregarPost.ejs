@@ -9,10 +9,13 @@
         href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
         type="image/x-icon">
 
-    <link rel="stylesheet" href="/stylesheets/resultadoBusqueda.css">
+    <link rel="stylesheet" href="/stylesheets/agregarPost.css">
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Kumbh+Sans:wght@300;700&family=Poppins:wght@300&family=Questrial&display=swap" rel="stylesheet">
 
     <!-- UiKit -->
     <!-- <link rel="stylesheet" href="css/uikit.min.css">
@@ -38,9 +41,9 @@
                     </div>
                     <div class="uk-navbar-center">
                         <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li><a href="home.html">Home</a></li>
-                            <li><a href="addPost.html">Postear</a></li>
-                            <li><a href="miPerfil.html">Perfil</a></li>
+                            <li><a href="home">Home</a></li>
+                            <li><a href="agregarPost">Postear</a></li>
+                            <li><a href="miPerfil">Perfil</a></li>
                         </ul>
                     </div>
                     <div class="uk-navbar-right">
@@ -60,16 +63,25 @@
 
     <main>
         <div class="uk-section uk-section-small">
-            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
-               
-                <h2>(Mostar resultados de busqueda)</h2>
+            
+            <div class="uk-container uk-container-large uk-flex">
+                
+                <form action="" method="POST">
+                    <h2 class="titlePost">Agrega un post</h2>
+                            
+                        <input type="file" name="file" accept="image/*" required/> <br>
+                        
+                        <input type="text" placeholder="Agrega una descripción" name="description"><br>
+
+                        <button type="submit">Postear</button><br>
+
+                </form>
 
             </div>
         </div>
     </main>
-
+    
     <%- include('./partials/footer') %> 
-
 </body>
 
 </html>

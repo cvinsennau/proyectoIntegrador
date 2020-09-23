@@ -1,7 +1,14 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
 article.post{
     border: 1px solid lightgray;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-bottom: 10px;
+    background-color: #393333;
+    color: white;
 }
 
 article.post div.info-usuario{
@@ -15,22 +22,23 @@ article.post div.info-usuario img{
     border: 1.5px solid red;
 }
 article.post div.info-usuario h4{
-   margin: 8px 10px;
+    margin: 8px 10px;
 }
 
 article.post div.post-body{
-    padding-bottom: 5px;
-    border-bottom: 1px solid lightgray;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 article.post div.post-reacciones ul.post-icons{
     padding-top: 5px;
-    padding-right: 30px;
+    padding-right: 50px;
+    padding-left: 50px;
     list-style-type: none;
 }
 
 article.post div.post-reacciones div.post-pie{
-    padding-left: 20px;
+    padding-left: 50px;
     border-bottom: 1px solid lightgray;
 }
 article.post div.post-reacciones div.post-pie h5{
@@ -54,7 +62,7 @@ article.post div.post-comentarios ul li{
     display: flex;
 }
 article.post div.post-comentarios ul li a{
-    color: black;
+    color: white;
     font-weight: bolder;
     text-decoration: none;
 }
@@ -62,3 +70,18 @@ article.post div.post-comentarios ul li p{
     margin: 0 5px;
 }
 
+img.post-foto{
+    height: 600px;
+    width: auto;
+    border-radius: 20px;
+}
+
+div h4{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+div h5{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}

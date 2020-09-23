@@ -1,29 +1,26 @@
-<header class="uk-background-primary">
-    <section class=" uk-container uk-container-large">
-        <div class="">
-            <nav class="" uk-navbar>
-                <div class="uk-navbar-left">
-                    <h2 class="logo"><a href="home.html">FalseBook</a></h2>
-                </div>
-                <div class="uk-navbar-center">
-                    <ul class="uk-flex uk-flex-between uk-flex-middle">
-                        <li><a href="home.html">Home</a></li>
-                        <li><a href="agregarPost.html">Postear</a></li>
-                        <li><a href="registracion">Registración</a></li>
-                        <li><a href="login.html">Login</a></li>
-                    </ul>
-                </div>
-                <div class="uk-navbar-right">
-                    <ul class="uk-flex uk-flex-between uk-flex-middle">
-                        <li>
-                            <form action="" class="uk-search uk-search-default">
-                                <span uk-search-icon></span>
-                                <input type="search" class="uk-search-input" placeholder="Buscar...">
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+<header>
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="/home">
+                <img class="logo" src="images/foodiegram.png" alt="">
+            </a>
         </div>
-    </section>
+
+        <div class="search-container">
+            <img class="nav-icon lupa" src="images/icons/search.png" alt="">
+            <form action="resultados.html" method="GET" class="buscador-form">
+                <input type="text" name="search" placeholder="¿Qué queres buscar?" id="" class="buscador-input">
+                <button type="submit" class="buscador-button">Buscar</button>
+            </form>
+        </div>
+
+        <div class="nav-container">
+            <a href="/registracion">
+                <h4 class="nav-text registrarse-text">Registrarse</h4>
+            </a>
+            <a href="/login">
+                <h4 class="nav-text">Iniciar Sesión</h4>
+            </a>
+        </div>
+    </div>
 </header>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>foodiegram</title>
+    <link rel="icon"
+        href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
+        type="image/x-icon">
+
+    <link rel="stylesheet" href="/stylesheets/registracion.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/general.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Kumbh+Sans:wght@300;700&family=Poppins:wght@300&family=Questrial&display=swap" rel="stylesheet">
+
+    <!-- UiKit -->
+    <!-- <link rel="stylesheet" href="css/uikit.min.css">
+    <script src="js/uikit-icons.min.js"></script>
+    <script src="js/uikit.min.js"></script> -->
+    <!-- UiKit -->
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+</head>
+
+    <%- include('./partials/header2') %>
+
+    <main>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+                
+                <form action="miPerfilVista" method="POST">
+                    <span class="logo1">foodie</span><span class="logo2">gram</span>
+                    <div class="container">
+                            
+                        <input type="text" placeholder="usuario" name="user" required><br>
+                        <input type="date" placeholder="fecha de nacimiento" name="fecha" required><br>
+                        <input type="email" placeholder="email" name="email" required><br>
+                        <input type="password" placeholder="contraseña" name="pass" required><br>
+
+                        <button type="submit">Registrarme</button><br>
+                        <span class="login">¿Ya tenes una cuenta?<a href="/login"> Inicia sesion </a></span>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+
+    <%- include('./partials/footer') %> 
+</body>
+
+</html>

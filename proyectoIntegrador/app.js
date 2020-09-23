@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Rutas
-app.use('/home', indexRouter);
+app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 app.use('/registracion', registroRouter);
 app.use('/login', loginRouter);
