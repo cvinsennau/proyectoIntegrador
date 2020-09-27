@@ -41,12 +41,6 @@ a{
     height: 25px;
     margin-right: 20px;
 }
-.nav-icon-user{
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    margin-right: 20px;
-}
 img.lupa{
     margin-right: 5px;
 }
@@ -65,7 +59,7 @@ img.lupa{
 }
 .buscador-button{
     width: 60px;
-    height: 33px;
+    height: 25px;
     border-radius: 5px;
     border: 0px;
     margin-left: 5px;
@@ -81,25 +75,9 @@ h4.nav-text{
 .registrarse-text{
     font-weight: bold;
 }
-form{
-    text-align: center;
-}
-input, button,.login, .login a{
-    font-family: "Poppins";
-}
-input{    
-    width:100%;
-    padding:10px;
-    margin: 8px;
-    border-radius:10px;
-    border:1px solid #ccc;
-}
-button{
-    padding:10px;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    border-radius:10px;
-    border:1px solid #ccc;
+.info-usuario .red-usuario{
+    list-style: none;
+    padding: 0  ;
 }
 main{
     height: 522px;
