@@ -71,7 +71,7 @@ article.post div.post-comentarios ul li p{
 }
 
 img.post-foto{
-    height: 600px;
+    height: 100%;
     width: auto;
     border-radius: 20px;
 }
