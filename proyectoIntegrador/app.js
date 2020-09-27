@@ -14,7 +14,6 @@ var agregarPostRouter = require('./routes/agregarPostRuta');
 var detallePostRouter = require('./routes/detallePostRuta');
 var detalleUserRouter = require('./routes/detalleUserRuta');
 var resultadoBusquedaRouter = require('./routes/resultadoBusquedaRuta');
-var pruebaRouter = require('./routes/pruebaRuta')
 
 var app = express();
 
@@ -38,7 +37,6 @@ app.use('/agregarPost', agregarPostRouter);
 app.use('/detallePost', detallePostRouter);
 app.use('/detalleUser', detalleUserRouter);
 app.use('/resultadoBusqueda', resultadoBusquedaRouter);
-app.use('/prueba', pruebaRouter);
 
 
 // catch 404 and forward to error handler
