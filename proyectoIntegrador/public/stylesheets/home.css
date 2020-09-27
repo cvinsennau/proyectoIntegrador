@@ -17,12 +17,13 @@ article.post div.info-usuario{
     margin-bottom: 5px;
 }
 article.post div.info-usuario img{
-    border-radius: 50px;
     padding: 1px;
-    border: 1.5px solid red;
+    border: 1.5px solid #660000;
 }
 article.post div.info-usuario h4{
     margin: 8px 10px;
+    margin-right: 65%;
+    padding-top: 1%;
 }
 
 article.post div.post-body{
@@ -72,7 +73,7 @@ article.post div.post-comentarios ul li p{
 
 img.post-foto{
     height: 100%;
-    width: auto;
+    width: 80%;
     border-radius: 20px;
 }
 
@@ -87,4 +88,13 @@ div h5{
 }
 .uk-width-1-6{
     font-weight: bold;
+}
+div.cajaPerfil{
+    width: 13%;
+}
+img.fotoPerfilUsuario{
+    max-width: 63%;
+    border-radius: 48%;
+    height: 100%;
+    width: 80%;
 }
