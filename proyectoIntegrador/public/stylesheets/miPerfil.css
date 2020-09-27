@@ -4,8 +4,8 @@ body{
 }
 .info-usuario .foto-perfil{
     border-radius: 50%;
-    width: 65%;
-    height: 110%;
+    width: 50%;
+    height: 130%;
 }
 .header-container{
     width: 100vw;
@@ -100,4 +100,7 @@ p.uk-text-center{
 img.foto-perfil{
     height: 75%;
     width: 80%;
+}
+#section2{
+    margin-top: 50px;
 }

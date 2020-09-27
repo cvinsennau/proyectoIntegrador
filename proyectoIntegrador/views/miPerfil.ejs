@@ -10,7 +10,7 @@
         type="image/x-icon">
 
     <link rel="stylesheet" href="/stylesheets/miPerfil.css">
-    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/header-logueado.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
 
@@ -33,7 +33,7 @@
 
 <body>
     
-    <%- include('./partials/headerMiPerfil') %> 
+    <%- include('./partials/headerLogueado') %> 
 
     <main>
         <div class="uk-section uk-section-small">
@@ -58,18 +58,18 @@
 
                 </section>
 
-                <section class="muro uk-flex uk-flex-middle uk-flex-center">
+                <section id="section2" class="muro uk-flex uk-flex-middle uk-flex-center">
                     <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
                         <div
                             class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                            <a href="/detallePost" class="link-detalle">
+                            <a href="detallePost" class="link-detalle">
                                 <img src="images/posts/alfajores.jpeg" alt="foto de perfil" class="foto-perfil">
                                 <p class="uk-text-center">Alfajores con los chicos!</p>
                             </a>
                         </div>
                         <div
                             class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                            <a href="/detallePost" class="link-detalle">
+                            <a href="detallePost" class="link-detalle">
                                 <img src="images/posts/dumplings.jpeg" alt="foto de perfil" class="foto-perfil">
                                 <p class="uk-text-center">Un poco de comida oriental!</p>
                             </a>

@@ -10,7 +10,7 @@
         type="image/x-icon">
 
     <link rel="stylesheet" href="/stylesheets/registracion.css">
-    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/header-deslogueado.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
 
@@ -30,14 +30,15 @@
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
 </head>
-
-    <%- include('./partials/header2') %>
-
+ 
+<body>
+    <%- include('./partials/headerDeslogueado') %>
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 
-                <form action="miPerfilVista" method="POST">
+                <form action="miPerfil" method="POST">
+
                     <span class="logo1">foodie</span><span class="logo2">gram</span>
                     <div class="container">
                             
@@ -47,8 +48,10 @@
                         <input type="password" placeholder="contraseña" name="contraseña_usuario" required><br>
 
                         <button type="submit">Registrarme</button><br>
-                        <span class="login">¿Ya tenes una cuenta?<a href="/login"> Inicia sesion </a></span>
+
+                        <p class="login">¿Ya tenes una cuenta?<a href="/login"> Inicia sesion </a></p>
                     </div>
+                    
                 </form>
 
             </div>

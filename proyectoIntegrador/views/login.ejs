@@ -8,7 +8,7 @@
     <link rel="icon" href="images/icons/icono.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="/stylesheets/login.css">
-    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/header-deslogueado.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
 
@@ -30,48 +30,21 @@
 </head>
 
 <body>
-    <header >
-        <section class=" uk-container uk-container-large">
-            <div class="">
-                <nav class="" uk-navbar>
-                    <div class="uk-navbar-left">
-                        <span><a class="logo1" href="/index">foodie</span><span class="logo2">gram</a></span>
-                    </div>
-                    <div class="uk-navbar-center">
-                        <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li><a href="/index">Home</a></li>
-                            <li><a href="/agregarPost">Postear</a></li>
-                            <li><a href="/registracion">Registración</a></li>
-                            <li><a href="/login">Login</a></li>
-                        </ul>
-                    </div>
-                    <div class="uk-navbar-right">
-                        <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li>
-                                <form action="/resultadoBusqueda" class="uk-search uk-search-default">
-                                    <span uk-search-icon></span>
-                                    <input type="search" class="uk-search-input" placeholder="Buscar...">
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </section>
-    </header>
+    <%- include('./partials/headerDeslogueado') %>
 
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 
-                <form action="miPerfilVista.ejs" method="POST">
+                <form action="miPerfil" method="POST">
+
                     <span class="logo1">foodie</span><span class="logo2">gram</span>
                     <div class="container">
                             
                         <input type="text" placeholder="email" name="usuario" required><br>
                         <input type="password" placeholder="contraseña" name="contraseña_usuario" required><br>
     
-                        <button type="submit">Registrarme</button><br>
+                        <button type="submit">Iniciar Sesión</button><br>
                         <span class="login">¿No tenes cuenta?<a href="/registracion"> Registrate </a></span>
                     </div>
                 </form>
