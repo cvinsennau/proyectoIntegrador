@@ -1,3 +1,8 @@
+img.fotoPerfil{
+    height: 5%;
+    width: 5%;
+    max-width: 10%;
+}
 .section.detalle-container{
     border: 1px solid lightgray;
 };

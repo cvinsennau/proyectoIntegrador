@@ -1,5 +1,6 @@
 form{
     text-align: center;
+    padding-bottom: 3%;
 }
 input, button,.login, .login a{
     font-family: "Poppins";

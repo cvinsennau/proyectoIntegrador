@@ -54,7 +54,7 @@ img.lupa{
 }
 .buscador-button{
     width: 60px;
-    height: 25px;
+    height: 33px;
     border-radius: 5px;
     border: 0px;
     margin-left: 5px;
@@ -70,69 +70,7 @@ h4.nav-text{
 .registrarse-text{
     font-weight: bold;
 }
-
-
 body{
     margin: 0px;
-    font-family: 'Poppins', sans-serif;
-}
-.header-container{
-    width: 100vw;
-    height: 60px;
-    left: 0px;
-    top: 0px;
-
-    background: #393333;
-    border-radius: 0px 0px 20px 20px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.logo-container{
-    display: flex;
-    align-items: center;
-}
-a{
-    display: flex;
-    align-items: center;
-}
-.logo{
-    width: 180px;
-    height: auto;
-    margin-top: 10px;
-}
-.search-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.nav-icon{
-    width: 25px;
-    height: 25px;
-    margin-right: 20px;
-}
-img.lupa{
-    margin-right: 5px;
-}
-.nav-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.buscador-input{
-    width: 25vw;
-    height: 25px;
-    border-radius: 5px;
-    border: 0px;
-    padding-left: 10px;
-    font-family: 'Poppins', sans-serif;
-}
-.buscador-button{
-    width: 60px;
-    height: 25px;
-    border-radius: 5px;
-    border: 0px;
-    margin-left: 5px;
     font-family: 'Poppins', sans-serif;
 }
