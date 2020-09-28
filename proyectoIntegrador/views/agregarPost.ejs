@@ -10,7 +10,7 @@
         type="image/x-icon">
 
     <link rel="stylesheet" href="/stylesheets/agregarPost.css">
-    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/header-logueado.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
 
@@ -33,7 +33,7 @@
 
 <body>
 
-    <%- include('./partials/headerLogueado') %>
+    <%- include('./partials/headerLogueado') %> 
 
     <main>
         <div class="uk-section uk-section-small">
@@ -43,11 +43,11 @@
                 <form action="" method="POST">
                     <h2 class="titlePost">Agrega un post</h2>
                             
-                        <input type="file" name="imagen_usuario" accept="image/*" required/> <br>
+                        <input class='formPosteo' type="file" name="imagen_usuario" accept="image/*" required/> <br>
                         
-                        <input type="text" placeholder="Agrega una descripción" name="texto_post"><br>
+                        <input class='formPosteo' type="text" placeholder="Agrega una descripción" name="texto_post"><br>
 
-                        <button type="submit">Postear</button><br>
+                        <button id="postear" type="submit">Postear</button><br>
 
                 </form>
 

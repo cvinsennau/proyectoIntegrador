@@ -1,11 +1,11 @@
-form{
+#inicio{
     text-align: center;
     padding-bottom: 3%;
 }
-input, button,.login, .login a{
+.formInicio, #buttonInicio,.login, .login a{
     font-family: "Poppins";
 }
-input{    
+.formInicio{    
     width:100%;
     padding:10px;
     margin: 8px;
@@ -16,7 +16,7 @@ input{
     font-size: 14px;
     display: inline;
 }
-button{
+#buttonInicio{
     padding:10px;
     margin-top: 15px;
     margin-bottom: 10px;
