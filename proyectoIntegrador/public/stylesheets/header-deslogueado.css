@@ -36,6 +36,9 @@ a{
     height: 25px;
     margin-right: 20px;
 }
+.round{
+    border-radius: 100px;
+}
 img.lupa{
     margin-right: 5px;
 }

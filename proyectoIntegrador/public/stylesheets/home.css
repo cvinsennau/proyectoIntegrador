@@ -2,7 +2,23 @@ body{
     font-family: 'Poppins', sans-serif;
     color: white;
 }
-
+p{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+h4 a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+h4 a:hover{
+    text-decoration: none;
+    color: white;
+}
+h5 a:hover{
+    text-decoration: none;
+    color: white;
+}
 article.post{
     border: 1px solid lightgray;
     border-radius: 20px;
@@ -13,12 +29,14 @@ article.post{
 
 article.post div.info-usuario{
     padding: 10px;
+    padding-left: 20px;
     border-bottom: 1px solid lightgray;
     margin-bottom: 5px;
 }
 article.post div.info-usuario img{
-    padding: 1px;
-    border: 1.5px solid #660000;
+    border-radius: 100%;
+    height: 48px;
+    width: 48px;
 }
 article.post div.info-usuario h4{
     margin: 8px 10px;
@@ -26,16 +44,13 @@ article.post div.info-usuario h4{
     padding-top: 1%;
 }
 
-article.post div.post-body{
-    padding-bottom: 20px;
-    padding-top: 20px;
-}
-
 article.post div.post-reacciones ul.post-icons{
     padding-top: 5px;
     padding-right: 50px;
     padding-left: 50px;
     list-style-type: none;
+    margin-bottom: 10px;
+    justify-content: flex-start;
 }
 
 article.post div.post-reacciones div.post-pie{
@@ -72,9 +87,10 @@ article.post div.post-comentarios ul li p{
 }
 
 img.post-foto{
-    height: 100%;
-    width: 80%;
-    border-radius: 20px;
+    height: auto;
+    width: 100%;
+    border-radius: 40px;
+    padding: 20px;
 }
 
 div h4{
@@ -90,11 +106,42 @@ div h5{
     font-weight: bold;
 }
 div.cajaPerfil{
-    width: 13%;
+    width: auto;
 }
-img.fotoPerfilUsuario{
-    max-width: 63%;
-    border-radius: 48%;
-    height: 100%;
-    width: 80%;
+svg{
+    color: white;
+    margin-right: 10px;
+}
+body a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+ul a{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300
+    ;
+}
+ul a:hover{
+    text-decoration: none;
+    color: white;
+}
+ul a.ver-mas{
+    margin-top: 10px;
+    font-weight: bold;
+    color: #807e7e;
+}
+a.usuarios{
+    font-family: 'Poppins', sans-serif;
+    width: auto;
+}
+a.main-user{
+    margin-bottom: 10px;
+}
+h6.comentarios{
+    color: white;
+    padding-left: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    margin-bottom: 10px;
 }

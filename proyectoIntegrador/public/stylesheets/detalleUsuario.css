@@ -1,12 +1,14 @@
 .info-usuario .foto-perfil{
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
 }
 
 .info-usuario .red-usuario{
     list-style: none;
-    padding: 0  ;
+    padding: 0;
+    justify-content: flex-start;
 }
-
 .muro{
     margin-top: 20px;
     padding-top: 20px;
@@ -17,5 +19,16 @@
     text-decoration: none;
 }
 .datosUsuario{
+    margin-top: 10px;
     width: 125%;
+}
+section div.detalle{
+    justify-content: flex-end;
+}
+.seguidores{
+    margin-right: 20px;
+}
+
+section div div.post{
+    flex-direction: column;
 }
