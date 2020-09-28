@@ -36,15 +36,15 @@
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 
-                <form action="/miPerfil" method="GET">
+                <form id="inicio" action="/miPerfil" method="GET">
 
                     <span class="logo1">foodie</span><span class="logo2">gram</span>
                     <div class="container">
                             
-                        <input type="text" placeholder="email" name="usuario" required><br>
-                        <input type="password" placeholder="contraseña" name="contraseña_usuario" required><br>
+                        <input class="formInicio" type="text" placeholder="email" name="usuario" required><br>
+                        <input class="formInicio" type="password" placeholder="contraseña" name="contraseña_usuario" required><br>
     
-                        <button type="submit">Iniciar Sesión</button><br>
+                        <button id="buttonInicio" type="submit">Iniciar Sesión</button><br>
                         <span class="login">¿No tenes cuenta?<a href="/registracion"> Registrate </a></span>
                     </div>
                 </form>
