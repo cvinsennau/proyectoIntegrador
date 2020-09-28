@@ -9,6 +9,10 @@
     padding: 0;
     justify-content: flex-start;
 }
+.foto-post{
+    width: 100%;
+    border-radius: 10px;
+}
 .muro{
     margin-top: 20px;
     padding-top: 20px;
@@ -29,6 +33,10 @@ section div.detalle{
     margin-right: 20px;
 }
 
-section div div.post{
+section div div div.post{
     flex-direction: column;
+}
+section div div.div-post{
+    padding: 20px;
+    border-radius: 10px;
 }
