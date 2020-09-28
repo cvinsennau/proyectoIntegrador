@@ -61,8 +61,8 @@ div.info-post{
 div.lista-comentarios{
     margin-left: 100px;
 }
-article img.post{
-    margin-right: 100px;
+img.post-imagen{
+    border-radius: 20px;
 }
 div div h6 a.user-comment-post{
     color: black;
