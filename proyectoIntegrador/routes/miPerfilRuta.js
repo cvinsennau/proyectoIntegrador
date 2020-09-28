@@ -4,4 +4,5 @@ let controller = require('../controllers/miPerfilController')
 
 router.get('/', controller.index)
 
+
 module.exports = router;
