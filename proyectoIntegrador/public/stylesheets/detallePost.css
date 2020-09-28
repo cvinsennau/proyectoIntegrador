@@ -9,6 +9,9 @@ img.fotoPerfil{
 .comentarios-detalle{
     border-left: 1px solid lightgray;
 };
+div.info-post{
+    justify-content: flex-start;
+}
 .comentarios-detalle .info-post{
     height: 10%;
     border-bottom: 1px solid lightgray;
@@ -55,3 +58,30 @@ img.fotoPerfil{
     text-decoration: none;
     margin-right: 4px !important;
 };
+div.lista-comentarios{
+    margin-left: 100px;
+}
+article img.post{
+    margin-right: 100px;
+}
+div div h6 a.user-comment-post{
+    color: black;
+}
+div h3 a.user-comment-post{
+    color: black;
+    margin-left: 10px;
+}
+article div div img.fotos-comentarios{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+div a.like{
+    color: black;
+}
+div h6.margin-left{
+    margin-left: 10px !important;
+}
+div form button.button{
+    font-family: 'Open Sans', sans-serif;
+}

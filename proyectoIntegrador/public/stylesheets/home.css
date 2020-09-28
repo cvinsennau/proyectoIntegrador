@@ -145,3 +145,8 @@ h6.comentarios{
     font-weight: 300;
     margin-bottom: 10px;
 }
+img.fotoPerfilUsuario{
+    border-radius: 100%;
+    height: 48px;
+    width: 48px;
+}
