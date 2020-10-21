@@ -6,14 +6,9 @@ var logger = require('morgan');
 
 //Declaración de Rutas
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/usersRuta');
-var registroRouter = require('./routes/registroRuta');
-var loginRouter = require('./routes/loginRuta');
-var perfilRouter = require('./routes/miPerfilRuta');
-var agregarPostRouter = require('./routes/agregarPostRuta');
-var detallePostRouter = require('./routes/detallePostRuta');
-var detalleUserRouter = require('./routes/detalleUserRuta');
-var resultadoBusquedaRouter = require('./routes/resultadoBusquedaRuta');
+var userRouter = require('./routes/userRoute');
+var accountRouter = require('./routes/accountRoute');
+var postRouter = require('./routes/postRoute');
 
 var app = express();
 
@@ -28,16 +23,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Rutas
-app.use('/index', indexRouter);
-app.use('/users', usersRouter);
-app.use('/registracion', registroRouter);
-app.use('/login', loginRouter);
-app.use('/miPerfil', perfilRouter);
-app.use('/agregarPost', agregarPostRouter);
-app.use('/detallePost', detallePostRouter);
-app.use('/detalleUser', detalleUserRouter);
-app.use('/resultadoBusqueda', resultadoBusquedaRouter);
-
+app.use('/', indexRouter);
+app.use('/account', accountRouter)
+app.use('/user', userRouter)
+app.use('/post', postRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
