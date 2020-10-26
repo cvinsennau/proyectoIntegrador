@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var session = require ('express-session')
 var logger = require('morgan');
 
 //Declaración de Rutas
@@ -20,7 +21,18 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session(
+  {secret:'pepito123',
+  resave: false,
+  saveUninitialized: true}
+));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(function(req,res,next){
+  if (req.session.user != undefined) {
+    res.locals.user = req.session.user //locals deja disponible los datos para todas las vistas
+  }
+  return next ();
+})
 
 //Rutas
 app.use('/', indexRouter);

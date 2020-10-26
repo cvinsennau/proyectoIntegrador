@@ -37,15 +37,18 @@
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 
-                <form id='registro' action="/account/login" method="GET">
+                <form id='registro' action="/account/login" method="POST">
 
                     <span class="logo1">foodie</span><span class="logo2">gram</span>
                     <div class="container">
                             
-                        <input class='formRegistro' type="text" placeholder="usuario" name="usuario" required><br>
-                        <input class='formRegistro' type="date" placeholder="fecha de nacimiento" name="fecha_de_nacimiento_usuario" required><br>
-                        <input class='formRegistro' type="email" placeholder="email" name="email_usuario" required><br>
-                        <input class='formRegistro' type="password" placeholder="contraseña" name="contraseña_usuario" required><br>
+                        <input class='formRegistro' type="text" placeholder="usuario" name="name" required><br>
+                        <input class='formRegistro' type="date" placeholder="fecha de nacimiento" name="birthdate" required><br>
+                        <input class='formRegistro' type="email" placeholder="email" name="email" required><br>
+                        <input class='formRegistro' type="password" placeholder="contraseña" name="password" required><br>
+                        <input class='formRegistro' type="password" placeholder="repetir contraseña" name="password" required><br>
+                        <% if(password != user.password) %> <!-- Corregir la condicion de si la contrasena esta mal --> 
+
 
                         <button id="buttonRegistro" type="submit">Registrarme</button><br>
 

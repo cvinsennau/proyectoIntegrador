@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
-let controller = require('../controllers/accountController')
+let accountController = require('../controllers/accountController')
 
-router.get('/login',controller.login)
-router.get('/signup',controller.register)
+router.get('/login',accountController.login);
+router.post('/login', accountController.loginProcess);
+router.get('/signup',accountController.register);
+router.post('/signup', accountController.store);
 
 module.exports = router;
