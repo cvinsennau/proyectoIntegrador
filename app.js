@@ -2,18 +2,14 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var session = require ('express-session')
 var logger = require('morgan');
 
 //Declaración de Rutas
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/usersRuta');
-var registroRouter = require('./routes/registroRuta');
-var loginRouter = require('./routes/loginRuta');
-var perfilRouter = require('./routes/miPerfilRuta');
-var agregarPostRouter = require('./routes/agregarPostRuta');
-var detallePostRouter = require('./routes/detallePostRuta');
-var detalleUserRouter = require('./routes/detalleUserRuta');
-var resultadoBusquedaRouter = require('./routes/resultadoBusquedaRuta');
+var userRouter = require('./routes/userRoute');
+var accountRouter = require('./routes/accountRoute');
+var postRouter = require('./routes/postRoute');
 
 var app = express();
 
@@ -25,19 +21,24 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session(
+  {secret:'pepito123',
+  resave: false,
+  saveUninitialized: true}
+));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(function(req,res,next){
+  if (req.session.user != undefined) {
+    res.locals.user = req.session.user //locals deja disponible los datos para todas las vistas
+  }
+  return next ();
+})
 
 //Rutas
-app.use('/index', indexRouter);
-app.use('/users', usersRouter);
-app.use('/registracion', registroRouter);
-app.use('/login', loginRouter);
-app.use('/miPerfil', perfilRouter);
-app.use('/agregarPost', agregarPostRouter);
-app.use('/detallePost', detallePostRouter);
-app.use('/detalleUser', detalleUserRouter);
-app.use('/resultadoBusqueda', resultadoBusquedaRouter);
-
+app.use('/', indexRouter);
+app.use('/account', accountRouter)
+app.use('/user', userRouter)
+app.use('/post', postRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
