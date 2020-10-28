@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieGram</title>
+    <link rel="icon"
+        href="images/icons/icono.ico"
+        type="image/x-icon">
+
+    <link rel="stylesheet" href="/stylesheets/registracion.css">
+    <link rel="stylesheet" href="/stylesheets/header-deslogueado.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/general.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Kumbh+Sans:wght@300;700&family=Poppins:wght@300&family=Questrial&display=swap" rel="stylesheet">
+
+    <!-- UiKit -->
+    <!-- <link rel="stylesheet" href="css/uikit.min.css">
+    <script src="js/uikit-icons.min.js"></script>
+    <script src="js/uikit.min.js"></script> -->
+    <!-- UiKit -->
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+</head>
+ 
+<body>
+    <%- include('./partials/headerDeslogueado') %>
+    <main>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+                
+                <form id='registro' action="/account/login" method="GET">
+
+                    <span class="logo1">foodie</span><span class="logo2">gram</span>
+                    <div class="container">
+                            
+                        <input class='formRegistro' type="text" placeholder="usuario" name="usuario" required><br>
+                        <input class='formRegistro' type="date" placeholder="fecha de nacimiento" name="fecha_de_nacimiento_usuario" required><br>
+                        <input class='formRegistro' type="email" placeholder="email" name="email_usuario" required><br>
+                        <input class='formRegistro' type="password" placeholder="contraseña" name="contraseña_usuario" required><br>
+
+                        <button id="buttonRegistro" type="submit">Registrarme</button><br>
+
+                        <p class="login">¿Ya tenes una cuenta?<a href="/account/login"> Inicia sesion </a></p>
+                    </div>
+                    
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+
+    <%- include('./partials/footer') %> 
+</body>
+
+</html>
