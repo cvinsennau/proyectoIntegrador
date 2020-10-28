@@ -27,12 +27,26 @@ app.use(session(
   saveUninitialized: true}
 ));
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(function(req,res,next){
   if (req.session.user != undefined) {
     res.locals.user = req.session.user //locals deja disponible los datos para todas las vistas
   }
   return next ();
-})
+}) //ver si dejar esto o no
+
+app.use(function(req, res, next) {
+  if (req.session.usuarioLogueado != null) {
+    res.locals = {
+      usuarioLogueado: req.session.usuarioLogueado
+    }
+  } else {
+    res.locals = {
+      usuarioLogueado: null
+    }
+  } 
+  return next();
+});
 
 //Rutas
 app.use('/', indexRouter);
