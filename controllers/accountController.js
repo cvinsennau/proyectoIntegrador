@@ -29,10 +29,12 @@ let controller = {
         return res.render('register');
     },
     store: function(req,res){
+        return res.send(req.body)
         let user = {
             name: req.body.name,
             email: req.body.email,
-            password: bcrypt.hashSync(req.body.password,10)
+            password: bcrypt.hashSync(req.body.password,10),
+            birthdate: req.body.birthdate, //????? securtyanswer y question
         }
 
         users.create(user); //guardar 

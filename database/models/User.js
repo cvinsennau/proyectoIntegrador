@@ -25,9 +25,13 @@ module.exports = function (sequelize, dataTypes){
             allowNull: false
         },
         securityQuestion: {
-            type: dataTypes.STRING,
+            type: dataTypes.INTEGER,
             allowNull: true
         },
+        securityAnswer: {
+            type: dataTypes.STRING,
+            allowNull: true
+        }
     } //nombre de las columnas de la tabla
 
 
@@ -35,7 +39,7 @@ module.exports = function (sequelize, dataTypes){
         
     }
 
-    const user = sequelize.define(alias, cols, config);
+    const User = sequelize.define(alias, cols, config);
 
-    return user
+    return User
 }
