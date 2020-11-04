@@ -45,26 +45,32 @@
             <div class="uk-container uk-container-large uk-flex">
                 <section id="posts" class="uk-flex uk-flex-middle uk-flex-center uk-flex-column uk-child-width-1-2 uk-width-1-1">
                     <article class="post uk-card-default uk-flex uk-flex-column">
-                        <div class="info-usuario uk-flex ">
-                            <div class="cajaPerfil">
-                                <a class="usuarios" href="/user/detail"><img class="fotoPerfilUsuario" src="images/foto_perfil_usuario/cande.jpeg" alt=""></a>
+                        <% for(let i=0; i<resultados.length; i++){ %>
+                            <div class="info-usuario uk-flex ">
+                                <div class="cajaPerfil">
+                                    <a class="usuarios" href="/user/detail/<%= resultados[i].id %>"><img class="fotoPerfilUsuario" src="<%= user[i].user_picture %>" alt=""></a>
+                                </div>
+                                <h4><a class="usuarios" href="/user/detail/<%= resultados[i].id %>"><%= user[i].name %></a></h4>
+                                
                             </div>
-                            <h4><a class="usuarios" href="/user/detail">candevinse</a></h4>
-                            
-                        </div>
+                        <% } %>  
                         <div class="post-body uk-flex uk-flex-center">
                             <img class="post-foto" src="images/posts/asado.jpeg" alt="">
                         </div>
                         <div class="post-reacciones">
                             <ul class="post-icons uk-flex uk-flex-between">
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:heart; ratio: 1.3"></span></a>
-                                </li>
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:comments; ratio: 1.3"></span></a>
-                                </li>
+                                <% for(let i=0; i<resultados.length; i++){ %>
+                                    <li><a href="/post/detail/<%= resultados[i].id %>"><span class="" uk-icon="icon:heart; ratio: 1.3"></span></a>
+                                    </li>
+                                    <li><a href="/post/detail/<%= resultados[i].id %>"><span class="" uk-icon="icon:comments; ratio: 1.3"></span></a>
+                                    </li>
+                                <% } %>  
                             </ul>
                             <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6"><a class="usuarios main-user" href="/user/detail">candevinse</a></h5>
-                                <p class="uk-width-5-6">Un clasico argentino!</p>
+                                <% for(let i=0; i<resultados.length; i++){ %>
+                                    <h5 class="uk-width-1-6"><a class="usuarios main-user" href="/user/detail/<%= resultados[i].id %>"><%= resultados[i].id_user %></a></h5>
+                                    <p class="uk-width-5-6"><%= resultados[i].texto_post %></p>
+                                <% } %>  
                             </div>
                         </div>
                         <div class="post-comentarios">
@@ -81,229 +87,6 @@
                             </ul>
                         </div>
                     </article>
-                    <article class="post uk-card-default uk-flex uk-flex-column">
-                        <div class="info-usuario uk-flex ">
-                            <div class="cajaPerfil">
-                                <a class="usuarios" href="/user/detail"><img class="fotoPerfilUsuario" src="images/foto_perfil_usuario/ale.jpeg" alt=""></a>
-                            </div>
-                            <h4><a class="usuarios" href="/user/detail">robertiiito24</a></h4>
-                            
-                        </div>
-                        <div class="post-body uk-flex uk-flex-center">
-                            <img class="post-foto" src="images/posts/sushi.jpeg" alt="">
-                        </div>
-                        <div class="post-reacciones">
-                            <ul class="post-icons uk-flex uk-flex-between">
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:heart; ratio: 1.3"></span></a>
-                                </li>
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:comments; ratio: 1.3"></span></a>
-                                </li>
-                            </ul>
-                            <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6"><a class="usuarios main-user" href="/user/detail">robertiiito24</a></h5>
-                                <p class="uk-width-5-6">Algo riquisimo de Japon!</p>
-                            </div>
-                        </div>
-                        <div class="post-comentarios">
-                            <ul>
-                                <li>
-                                    <a class="usuarios" href="/user/detail">David23</a>
-                                    <p>Fuaaa, comparti!</p>
-                                </li>
-                                <li>
-                                    <a class="usuarios" href="/user/detail">TomiG</a>
-                                    <p>Que rico! Me dio hambre!</p>
-                                </li>
-                                <a class="ver-mas" href="/post/detail">Ver más...</a>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="post uk-card-default uk-flex uk-flex-column">
-                        <div class="info-usuario uk-flex ">
-                            <div class="cajaPerfil">
-                                <a class="usuarios" href="/user/detail"><img class="fotoPerfilUsuario" src="images/foto_perfil_usuario/roberto.jpg" alt=""></a>
-                            </div>
-                            <h4><a class="usuarios" href="/user/detail">gegenep</a></h4>
-                            
-                        </div>
-                        <div class="post-body uk-flex uk-flex-center">
-                            <img class="post-foto" src="images/posts/pizza.jpeg" alt="">
-                        </div>
-                        <div class="post-reacciones">
-                            <ul class="post-icons uk-flex uk-flex-between">
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:heart; ratio: 1.3"></span></a>
-                                </li>
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:comments; ratio: 1.3"></span></a>
-                                </li>
-                            </ul>
-                            <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6"><a class="usuarios main-user" href="/user/detail">gegenep</a></h5>
-                                <p class="uk-width-5-6">Algo tanisimo!</p>
-                            </div>
-                        </div>
-                        <div class="post-comentarios">
-                            <ul>
-                                <li>
-                                    <a class="usuarios" href="/user/detail">davidb</a>
-                                    <p>Delicioso!</p>
-                                </li>
-                                <li>
-                                    <a class="usuarios" href="/user/detail">CandeV</a>
-                                    <p>Buenarrrdoo</p>
-                                </li>
-                                <a class="ver-mas" href="/post/detail">Ver más...</a>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="post uk-card-default uk-flex uk-flex-column">
-                        <div class="info-usuario uk-flex ">
-                            <div class="cajaPerfil">
-                                <a class="usuarios" href="/user/detail"><img class="fotoPerfilUsuario" src="images/foto_perfil_usuario/tomi.jpeg" alt=""></a>
-                            </div>
-                            <h4><a class="usuarios" href="/user/detail">TomiG</a></h4>
-                            
-                        </div>
-                        <div class="post-body uk-flex uk-flex-center">
-                            <img class="post-foto" src="images/posts/salmon.jpeg" alt="">
-                        </div>
-                        <div class="post-reacciones">
-                            <ul class="post-icons uk-flex uk-flex-between">
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:heart; ratio: 1.3"></span></a>
-                                </li>
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:comments; ratio: 1.3"></span></a>
-                                </li>
-                            </ul>
-                            <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6"><a class="usuarios main-user" href="/user/detail">TomiG</a></h5>
-                                <p class="uk-width-5-6">Me di un gustito hoy!</p>
-                            </div>
-                        </div>
-                        <div class="post-comentarios">
-                            <ul>
-                                <li>
-                                    <a class="usuarios" href="/user/detail">AleV</a>
-                                    <p>Bien de gustito che!</p>
-                                </li>
-                                <li>
-                                    <a class="usuarios" href="/user/detail">AgusP</a>
-                                    <p>Se ve flama!</p>
-                                </li>
-                                <a class="ver-mas" href="/post/detail">Ver más...</a>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="post uk-card-default uk-flex uk-flex-column">
-                        <div class="info-usuario uk-flex ">
-                            <div class="cajaPerfil">
-                                <a class="usuarios" href="/user/detail"><img class="fotoPerfilUsuario" src="images/foto_perfil_usuario/lisa.jpg" alt=""></a>
-                            </div>
-                            <h4><a class="usuarios" href="/user/detail">Moritaa1</a></h4>
-                            
-                        </div>
-                        <div class="post-body uk-flex uk-flex-center">
-                            <img class="post-foto" src="images/posts/torta.jpeg" alt="">
-                        </div>
-                        <div class="post-reacciones">
-                            <ul class="post-icons uk-flex uk-flex-between">
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:heart; ratio: 1.3"></span></a>
-                                </li>
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:comments; ratio: 1.3"></span></a>
-                                </li>
-                            </ul>
-                            <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6"><a class="usuarios main-user" href="/user/detail">Moritaa1</a></h5>
-                                <p class="uk-width-5-6">Para el cumple de mama!</p>
-                            </div>
-                        </div>
-                        <div class="post-comentarios">
-                            <ul>
-                                <li>
-                                    <a class="usuarios" href="/user/detail">Daviiii</a>
-                                    <p>Decile feliz cumple de mi parte!</p>
-                                </li>
-                                <li>
-                                    <a class="usuarios" href="/user/detail">Cande</a>
-                                    <p>Que ricoooo</p>
-                                </li>
-                                <a class="ver-mas" href="/post/detail">Ver más...</a>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="post uk-card-default uk-flex uk-flex-column">
-                        <div class="info-usuario uk-flex ">
-                            <div class="cajaPerfil">
-                                <a class="usuarios" href="/user/detail"><img class="fotoPerfilUsuario" src="images/foto_perfil_usuario/maria.jpg" alt=""></a>
-                            </div>
-                            <h4><a class="usuarios" href="/user/detail">LiliVb</a></h4>
-                            
-                        </div>
-                        <div class="post-body uk-flex uk-flex-center">
-                            <img class="post-foto" src="images/posts/empanadas.jpeg" alt="">
-                        </div>
-                        <div class="post-reacciones">
-                            <ul class="post-icons uk-flex uk-flex-between">
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:heart; ratio: 1.3"></span></a>
-                                </li>
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:comments; ratio: 1.3"></span></a>
-                                </li>
-                            </ul>
-                            <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6"><a class="usuarios main-user" href="/user/detail">LiliVb</a></h5>
-                                <p class="uk-width-5-6">Caseritas</p>
-                            </div>
-                        </div>
-                        <div class="post-comentarios">
-                            <ul>
-                                <li>
-                                    <a class="usuarios" href="/user/detail">Pedro23</a>
-                                    <p>Pasa la receta!</p>
-                                </li>
-                                <li>
-                                    <a class="usuarios" href="/user/detail">Luchiita</a>
-                                    <p>Las quiero probar!</p>
-                                </li>
-                                <a class="ver-mas" href="/post/detail">Ver más...</a>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="post uk-card-default uk-flex uk-flex-column">
-                        <div class="info-usuario uk-flex ">
-                            <div class="cajaPerfil">
-                                <a class="usuarios" href="/user/detail"><img class="fotoPerfilUsuario" src="images/foto_perfil_usuario/cande.jpeg" alt=""></a>
-                            </div>
-                            <h4><a class="usuarios" href="/user/detail">Caroo</a></h4>
-                            
-                        </div>
-                        <div class="post-body uk-flex uk-flex-center">
-                            <img class="post-foto" src="images/posts/pasta.jpeg" alt="">
-                        </div>
-                        <div class="post-reacciones">
-                            <ul class="post-icons uk-flex uk-flex-between">
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:heart; ratio: 1.3"></span></a>
-                                </li>
-                                <li><a href="/post/detail"><span class="" uk-icon="icon:comments; ratio: 1.3"></span></a>
-                                </li>
-                            </ul>
-                            <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6"><a class="usuarios main-user" href="/user/detail">Caroo</a></h5>
-                                <p class="uk-width-5-6">Hoy unas buenas pastas!</p>
-                            </div>
-                        </div>
-                        <div class="post-comentarios">
-                            <ul>
-                                <li>
-                                    <a class="usuarios" href="/user/detail">TomiG</a>
-                                    <p>Quiero la receta!</p>
-                                </li>
-                                <li>
-                                    <a class="usuarios" href="/user/detail">Cande</a>
-                                    <p>Yo tambien la quiero!!</p>
-                                </li>
-                                <a class="ver-mas" href="/post/detail">Ver más...</a>
-                            </ul>
-                        </div>
-                    </article>
-        
                 </section>
 
             </div>
