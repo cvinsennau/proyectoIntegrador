@@ -31,15 +31,26 @@ module.exports = function (sequelize, dataTypes){
         securityAnswer: {
             type: dataTypes.STRING,
             allowNull: true
+        },
+        user_picture:{
+            type: dataTypes.STRING
         }
     } //nombre de las columnas de la tabla
 
 
     let config = {
-        
+        tableName: "user",
+        timestamps: false
     }
 
     const User = sequelize.define(alias, cols, config);
+    User.associate = function(models){
+        User.hasMany(models.Post, {
+            as: "posts",
+            foreignKey: "id_user"
+        })
+    
+    }
 
     return User
 }

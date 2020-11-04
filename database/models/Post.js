@@ -28,10 +28,23 @@ module.exports = function (sequelize, dataTypes){
 
 
     let config = {
-        
+        tableName: "post",
+        timestamps: false
     }
 
     const Post = sequelize.define(alias, cols, config);
+    Post.associate = function(models){
+        Post.belongsTo(models.User, {
+            as: "user",
+            foreignKey: "id_user"
+        })
+    };
+    Post.associate = function(models){
+        Post.hasMany(models.Comment, {
+            as: "comments",
+            foreignKey: "id_user_comment"
+        })
+    }
 
     return Post
 }
