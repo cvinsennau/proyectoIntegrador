@@ -15,15 +15,29 @@
         </div>
 
         <div class="nav-container">
-            <a href="/">
-                <img class="nav-icon" src="../images/icons/home.png" alt="">
-            </a>
-            <a href="/post/add">
-                <img class="nav-icon" src="../images/icons/addPhoto.png" alt="">
-            </a>
-            <a href="/user/myProfile">
-                <img class="nav-icon round" src="../images/foto_perfil_usuario/david.jpeg" alt="">
-            </a>
+
+            <% if(locals.user){%>
+                <h2>Hola, <%= locals.user.name %> </h2>
+                
+                <a href="/user/myProfile">
+                    <img class="nav-icon round" src="../images/foto_perfil_usuario/david.jpeg" alt="">
+                </a>
+
+                <a href="/post/add">
+                    <img class="nav-icon" src="../images/icons/addPhoto.png" alt="">
+                </a>
+
+                <form action='/account/logout' method="POST"> 
+                    <button type="submit"> Logout </button>
+                </form>
+
+            <% } %>
+
         </div>
     </div>
 </header>
+
+
+
+
+

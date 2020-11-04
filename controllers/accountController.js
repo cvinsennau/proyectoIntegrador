@@ -40,7 +40,11 @@ let controller = {
         users.create(user); //guardar 
 
         return res.redirect('/login') //redireccionar
-    }, 
+    },    
+    logout: function(req,res){
+            req.session.destroy(); //destruye la relacion entre servidor y cliente
+            return res.redirect("/");
+    }
 }   
 
 module.exports = controller;
