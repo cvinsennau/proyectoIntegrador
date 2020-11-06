@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoodieGram</title>
-    <link rel="icon" href="images/icons/icono.png" type="image/x-icon">
+    <link rel="icon"
+        href="images/icons/icono.ico"
+        type="image/x-icon">
 
-    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="/stylesheets/register.css">
     <link rel="stylesheet" href="/stylesheets/header-deslogueado.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Kumbh+Sans:wght@300;700&family=Poppins:wght@300&family=Questrial&display=swap" rel="stylesheet">
-        
+
     <!-- UiKit -->
     <!-- <link rel="stylesheet" href="css/uikit.min.css">
     <script src="js/uikit-icons.min.js"></script>
@@ -29,19 +31,21 @@
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
 </head>
-
+ 
 <body>
     <%- include('./partials/header')%>
-
+    
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 
-                <form id="inicio" action="/miPerfil" method="POST">
+                <form id='registro' action="/account/login" method="POST">
 
                     <span class="logo1">foodie</span><span class="logo2">gram</span>
                     <div class="container">
-                         
+                        
+                        <span>HAS OLVIDADO TU CONTRASEÑA?</span>
+
                         <!--Nombre de usuario-->
                         <div class="input-group flex-nowrap mb-3">
                             <div class="input-group-prepend">
@@ -50,27 +54,30 @@
                             <input type="text" class="form-control" placeholder="usuario" name="name" required>
                         </div>
 
-                        <!--Contraseña-->
-                        <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="contraseña" name="password" required>
+                        <!--Pregunta y respuesta de seguridad-->
+                        <div class="input-group mb-3" class='formRegistro'>
+                            <select name="securityQuestion" class="custom-select" id="inputGroupSelect01">
+                              <option selected>pregunta de seguridad</option>
+                              <option value="1"></option> <!--cambiar value-->
+                              <option value="2"></option>
+                              <option value="3"></option>
+                            </select>
                         </div>
-    
-                        <button id="buttonInicio" type="submit">Iniciar Sesión</button><br>
-                        <label for="">Recordame</label><input type="checkbox" name="rememberMe" ><br>
 
-                        <span class="login">¿No tenes cuenta?<a href="/account/signup"> Registrate </a></span><br>
-                        
-                        <span class="login"><a href="/account/recover">Olvidé mi contraseña</a></span>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="respuesta" name="securityAnswer" required>
+                        </div>
 
                     </div>
+                    
                 </form>
 
             </div>
         </div>
     </main>
 
-    <%- include('./partials/footer') %> 
 
+    <%- include('./partials/footer') %> 
 </body>
 
 </html>
