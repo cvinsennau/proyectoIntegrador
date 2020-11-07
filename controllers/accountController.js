@@ -21,6 +21,11 @@ let controller = {
                 req.session.user = user //guardar en sesion los datos del usuario
                 return res.redirect('/') //redireccionar
             }
+
+            if (req.body.rememberme != undefined){
+                res.cookie('userId', user.id, {maxAge: 1000*60}) //pensar el tiempo de duracion en milisegundos
+            }
+
         })
         .catch(e => console.log(e))
     },
