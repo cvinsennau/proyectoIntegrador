@@ -8,7 +8,10 @@ const op = db.Sequelize.Op;
 let controller = {
     index: function(req,res){
         post.findAll({
-            include: [ {association: "user"}, {association: "comments"}]
+            include: [
+                {association:"user"},
+                {association:"comments", include: ["user"]},
+            ]
         })
         .then(function(resultados){
             return res.render('index', {resultados});

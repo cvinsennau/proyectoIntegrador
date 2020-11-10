@@ -38,12 +38,12 @@ module.exports = function (sequelize, dataTypes){
         Post.belongsTo(models.User,{
             as: "user",
             foreignKey: "id_user"
-        }),
-        Post.hasMany(models.Comment,{
-            as: "comments",
-            foreignKey: "id_user_comment"
         })
-    }
+        Post.hasMany(models.Comment, {
+            as: "comments",
+            foreignKey: "id_post"
+        })
+    };
 
     return Post
 }
