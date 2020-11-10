@@ -26,13 +26,13 @@ module.exports = function (sequelize, dataTypes){
         }
     } //nombre de las columnas de la tabla
 
-
     let config = {
         tableName: "comments",
         timestamps: false
     }
 
     const Comment = sequelize.define(alias, cols, config);
+    
     Comment.associate = function(models){
         Comment.belongsTo(models.Post, {
             as: "post",
@@ -43,5 +43,6 @@ module.exports = function (sequelize, dataTypes){
             foreignKey: "id_user_comment"
         })
     }
+
     return Comment
 }

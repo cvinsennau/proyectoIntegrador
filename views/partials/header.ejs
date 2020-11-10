@@ -1,9 +1,15 @@
 <header>
     <div class="header-container">
         <div class="logo-container">
-            <a href="/">
-                <img class="logo" src="../images/foodiegram.png" alt="">
-            </a>
+            <% if(locals.user){%>
+                <a href="/">
+                    <img class="logo" src="../images/foodiegram.png" alt="">
+                </a>
+            <% } else {%>
+                <a href="">
+                    <img class="logo" src="../images/foodiegram.png" alt="">
+                </a>
+            <% } %>
         </div>
 
         <div class="search-container">
@@ -31,8 +37,18 @@
                     <button type="submit"> Logout </button>
                 </form>
 
-            <% } %>
+            <% } else {%>
 
+                <div class="nav-container">
+                    <a href="/account/signup">
+                        <h4 class="nav-text registrarse-text">Registrarse</h4>
+                    </a>
+                    <a href="/account/login">
+                        <h4 class="nav-text">Iniciar Sesión</h4>
+                    </a>
+                </div>
+                
+            <% } %>
         </div>
     </div>
 </header>

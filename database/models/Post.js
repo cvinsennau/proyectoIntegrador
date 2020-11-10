@@ -33,8 +33,9 @@ module.exports = function (sequelize, dataTypes){
     }
 
     const Post = sequelize.define(alias, cols, config);
+    
     Post.associate = function(models){
-        Post.belongsTo(models.User, {
+        Post.belongsTo(models.User,{
             as: "user",
             foreignKey: "id_user"
         })

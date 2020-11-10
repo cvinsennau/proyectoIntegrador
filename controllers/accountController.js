@@ -10,26 +10,36 @@ let controller = {
     },
     loginProcess: function(req,res){
         users.findOne({
-            where: [{email: req.body.email }] //encontrar el email
+            where: [{user: req.body.name}] //encontrar el email
         })
         .then(function(user){
-            if (user==null) {
-                return alert("Email incorrecto")
+            if (user.name==null) {
+                return alert("Nombre de usuario incorrecto")
             } else if (bcrypt.compareSync(req.body.password, user.password == false)) {
                 return alert("Contraseña incorrecta")
             } else if (bcrypt.compareSync(req.body.password, user.password == true)) { //compara lo escrito, con lo guardado en la base de datos
                 req.session.user = user //guardar en sesion los datos del usuario
                 return res.redirect('/') //redireccionar
             }
+
+            if (req.body.rememberme != undefined){
+                res.cookie('userId', user.id, {maxAge: 1000*60}) //pensar el tiempo de duracion en milisegundos
+            }
+
         })
         .catch(e => console.log(e))
-        
+    },
+    recover: function(req,res){
+        if (compareSync(req.body.name, user.name == false)) {
+            return alert("Nombre de usuario incorrecto");
+        } else if (req.body.name, user.name == true) {
+            //mostrar pregunta y respuesta de seguridad
+        }
     },
     register: function(req,res){
         return res.render('register');
     },
     store: function(req,res){
-        return res.send(req.body)
         let user = {
             name: req.body.name,
             email: req.body.email,
