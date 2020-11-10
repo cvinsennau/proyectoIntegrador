@@ -17,6 +17,9 @@ let controller = {
             console.log(error);
         })
     },
+    search: function(req,res){
+            
+    }
 
 }
 module.exports = controller;
