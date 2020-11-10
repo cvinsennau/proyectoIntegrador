@@ -72,8 +72,8 @@
                             <div class="post-comentarios">
                                 <ul>
                                     <li>
-                                        <a class="usuarios" href="/user/detail/<%= resultados[i].comment.id_user_comment %>">ale_robot1</a>
-                                        <p>Pero que rico che!</p>
+                                        <a class="usuarios" href="/user/detail/<%= resultados[i].comments[0].user.id %>"><%= resultados[i].comments[0].user.name %></a>
+                                        <p><%= resultados[i].comments[0].user.name %></p>
                                     </li>
                                     <li>
                                         <a class="usuarios" href="/user/detail">CarolinaCocina123</a>

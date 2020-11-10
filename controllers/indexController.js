@@ -9,8 +9,8 @@ let controller = {
     index: function(req,res){
         post.findAll({
             include: [
-                "user",
-                "comment"
+                {association:"user"},
+                {association:"comments", include: ["user"]},
             ]
         })
         .then(function(resultados){
