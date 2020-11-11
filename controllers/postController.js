@@ -19,7 +19,7 @@ let controller = {
         })
             .then(function(resultados){
                 // return res.send(resultados)
-                return res.render ('detailUser',{resultados});
+                return res.render ('detailPost',{resultados});
             })
             .catch(function(error){
                 console.log(error)
