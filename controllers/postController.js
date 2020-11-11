@@ -14,7 +14,8 @@ let controller = {
                 { id: primaryKey}
             ],
             include: [
-                {association:"comments", include: ["user"]},
+                {association:"user", include: ["comments"]},
+                {association:"comments", include: ["user"]}
             ]
         })
             .then(function(resultados){
