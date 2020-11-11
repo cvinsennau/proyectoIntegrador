@@ -22,6 +22,7 @@ let controller = {
             )
         })
             .then(function(resultados){
+                //return res.send(resultados)
                 return res.render('searchResult', {resultados})
             })
             .catch(function(error){

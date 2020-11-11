@@ -72,13 +72,12 @@
                             <input type="date" class="form-control" placeholder="fecha de nacimiento" name="birthdate" required>
                         </div>
 
-                        <!--Pregunta y respuesta de seguridad-->
+                        <!-- Pregunta y respuesta de seguridad ARREGLAR -->
                         <div class="input-group mb-3" class='formRegistro'>
                             <select name="securityQuestion" class="custom-select" id="inputGroupSelect01">
-                              <option selected>pregunta de seguridad</option>
-                              <option value="1"></option> <!--cambiar value-->
-                              <option value="2"></option>
-                              <option value="3"></option>
+                                <!-- <% for(let i=0; i<question.length; i++) { %>  Esto hay que arreglarlo -->
+                                    <option value="<%= question[i].id %>"> <%= question[i].question %></option>
+                                <% } %> 
                             </select>
                         </div>
 
@@ -102,3 +101,5 @@
 </body>
 
 </html>
+
+
