@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2020 at 09:54 PM
+-- Generation Time: Nov 11, 2020 at 03:17 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -289,7 +289,7 @@ INSERT INTO `post` (`id`, `id_user`, `image_user`, `text_post`, `date_post`) VAL
 (27, 3, 'https://tuhogar.com/cam/wp-content/uploads/sites/14/2019/07/comida-callejera-axion.jpg', '...', '2020-08-12'),
 (28, 3, 'https://live.mrf.io/statics/i/ps/www.cocinacaserayfacil.net/wp-content/uploads/2019/11/Comida-espa%C3%B1ola.jpg?width=1200&enable=upscale', 'Para chuparse los dedos', '2020-12-09'),
 (29, 3, 'https://okdiario.com/img/2018/06/17/hamburguesa-de-salmon-655x368.jpg', 'Muy rico', '2020-01-01'),
-(30, 3, 'https://diariamenteali.com/medias/comida-divertida-para-tus-hijos-1900Wx500H?context=bWFzdGVyfGltYWdlc3wxOTA5NTh8aW1hZ2UvanBlZ3xoNjgvaDE5LzkwNzQyODkwNDk2MzAvY29taWRhLWRpdmVydGlkYS1wYXJhLXR1cy1oaWpvc18xOTAwV3g1MDBIfGM2NjhjZTUxZTUyZjdhYjczNTk0NTRhNmI3NjVjZm', 'Jajaja', '2020-01-09'),
+(30, 3, 'https://www.cocinaconalegria.com/wp-content/uploads/2020/05/recetas-generales-comidas-1200x630-1.jpg', 'Jajaja', '2020-01-09'),
 (31, 4, 'https://blog.lewolang.com/images/340a2a5ba54afa16f3c75200a75bf96b.jpg?w=800&h=600&fit=crop', 'Frutilla season', '2020-08-09'),
 (32, 4, 'https://content.skyscnr.com/m/6a67db0e3d859594/original/eyeem_69444284-jpg.jpg', 'A puro queso', '2020-03-09'),
 (33, 4, 'https://assets.afcdn.com/story/20150820/743004_w980h638c1cx511cy250.jpg', 'Viva!', '2020-08-07'),
@@ -346,19 +346,21 @@ CREATE TABLE `user` (
   `birthdate` datetime NOT NULL,
   `securityQuestion` int(11) NOT NULL,
   `securityAnswer` varchar(45) DEFAULT NULL,
-  `user_picture` varchar(255) DEFAULT NULL
+  `user_picture` varchar(255) DEFAULT NULL,
+  `following` int(11) NOT NULL,
+  `followers` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `birthdate`, `securityQuestion`, `securityAnswer`, `user_picture`) VALUES
-(1, 'davidbaastidas', 'dbastidasvelez@udesa.edu.ar', 'hola', '2000-03-08 00:00:00', 1, 'sushi', 'https://quierocuidarme.dkvsalud.es/sites/default/files/styles/vivelasalud_ficha_825x464/public/imagen/2017-09/shutterstock_92854117_0.jpg?itok=pnbGDCQp'),
-(2, 'ale_robot1', 'ale@dh.com', 'chau', '1998-03-05 00:00:00', 1, 'pancho', 'https://img.freepik.com/foto-gratis/hombre-guapo-caucasico-aislado-pared-beige-dando-gesto-pulgares-arriba_1368-92335.jpg?size=626&ext=jpg'),
-(3, 'CarolinaCocina123', 'caro@gmail.com', 'pollo', '2004-06-06 00:00:00', 3, 'ramona', 'https://www.mutualidadabogacia.com/wp-content/uploads/2019/03/8marzodiamujer.jpg'),
-(4, 'Marita123', 'Mara123@hotmail.com', 'arroz123', '2002-08-09 00:00:00', 3, 'pecesito', 'https://www.marketingdirecto.com/wp-content/uploads/2020/03/dia-de-la-mujer-monica-moro.png'),
-(5, 'candevinse', 'candevinse@udesa.edu.ar', 'perrito23', '2000-04-08 00:00:00', 2, 'San Jose', 'https://smoda.elpais.com/wp-content/uploads/2017/08/40mujeres14-1-635x480.jpg');
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `birthdate`, `securityQuestion`, `securityAnswer`, `user_picture`, `following`, `followers`) VALUES
+(1, 'davidbaastidas', 'dbastidasvelez@udesa.edu.ar', 'hola', '2000-03-08 00:00:00', 1, 'sushi', 'https://quierocuidarme.dkvsalud.es/sites/default/files/styles/vivelasalud_ficha_825x464/public/imagen/2017-09/shutterstock_92854117_0.jpg?itok=pnbGDCQp', 5, 500),
+(2, 'ale_robot1', 'ale@dh.com', 'chau', '1998-03-05 00:00:00', 1, 'pancho', 'https://img.freepik.com/foto-gratis/hombre-guapo-caucasico-aislado-pared-beige-dando-gesto-pulgares-arriba_1368-92335.jpg?size=626&ext=jpg', 13, 56),
+(3, 'CarolinaCocina123', 'caro@gmail.com', 'pollo', '2004-06-06 00:00:00', 3, 'ramona', 'https://www.mutualidadabogacia.com/wp-content/uploads/2019/03/8marzodiamujer.jpg', 2000, 4450),
+(4, 'Marita123', 'Mara123@hotmail.com', 'arroz123', '2002-08-09 00:00:00', 3, 'pecesito', 'https://www.marketingdirecto.com/wp-content/uploads/2020/03/dia-de-la-mujer-monica-moro.png', 450, 123),
+(5, 'candevinse', 'candevinse@udesa.edu.ar', 'perrito23', '2000-04-08 00:00:00', 2, 'San Jose', 'https://smoda.elpais.com/wp-content/uploads/2017/08/40mujeres14-1-635x480.jpg', 210, 4);
 
 --
 -- Indexes for dumped tables

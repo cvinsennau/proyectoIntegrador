@@ -40,7 +40,7 @@
             <div class="uk-container uk-container-large uk-flex">
                 <section id="posts" class="uk-flex uk-flex-middle uk-flex-center uk-flex-column uk-child-width-1-2 uk-width-1-1">
                     <article class="post uk-card-default uk-flex uk-flex-column">
-                        <% for(let i=0; i<resultados.length; i++){ %>
+                        <% for(let i=0; i<10; i++){ %>
                             <div class="info-usuario uk-flex ">
                                 <div class="cajaPerfil">
                                     <a class="usuarios" href="/user/detail/<%= resultados[i].user.id %>"><img class="fotoPerfilUsuario" src="<%= resultados[i].user.user_picture %>" alt=""></a>
@@ -66,15 +66,12 @@
                             </div>
                             <div class="post-comentarios">
                                 <ul>
-                                    <li>
-                                        <a class="usuarios" href="/user/detail/<%= resultados[i].comments[0].user.id %>"><%= resultados[i].comments[0].user.name %></a>
-                                        <p><%= resultados[i].comments[0].user.name %></p>
-                                    </li>
-                                    <li>
-                                        <a class="usuarios" href="/user/detail">CarolinaCocina123</a>
-                                        <p>Se ve delicioso!</p>
-                                    </li>
-                                    <a class="ver-mas" href="/post/detail">Ver más...</a>
+                                    <% for(let j=0; j<4; j++ ) { %>
+                                        <li>
+                                            <a class="usuarios" href="/user/detail/<%= resultados[i].comments[j].id_user_comment %>"><%= resultados[i].comments[j].user.name %></a>
+                                            <p><%= resultados[i].comments[j].text_comment %></p>
+                                        </li>
+                                    <% } %>
                                 </ul>
                             </div>
                         <% } %> 

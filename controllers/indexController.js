@@ -8,6 +8,9 @@ const op = db.Sequelize.Op;
 let controller = {
     index: function(req,res){
         post.findAll({
+            order:[
+                ["date_post", "ASC"]
+            ],
             include: [
                 {association:"user"},
                 {association:"comments", include: ["user"]},

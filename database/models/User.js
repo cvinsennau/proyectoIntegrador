@@ -34,6 +34,14 @@ module.exports = function (sequelize, dataTypes){
         },
         user_picture:{
             type: dataTypes.STRING
+        },
+        following: {
+            type: dataTypes.INTEGER,
+            allowNull: true
+        },
+        followers: {
+            type: dataTypes.INTEGER,
+            allowNull: true
         }
     } //nombre de las columnas de la tabla
 

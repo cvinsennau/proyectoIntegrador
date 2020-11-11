@@ -7,7 +7,23 @@ const op = db.Sequelize.Op;
 
 let controller = {
     detail: function(req,res){
-        return res.render('detailPost');
+        let primaryKey = req.params.id;
+
+        post.findOne({
+            where: [
+                { id: primaryKey}
+            ],
+            include: [
+                {association:"comments", include: ["user"]},
+            ]
+        })
+            .then(function(resultados){
+                // return res.send(resultados)
+                return res.render ('detailUser',{resultados});
+            })
+            .catch(function(error){
+                console.log(error)
+            })
     },
     add: function(req,res){
         return res.render('addPost');
