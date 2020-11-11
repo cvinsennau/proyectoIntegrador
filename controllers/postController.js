@@ -1,3 +1,4 @@
+const { Sequelize } = require('../database/models');
 const db = require('../database/models');
 const post = db.Post;
 const user = db.User;
@@ -15,9 +16,10 @@ let controller = {
         let searchData = req.query.search; // Saca de la url lo que el usuario escribio en el buscador
 
         user.findAll({  // buscame en la base de datos, tabla de usuarios ..
-            where: [
-                { name : { [op.like] : "%" + searchData + "%"}}
-            ]
+            where: Sequelize.or(
+                { name : { [op.like] : "%" + searchData + "%"}},
+                {email: {[op.like]: "%" + searchData + "%"}}  // por nombre O por email, si existe con cualquiera de las dos
+            )
         })
             .then(function(resultados){
                 return res.render('searchResult', {resultados})
@@ -32,9 +34,9 @@ let controller = {
     //       where: [
     //         {email: {[op.like]:"%"+ busqueda + "%"}},
     //       ]
-    //         //[OP.or]:[
-    //           //{name:{[OP.like]: "%"+ busqueda + "%"}},  // por nombre O por email, si existe con cualquiera de las dos
-    //         //]
+    //         [OP.or]:[
+    //           {name:{[OP.like]: "%"+ busqueda + "%"}},  // por nombre O por email, si existe con cualquiera de las dos
+    //         ]
     //     })
     //     .then (function(resultado){ // resultado es lo que trae de la bd el find all
     //       console.log(resultado)
