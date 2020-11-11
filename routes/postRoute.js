@@ -6,5 +6,4 @@ router.get('/detail', controller.detail)
 router.get('/add', controller.add)
 router.get('/search', controller.search)
 
-
 module.exports = router;

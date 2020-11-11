@@ -35,9 +35,9 @@
 <body>
     <%- include('./partials/header')%>
 
-    <% if (resultado.length>0) { %>
+    <% if (resultados.length>0) { %>
          
-        <% for (let i=0; i< resultado.length; i++){ %>
+        <% for (let i=0; i< resultados.length; i++){ %>
             <div class="usuario">
                 <div class="imagen"><img src="/images/iconoUsuario.png" alt=""></div>
                 <!--<div class="nombre data">
@@ -47,9 +47,7 @@
                   <p><%= resultado[i].email %></p>
                 </div>
               </div>
-              <% } } %>
-        <!-- Item de usuario -->
-       
+              <% } } %>       
     </div>
       <!-- Lista con todos los usuarios -->
     </div>
@@ -59,3 +57,7 @@
 </body>
 
 </html>
+
+<ul>
+    <% for(let i=0; i<resultados.length) %> 
+</ul>
