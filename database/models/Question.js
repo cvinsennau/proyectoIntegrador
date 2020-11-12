@@ -9,7 +9,8 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.INTEGER
         },
         question: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            allowNull : false
         }
     }
 
@@ -20,6 +21,13 @@ module.exports = function (sequelize, dataTypes){
     };
 
     const Question = sequelize.define(alias, cols, config);
+
+    Question.associate = function(models){
+        Question.hasMany(models.User, {
+            as: 'users',
+            foreignKey: 'id_SecurityQuestion'
+        })
+    }
 
     return Question
 }

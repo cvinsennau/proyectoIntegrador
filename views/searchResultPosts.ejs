@@ -9,14 +9,14 @@
         href="images/icons/icono.ico"
         type="image/x-icon">
 
-    <link rel="stylesheet" href="/stylesheets/addPost.css">
+    <link rel="stylesheet" href="/stylesheets/searchResultPosts.css">
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Kumbh+Sans:wght@300;700&family=Poppins:wght@300&family=Questrial&display=swap" rel="stylesheet">
-
+    
     <!-- UiKit -->
     <!-- <link rel="stylesheet" href="css/uikit.min.css">
     <script src="js/uikit-icons.min.js"></script>
@@ -33,28 +33,36 @@
 
 <body>
     <%- include('./partials/header')%>
-
     <main>
         <div class="uk-section uk-section-small">
-            
-            <div class="uk-container uk-container-large uk-flex">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+               <div id="container">
+                <% if (resultados.length>0) { %>
+         
+                    <% for (let i=0; i< resultados.length; i++){ %>
+                        <div>
+                            <li class="listas">
+                                <div><a href="/post/detail/<%= resultados[i].id%>"> 
+                                    <img id="img" src="<%=resultados[i].image_user%>">
+                                </a></div> 
+                                <a class="username" href="/user/detail/<%= resultados[i].user.id %>"><label class="username">@<%= resultados[i].user.name %></label></a>
+
+                            </li> 
+                        </div>
+
+                    <% } %>       
+                <% } else { %>
+                    <h2>No se encontraron resultados para tu busqueda</h2>
+                <% } %>
+               
+                </div>
                 
-                <form action="" method="POST">
-                    <h2 class="titlePost">Agrega un post</h2>
-                            
-                        <input class='formPosteo' type="file" name="imagen_usuario" accept="image/*" required/> <br>
-                        
-                        <input class='formPosteo' type="text" placeholder="Agrega una descripción" name="texto_post"><br>
-
-                        <button id="postear" type="submit">Postear</button><br>
-
-                </form>
-
             </div>
         </div>
     </main>
-    
+
     <%- include('./partials/footer') %> 
+
 </body>
 
 </html>

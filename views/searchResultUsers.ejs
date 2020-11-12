@@ -9,8 +9,8 @@
         href="images/icons/icono.ico"
         type="image/x-icon">
 
-    <link rel="stylesheet" href="/stylesheets/resultadoBusqueda.css">
-    <link rel="stylesheet" href="/stylesheets/header-logueado.css">
+    <link rel="stylesheet" href="/stylesheets/searchResultUsers.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
 
@@ -38,16 +38,16 @@
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                
                 <% if (resultados.length>0) { %>
-         
                     <% for (let i=0; i< resultados.length; i++){ %>
                         <div class="usuario">
                             <div class="cajaPerfil">
                                 <!-- <a class="usuarios" href="/user/detail/<%= resultados[i].id %>"><img class="fotoPerfilUsuario" src="<%= resultados[i].user_picture %>" alt=""></a> -->
                                 <h4><a class="usuarios" href="/user/detail/<%= resultados[i].id %>"><%= resultados[i].name %></a></h4>
                             </div>
-                          <% } } else { %>
-                            <h2>No se encontraron resultados para tu busqueda</h2>
-                        <% } %>
+                    <% } %>
+                <% } else { %>
+                        <h2>No se encontraron resultados para tu busqueda</h2>
+                <% } %>
             </div>
         </div>
     </main>

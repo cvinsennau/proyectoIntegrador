@@ -24,7 +24,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.DATE,
             allowNull: false
         }
-    } //nombre de las columnas de la tabla
+    } 
 
 
     let config = {

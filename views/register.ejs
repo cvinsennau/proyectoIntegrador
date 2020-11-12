@@ -10,7 +10,7 @@
         type="image/x-icon">
 
     <link rel="stylesheet" href="/stylesheets/register.css">
-    <link rel="stylesheet" href="/stylesheets/header-deslogueado.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
 
@@ -39,7 +39,7 @@
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 
-                <form id='registro' action="/account/login" method="POST">
+                <form id='registro' action="/account/signup" method="POST">
 
                     <span class="logo1">foodie</span><span class="logo2">gram</span>
                     <div class="container">
@@ -75,9 +75,9 @@
                         <!-- Pregunta y respuesta de seguridad ARREGLAR -->
                         <div class="input-group mb-3" class='formRegistro'>
                             <select name="securityQuestion" class="custom-select" id="inputGroupSelect01">
-                                <!-- <% for(let i=0; i<question.length; i++) { %>  Esto hay que arreglarlo -->
-                                    <option value="<%= question[i].id %>"> <%= question[i].question %></option>
-                                <% } %> 
+                                <% for (let i = 0; i < resultados.length; i++) {%>
+                                    <option value="<%= resultados[i].id%>"><%= resultados[i].question%></option>
+                                <%}%>
                             </select>
                         </div>
 

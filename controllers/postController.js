@@ -19,7 +19,6 @@ let controller = {
             ]
         })
             .then(function(resultados){
-                // return res.send(resultados)
                 return res.render ('detailPost',{resultados});
             })
             .catch(function(error){
@@ -28,23 +27,6 @@ let controller = {
     },
     add: function(req,res){
         return res.render('addPost');
-    },
-    search: function(req, res){ // Buscador de Usuarios
-        let searchData = req.query.search; // Saca de la url lo que el usuario escribio en el buscador
-
-        user.findAll({  // buscame en la base de datos, tabla de usuarios ..
-            where: Sequelize.or(
-                { name : { [op.like] : "%" + searchData + "%"}},
-                {email: {[op.like]: "%" + searchData + "%"}}  // por nombre O por email, si existe con cualquiera de las dos
-            )
-        })
-            .then(function(resultados){
-                //return res.send(resultados)
-                return res.render('searchResult', {resultados})
-            })
-            .catch(function(error){
-                console.log(error);
-            })
     },
 }
 

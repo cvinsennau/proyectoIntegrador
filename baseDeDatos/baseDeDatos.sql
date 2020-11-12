@@ -1,30 +1,23 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 11, 2020 at 03:17 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- Servidor: localhost:3306
+-- Tiempo de generación: 12-11-2020 a las 12:15:11
+-- Versión del servidor: 5.7.26
+-- Versión de PHP: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- Database: `proyectointegrador`
+-- Base de datos: `proyectoIntegrador`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
+-- Estructura de tabla para la tabla `comments`
 --
 
 CREATE TABLE `comments` (
@@ -36,7 +29,7 @@ CREATE TABLE `comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `comments`
+-- Volcado de datos para la tabla `comments`
 --
 
 INSERT INTO `comments` (`id`, `id_post`, `id_user_comment`, `text_comment`, `date_comment`) VALUES
@@ -244,7 +237,7 @@ INSERT INTO `comments` (`id`, `id_post`, `id_user_comment`, `text_comment`, `dat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post`
+-- Estructura de tabla para la tabla `post`
 --
 
 CREATE TABLE `post` (
@@ -256,7 +249,7 @@ CREATE TABLE `post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `post`
+-- Volcado de datos para la tabla `post`
 --
 
 INSERT INTO `post` (`id`, `id_user`, `image_user`, `text_post`, `date_post`) VALUES
@@ -314,7 +307,7 @@ INSERT INTO `post` (`id`, `id_user`, `image_user`, `text_post`, `date_post`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `question`
+-- Estructura de tabla para la tabla `question`
 --
 
 CREATE TABLE `question` (
@@ -323,7 +316,7 @@ CREATE TABLE `question` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `question`
+-- Volcado de datos para la tabla `question`
 --
 
 INSERT INTO `question` (`id`, `question`) VALUES
@@ -335,7 +328,7 @@ INSERT INTO `question` (`id`, `question`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Estructura de tabla para la tabla `user`
 --
 
 CREATE TABLE `user` (
@@ -344,7 +337,7 @@ CREATE TABLE `user` (
   `email` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `birthdate` datetime NOT NULL,
-  `securityQuestion` int(11) NOT NULL,
+  `id_securityQuestion` int(11) NOT NULL,
   `securityAnswer` varchar(45) DEFAULT NULL,
   `user_picture` varchar(255) DEFAULT NULL,
   `following` int(11) NOT NULL,
@@ -352,10 +345,10 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user`
+-- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `birthdate`, `securityQuestion`, `securityAnswer`, `user_picture`, `following`, `followers`) VALUES
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `birthdate`, `id_securityQuestion`, `securityAnswer`, `user_picture`, `following`, `followers`) VALUES
 (1, 'davidbaastidas', 'dbastidasvelez@udesa.edu.ar', 'hola', '2000-03-08 00:00:00', 1, 'sushi', 'https://quierocuidarme.dkvsalud.es/sites/default/files/styles/vivelasalud_ficha_825x464/public/imagen/2017-09/shutterstock_92854117_0.jpg?itok=pnbGDCQp', 5, 500),
 (2, 'ale_robot1', 'ale@dh.com', 'chau', '1998-03-05 00:00:00', 1, 'pancho', 'https://img.freepik.com/foto-gratis/hombre-guapo-caucasico-aislado-pared-beige-dando-gesto-pulgares-arriba_1368-92335.jpg?size=626&ext=jpg', 13, 56),
 (3, 'CarolinaCocina123', 'caro@gmail.com', 'pollo', '2004-06-06 00:00:00', 3, 'ramona', 'https://www.mutualidadabogacia.com/wp-content/uploads/2019/03/8marzodiamujer.jpg', 2000, 4450),
@@ -363,11 +356,11 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `birthdate`, `securityQue
 (5, 'candevinse', 'candevinse@udesa.edu.ar', 'perrito23', '2000-04-08 00:00:00', 2, 'San Jose', 'https://smoda.elpais.com/wp-content/uploads/2017/08/40mujeres14-1-635x480.jpg', 210, 4);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `comments`
+-- Indices de la tabla `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
@@ -375,60 +368,61 @@ ALTER TABLE `comments`
   ADD KEY `FK_comentariouser_idx` (`id_user_comment`);
 
 --
--- Indexes for table `post`
+-- Indices de la tabla `post`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_posteousuario_idx` (`id_user`);
 
 --
--- Indexes for table `question`
+-- Indices de la tabla `question`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indices de la tabla `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email_UNIQUE` (`email`),
-  ADD KEY `id_security_question_idx` (`securityQuestion`);
+  ADD KEY `id_security_question_idx` (`id_securityQuestion`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `comments`
+-- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
--- AUTO_INCREMENT for table `post`
+-- AUTO_INCREMENT de la tabla `post`
 --
 ALTER TABLE `post`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `comments`
+-- Filtros para la tabla `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `FK_comentario_user` FOREIGN KEY (`id_user_comment`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_user` FOREIGN KEY (`id_post`) REFERENCES `post` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- Filtros para la tabla `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `FK_question` FOREIGN KEY (`id_securityQuestion`) REFERENCES `question` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

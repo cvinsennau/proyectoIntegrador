@@ -8,7 +8,7 @@
     <link rel="icon" href="images/icons/icono.png" type="image/x-icon">
 
     <link rel="stylesheet" href="/stylesheets/login.css">
-    <link rel="stylesheet" href="/stylesheets/header-deslogueado.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
 
@@ -37,7 +37,7 @@
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 
-                <form id="inicio" action="/miPerfil" method="POST">
+                <form id="inicio" action="/account/login" method="POST">
 
                     <span class="logo1">foodie</span><span class="logo2">gram</span>
                     <div class="container">
@@ -58,11 +58,9 @@
                         <button id="buttonInicio" type="submit">Iniciar Sesión</button><br><br>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="login" class="form-check-label" for="defaultCheck1">
-                              Recordarme
-                            </label>
-                          </div>
+                            <input name="rememberme" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="login" class="form-check-label" for="defaultCheck1"> Recordarme </label>
+                        </div>
 
                         <span class="login">¿No tenes cuenta?<a href="/account/signup"> Registrate </a></span><br>
                         

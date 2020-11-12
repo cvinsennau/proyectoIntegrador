@@ -2,6 +2,11 @@ body{
     margin: 0px;
     font-family: 'Poppins', sans-serif;
 }
+.info-usuario .foto-perfil{
+    border-radius: 50%;
+    width: 65%;
+    height: 110%;
+}
 .header-container{
     width: 100vw;
     height: 60px;
@@ -36,9 +41,6 @@ a{
     height: 25px;
     margin-right: 20px;
 }
-.round{
-    border-radius: 100px;
-}
 img.lupa{
     margin-right: 5px;
 }
@@ -56,7 +58,8 @@ img.lupa{
     font-family: 'Poppins', sans-serif;
 }
 .buscador-button{
-    height: 33px;
+    width: 60px;
+    height: 25px;
     border-radius: 5px;
     border: 0px;
     margin-left: 5px;
@@ -68,11 +71,43 @@ h4.nav-text{
     font-family: 'Poppins', sans-serif;
     margin-right: 20px;
     margin-bottom: 0px;
+    text-decoration: none;
+    text-align: center;
 }
 .registrarse-text{
     font-weight: bold;
 }
-body{
-    margin: 0px;
+.info-usuario .red-usuario{
+    list-style: none;
+    padding: 0  ;
+}
+main{
+    height: 522px;
+}
+#container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 2% 2%
+}
+#img{
+    width:90%;
+    height: 280px;
+    border-radius: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.listas{
+    list-style: none;
+    text-align: center;
+    margin-bottom: 2%;
+}
+.username{
+    color: #393333;
+    font-size: 20px;
     font-family: 'Poppins', sans-serif;
+    margin: 2%;
+    text-decoration: none;
+    text-align: center;
+    padding-left: 3%;
+    display: inline-block;
 }

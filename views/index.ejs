@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="/stylesheets/home.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
-    <link rel="stylesheet" href="/stylesheets/header-logueado.css">
-    <link rel="stylesheet" href="/stylesheets/header-deslogueado.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
 
 
     <!-- Fonts -->
@@ -38,8 +37,10 @@
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex">
-                <section id="posts" class="uk-flex uk-flex-middle uk-flex-center uk-flex-column uk-child-width-1-2 uk-width-1-1">
+
+                <section class="uk-flex uk-flex-middle uk-flex-center uk-flex-column uk-child-width-1-2 uk-width-1-1">
                     <article class="post uk-card-default uk-flex uk-flex-column">
+                        
                         <% for(let i=0; i<10; i++){ %>
                             <div class="info-usuario uk-flex ">
                                 <div class="cajaPerfil">
@@ -60,16 +61,15 @@
                                         </li>
                                 </ul>
                                 <div class="post-pie uk-flex">
-                                        <h5 class="uk-width-1-6"><a class="usuarios main-user" href="/user/detail/<%= resultados[i].id %>"><%= resultados[i].user.name %></a></h5>
-                                        <p class="uk-width-5-6"><%= resultados[i].text_post %></p>  
+                                    <label><a href="/user/detail/<%= resultados[i].id %>"><%= resultados[i].user.name %></a></label><label class="postComment"><label><%= resultados[i].text_post %></label>
+                                        
                                 </div>
                             </div>
                             <div class="post-comentarios">
                                 <ul>
                                     <% for(let j=0; j<4; j++ ) { %>
                                         <li>
-                                            <a class="usuarios" href="/user/detail/<%= resultados[i].comments[j].id_user_comment %>"><%= resultados[i].comments[j].user.name %></a>
-                                            <p><%= resultados[i].comments[j].text_comment %></p>
+                                            <label><a class="usuarios" href="/user/detail/<%= resultados[i].comments[j].id_user_comment%>"><%= resultados[i].comments[j].user.name %></a></label><label class="postComment"><label><%= resultados[i].comments[j].text_comment %></label>
                                         </li>
                                     <% } %>
                                 </ul>

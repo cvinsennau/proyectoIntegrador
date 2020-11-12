@@ -10,6 +10,7 @@ var indexRouter = require('./routes/index');
 var userRouter = require('./routes/userRoute');
 var accountRouter = require('./routes/accountRoute');
 var postRouter = require('./routes/postRoute');
+var searchRouter = require('./routes/searchRoute');
 
 var app = express();
 
@@ -22,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session(
-  {secret:'pepito123',
+  {secret:'session',
   resave: false,
   saveUninitialized: true}
 ));
@@ -30,10 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req,res,next){
   if (req.session.user != undefined) {
-    res.locals.user = req.session.user //locals deja disponible los datos para todas las vistas
+    res.locals.user = req.session.user 
   }
   return next ();
-}) //ver si dejar esto o no
+}) 
 
 app.use(function(req, res, next) {
   if (req.session.usuarioLogueado != null) {
@@ -53,6 +54,8 @@ app.use('/', indexRouter);
 app.use('/account', accountRouter)
 app.use('/user', userRouter)
 app.use('/post', postRouter)
+app.use('/search', searchRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-let controller = require('../controllers/postController')
+let postController = require('../controllers/postController')
+let searchController = require('../controllers/searchController')
 
-router.get('/detail/:id', controller.detail)
-router.get('/add', controller.add)
-router.get('/search', controller.search)
+router.get('/detail/:id', postController.detail)
+router.get('/add', postController.add)
 
 module.exports = router;

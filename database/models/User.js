@@ -24,7 +24,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.DATE,
             allowNull: false
         },
-        securityQuestion: {
+        id_securityQuestion: {
             type: dataTypes.INTEGER,
             allowNull: true
         },
@@ -32,6 +32,12 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.STRING,
             allowNull: true
         },
+        //created_at:{
+            //type: DataTypes.DATE
+        //}, 
+        //updated_at:{
+          //  type: DataTypes.DATE
+        //},
         user_picture:{
             type: dataTypes.STRING
         },
@@ -61,6 +67,10 @@ module.exports = function (sequelize, dataTypes){
         User.hasMany(models.Comment, {
             as: "comments",
             foreignKey: "id_user_comment"
+        })
+        User.belongsTo(models.Question, {
+            as: 'question',
+            foreignKey: 'id_SecurityQuestion'
         })
     }
 
