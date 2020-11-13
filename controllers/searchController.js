@@ -16,7 +16,29 @@ let controller = {
             )
         })
             .then(function(resultados){
-                return res.render('searchResultUsers', {resultados})
+                post.findAll({
+                    order: [
+                        ['date_post', 'ASC']
+                    ],
+                    where: Sequelize.or(
+                        {text_post: { [op.like] : "%" + searchData + "%"}}
+                    ),
+                    limit: 20,
+                    include: [
+                            {association: "user"},
+                            {association: "comments"}
+                    ],
+                    })
+        
+                    .then(function(resultadosPosteos){
+                        // res.send(resultadosPosteos)
+                        return res.render('searchResultUsers', {resultados:resultados, resultadosPosteos:resultadosPosteos})
+                    })
+        
+                    .catch(function(error){
+                        console.log(error)
+                    })
+        
             })
 
             .catch(function(error){

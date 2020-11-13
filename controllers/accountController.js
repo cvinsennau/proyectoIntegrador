@@ -11,19 +11,18 @@ let controller = {
     },
     loginProcess: function(req,res){
         users.findOne({
-            where: [{user: req.body.name}] 
+            where: [{name: req.body.name}] 
         })
 
         .then(function(user){
             if (user.name==null) {
                 res.send("Usuario incorrecto")
-            } else if (bcrypt.compareSync(req.body.password, user.password == false)) {
+            } else if (bcrypt.compareSync(req.body.password, user.password) == false) {
                 res.send("Contraseña incorrecta")
-            } else if (bcrypt.compareSync(req.body.password, user.password == true)) { 
+            } else if (bcrypt.compareSync(req.body.password, user.password) == true) { 
                 req.session.user = user 
-
                 if(req.body.rememberme != undefined){
-                    res.cookie('userId', user.id, { maxAge: 1000 * 60 * 60 * 60}); 
+                    res.cookie('userId', user.id, { maxAge: 1000*60*60*24*30}); //cookie de 30 días
                 }
             
                 return res.redirect('/')
@@ -43,19 +42,20 @@ let controller = {
         return res.render('register');
     },
     store: function(req,res){
+        //res.send(req.body)
         let user = {
             name: req.body.name,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password,10),
             birthdate: req.body.birthdate, 
-            securityQuestion: req.body.securityQuestion,
+            id_securityQuestion: req.body.securityQuestion,
             securityAnswer: req.body.securityAnswer,
-            //created_at: db.sequelize.literal("CURRENT_DATE"),
+            created_at: db.sequelize.literal("CURRENT_DATE"),
             //updated_at: db.sequelize.literal("CURRENT_DATE")
         }
 
         users.create(user); 
-        return res.redirect('/login') 
+        return res.redirect('/') 
     },   
     logout: function(req,res){
             req.session.destroy(); //destruye la relacion entre servidor y cliente

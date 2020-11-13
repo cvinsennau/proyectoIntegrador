@@ -56,6 +56,23 @@
                 <% } %>
                
                 </div>
+
+                <main>
+                    <div class="uk-section uk-section-small">
+                        <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">       
+                            <% if (resultadosPosteos.length>0) { %>
+                                <% for (let i=0; i< resultadosPosteos.length; i++){ %>
+                                    <div class="usuario">
+                                        <div class="cajaPPosteserfil">
+                                            <a class="usuarios" href="/user/detPostesail/<%= resultadosPosteos[i].id%>"><img class="fotoPerfilUsuario" src="<%= resultadosPosteos[i].user_picture %>" alt=""></a>
+                                            <h4><a class="usuarios" href="/user/detail/<%= resultadosPosteos[i].id %>"><%= resultadosPosteos[i].name %></a></h4>
+                                        </div>
+                                <% } %>
+                            <% } else { %>
+                                    <h2>No se encontraron posts para tu busqueda</h2>
+                            <% } %>
+                        </div>
+                    </div>
                 
             </div>
         </div>
