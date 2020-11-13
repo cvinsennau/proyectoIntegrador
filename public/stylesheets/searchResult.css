@@ -86,7 +86,7 @@ main{
 }
 #container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     margin: 2% 2%
 }
 #img{
@@ -110,4 +110,16 @@ main{
     text-align: center;
     padding-left: 3%;
     display: inline-block;
+}
+#userSearch{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+.usuarios{
+    text-align: center;
+    color: black;
+}
+section{
+    margin-bottom: 3%;
 }

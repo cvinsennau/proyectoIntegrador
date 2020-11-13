@@ -22,14 +22,14 @@ let controller = {
             if (user==null) {
                 res.send("Usuario incorrecto")
 
-            } else if (bcrypt.compareSync(req.body.password, user.password == false)) {
+            } else if (bcrypt.compareSync(req.body.password, user.password) == false) {
                 res.send("Contraseña incorrecta")
 
-            } else if (bcrypt.compareSync(req.body.password, user.password == true)) { 
+            } else if (bcrypt.compareSync(req.body.password, user.password) == true) { 
                 req.session.user = user 
 
                 if(req.body.rememberme != undefined){
-                    res.cookie('userId', user.id, { maxAge: 1000 * 60 * 60 * 24 * 30 }); //cookie de 30 días
+                    res.cookie('userId', user.id, { maxAge: 1000 * 60 * 60 * 24 * 30 * 365}); //cookie de 30 días
                 }
                 return res.redirect('/')
             }
@@ -37,14 +37,6 @@ let controller = {
         })
         .catch(e => console.log(e))
     },
-
-    //recover: function(req,res){
-    //     if (compareSync(req.body.name, user.name == false)) {
-    //         res.send("Usuario incorrecto");
-    //     } else if (req.body.name, user.name == true) {
-    //         //mostrar pregunta y respuesta de seguridad
-    //     }
-    // },
 
     register: function(req,res){
         if (req.session.user != undefined){
@@ -60,7 +52,7 @@ let controller = {
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password,10),
             birthdate: req.body.birthdate, 
-            id_securityQuestion: req.body.securityQuestion,
+            question2: req.body.securityQuestion,
             securityAnswer: req.body.securityAnswer,
             //created_at: db.sequelize.literal("CURRENT_DATE"),
             //updated_at: db.sequelize.literal("CURRENT_DATE")
@@ -74,7 +66,9 @@ let controller = {
     logout: function(req,res){
             req.session.destroy(); 
             return res.redirect("/");
-    }
+    },
+
+
 }   
 
 module.exports = controller;

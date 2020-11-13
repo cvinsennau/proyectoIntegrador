@@ -29,13 +29,14 @@ let controller = {
     },
     store: function(req,res){
         let newPost = {
+            id_user: res.locals.user.id,
             text_post: req.body.text_post,
             image_user: req.body.image_user,
             date_post: db.sequelize.literal("CURRENT_DATE"),
         }
 
         post.create(newPost);   //! No lo guarda
-        // req.res.send(newPost)
+        
         return res.redirect('/');
     },
 }

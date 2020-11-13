@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 12-11-2020 a las 12:15:11
+-- Tiempo de generación: 13-11-2020 a las 22:41:04
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.4.2
 
@@ -302,7 +302,9 @@ INSERT INTO `post` (`id`, `id_user`, `image_user`, `text_post`, `date_post`) VAL
 (47, 5, 'https://cdn7.kiwilimon.com/galeriahome/829/1280x400/829.jpg.webp', 'Paso receta!', '2020-10-09'),
 (48, 5, 'https://www.recreoviral.com/wp-content/uploads/2015/05/20-comidas-para-preparar-aunque-estes-en-quiebra-17.jpg', 'Plenooo', '2020-10-10'),
 (49, 5, 'https://img-global.cpcdn.com/recipes/86c604d200ecef2e/400x400cq70/photo.jpg', 'Un salteadito', '2020-08-11'),
-(50, 5, 'https://static3.abc.es/media/familia/2018/05/23/Minevera_Pasta-k4KC--620x349@abc.jpg', 'Muy ricas!', '2020-08-12');
+(50, 5, 'https://static3.abc.es/media/familia/2018/05/23/Minevera_Pasta-k4KC--620x349@abc.jpg', 'Muy ricas!', '2020-08-12'),
+(51, 6, 'Captura de pantalla 2020-11-13 a la(s) 14.09.59.png', '!!!!', '2020-11-13'),
+(52, 6, 'Captura de pantalla 2020-11-13 a la(s) 14.01.38.png', '!!!!', '2020-11-13');
 
 -- --------------------------------------------------------
 
@@ -335,25 +337,26 @@ CREATE TABLE `user` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(20) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `birthdate` datetime NOT NULL,
-  `id_securityQuestion` int(11) NOT NULL,
+  `question2` int(11) NOT NULL,
   `securityAnswer` varchar(45) DEFAULT NULL,
   `user_picture` varchar(255) DEFAULT NULL,
-  `following` int(11) NOT NULL,
-  `followers` int(11) NOT NULL
+  `following` int(11) NOT NULL DEFAULT '0',
+  `followers` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `birthdate`, `id_securityQuestion`, `securityAnswer`, `user_picture`, `following`, `followers`) VALUES
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `birthdate`, `question2`, `securityAnswer`, `user_picture`, `following`, `followers`) VALUES
 (1, 'davidbaastidas', 'dbastidasvelez@udesa.edu.ar', 'hola', '2000-03-08 00:00:00', 1, 'sushi', 'https://quierocuidarme.dkvsalud.es/sites/default/files/styles/vivelasalud_ficha_825x464/public/imagen/2017-09/shutterstock_92854117_0.jpg?itok=pnbGDCQp', 5, 500),
 (2, 'ale_robot1', 'ale@dh.com', 'chau', '1998-03-05 00:00:00', 1, 'pancho', 'https://img.freepik.com/foto-gratis/hombre-guapo-caucasico-aislado-pared-beige-dando-gesto-pulgares-arriba_1368-92335.jpg?size=626&ext=jpg', 13, 56),
 (3, 'CarolinaCocina123', 'caro@gmail.com', 'pollo', '2004-06-06 00:00:00', 3, 'ramona', 'https://www.mutualidadabogacia.com/wp-content/uploads/2019/03/8marzodiamujer.jpg', 2000, 4450),
 (4, 'Marita123', 'Mara123@hotmail.com', 'arroz123', '2002-08-09 00:00:00', 3, 'pecesito', 'https://www.marketingdirecto.com/wp-content/uploads/2020/03/dia-de-la-mujer-monica-moro.png', 450, 123),
-(5, 'candevinse', 'candevinse@udesa.edu.ar', 'perrito23', '2000-04-08 00:00:00', 2, 'San Jose', 'https://smoda.elpais.com/wp-content/uploads/2017/08/40mujeres14-1-635x480.jpg', 210, 4);
+(5, 'candevinse', 'candevinse@udesa.edu.ar', 'perrito23', '2000-04-08 00:00:00', 2, 'San Jose', 'https://smoda.elpais.com/wp-content/uploads/2017/08/40mujeres14-1-635x480.jpg', 210, 4),
+(6, 'sus', 'sus@gmail.com', '$2a$10$KHgosZV3mEnvHHycpO5HJ.xCAdkgGjMueYTGmLHJpOy53xWZLDL7O', '2000-05-04 00:00:00', 1, 'ñoqui', NULL, 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -386,7 +389,7 @@ ALTER TABLE `question`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email_UNIQUE` (`email`),
-  ADD KEY `id_security_question_idx` (`id_securityQuestion`);
+  ADD KEY `id_security_question_idx` (`question2`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -402,13 +405,13 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT de la tabla `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
@@ -425,4 +428,4 @@ ALTER TABLE `comments`
 -- Filtros para la tabla `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `FK_question` FOREIGN KEY (`id_securityQuestion`) REFERENCES `question` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `FK_question` FOREIGN KEY (`question2`) REFERENCES `question` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

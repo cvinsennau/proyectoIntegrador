@@ -24,7 +24,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.DATE,
             allowNull: false
         },
-        id_securityQuestion: {
+        question2: {
             type: dataTypes.INTEGER,
             allowNull: true
         },
@@ -70,7 +70,7 @@ module.exports = function (sequelize, dataTypes){
         })
         User.belongsTo(models.Question, {
             as: 'question',
-            foreignKey: 'id_SecurityQuestion'
+            foreignKey: 'question2'
         })
     }
 

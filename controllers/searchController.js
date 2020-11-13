@@ -6,7 +6,7 @@ const user = db.User;
 const op = db.Sequelize.Op;
 
 let controller = {    
-    searchUser: function(req, res){ 
+    search: function(req, res){ 
         let searchData = req.query.search; 
 
         user.findAll({  
@@ -32,7 +32,7 @@ let controller = {
         
                     .then(function(resultadosPosteos){
                         // res.send(resultadosPosteos)
-                        return res.render('searchResultUsers', {resultados:resultados, resultadosPosteos:resultadosPosteos})
+                        return res.render('searchResult', {resultados:resultados, resultadosPosteos:resultadosPosteos})
                     })
         
                     .catch(function(error){
@@ -44,33 +44,7 @@ let controller = {
             .catch(function(error){
                 console.log(error);
             })
-    },
-
-    searchPost: function(req, res){ 
-        let searchData = req.query.search; 
-            
-        post.findAll({
-            order: [
-                ['date_post', 'ASC']
-            ],
-            where: Sequelize.or(
-                {text_post: { [op.like] : "%" + searchData + "%"}}
-            ),
-            limit: 20,
-            include: [
-                    {association: "user"},
-                    {association: "comments"}
-            ],
-            })
-
-            .then(function(resultados){
-                return res.render('searchResultPosts', {resultados: resultados})
-            })
-
-            .catch(function(error){
-                console.log(error)
-            })
-    },
+    }
     
 }
 

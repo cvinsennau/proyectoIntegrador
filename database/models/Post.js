@@ -1,7 +1,7 @@
 module.exports = function (sequelize, dataTypes){
 
-    let alias = "Post" //nombre para identificar al modelo - se busca como nombre en la tabla en plural en la base de datos.
-
+    let alias = "Post" 
+    
     let cols = {
         id: {
             autoIncrement: true,

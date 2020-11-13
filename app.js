@@ -32,22 +32,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req,res,next){
   if (req.session.user != undefined) {
     res.locals.user = req.session.user 
+  return next();
   }
   return next ();
 }) 
 
-app.use(function(req, res, next) {
-  if (req.session.usuarioLogueado != null) {
-    res.locals = {
-      usuarioLogueado: req.session.usuarioLogueado
-    }
-  } else {
-    res.locals = {
-      usuarioLogueado: null
-    }
-  } 
+app.use(function(req, res, next){
+  if(req.cookies.userId != undefined && req.session.user == undefined){ 
+    db.User.findByPk(req.cookies.userId)             
+    .then(function(user){
+      req.session.user = user;
+      res.locals.user = user;
+  return next()
+})
+
+.catch(c => console.log(e))
+} else {
   return next();
-});
+}
+})
 
 //Rutas
 app.use('/', indexRouter);
