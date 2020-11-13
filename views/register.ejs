@@ -64,16 +64,12 @@
 
                         <!--Repetir contraseña-->
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="repetir contraseña" name="passwordconfirmada" required>
-                        </div>
-
-                        <!--Repetir contraseña-->
-                        <div class="input-group mb-3">
                             <input type="date" class="form-control" placeholder="fecha de nacimiento" name="birthdate" required>
                         </div>
 
-                        <!-- Pregunta y respuesta de seguridad ARREGLAR -->
+                        <!-- Pregunta y respuesta de seguridad -->
                         <div class="input-group mb-3" class='formRegistro'>
+                            <label class="form-control">pregunta de seguridad</label>
                             <select name="securityQuestion" class="custom-select" id="inputGroupSelect01">
                                 <% for (let i = 0; i < resultados.length; i++) {%>
                                     <option value="<%= resultados[i].id%>"><%= resultados[i].question%></option>
