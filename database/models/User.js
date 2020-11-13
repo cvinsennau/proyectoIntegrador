@@ -49,7 +49,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.INTEGER,
             allowNull: true
         }
-    } //nombre de las columnas de la tabla
+    } 
 
 
     let config = {
