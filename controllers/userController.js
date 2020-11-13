@@ -7,7 +7,8 @@ const op = db.Sequelize.Op;
 
 let controller = {
     myProfile: function(req,res){
-        return res.render('myProfile');
+        let user = req.session.user;
+        //! COMPLETAR
     },
     userDetail: function(req,res){
         let primaryKey = req.params.id;

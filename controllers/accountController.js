@@ -22,9 +22,8 @@ let controller = {
             } else if (bcrypt.compareSync(req.body.password, user.password) == true) { 
                 req.session.user = user 
                 if(req.body.rememberme != undefined){
-                    res.cookie('userId', user.id, { maxAge: 1000*60*60*24*30}); //cookie de 30 días
+                    res.cookie('userId', user.id, { maxAge: 1000 * 60 * 60 * 24 * 30 }); //cookie de 30 días
                 }
-            
                 return res.redirect('/')
             }
 
