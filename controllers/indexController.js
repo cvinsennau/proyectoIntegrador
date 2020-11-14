@@ -9,7 +9,7 @@ let controller = {
     index: function(req,res){
         post.findAll({
             order:[
-                ["date_post", "ASC"]
+                ["date_post", "DESC"]
             ],
             include: [
                 {association:"user"},

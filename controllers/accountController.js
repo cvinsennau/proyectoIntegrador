@@ -68,10 +68,11 @@ let controller = {
                     birthdate: req.body.birthdate,
                     question2: req.body.securityQuestion,
                     securityAnswer: bcrypt.hashSync(req.body.password,10),
+                    user_picture: req.body.user_picture,
                     //created_at: db.sequelize.literal("CURRENT_DATE"),
                     //updated_at: db.sequelize.literal("CURRENT_DATE")
                 }
-                    
+                        
                 users.create(user); 
                 
                 return res.redirect('/account/login') 
