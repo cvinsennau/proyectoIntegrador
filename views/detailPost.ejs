@@ -45,19 +45,25 @@
                     <article class="uk-width-1-3 uk-flex uk-flex-column comentarios-detalle">
                         <div class="info-post uk-flex uk-flex-middle" style="padding-bottom: 20px;">
                             <a href="/user/detail/<%= resultados.user.id%>"><img  class="fotoPerfilUsuario" src="<%= resultados.user.user_picture %>" alt="Foto del usuario"></a> 
-                            <!-- No se hacer la foto de perfil arriba -->
                             <h3 style="margin: 0px;"><a href="/user/detail/<%= resultados.user.id%>" class="user-comment-post"><%= resultados.user.name%></a></h3>
                         </div>
 
                         <% if(locals.user){%>
 
-                            <% for(let i=0; i<resultados.user.comments[i].length; i++){ %>
+                            <% for(let i=0; i<resultadosComentarios.length; i++){ %>
                                 <div class="lista-comentarios" >
                                     <div class="comentario uk-flex uk-flex-middle uk-margin-small-top">
                                         <div class="div-img-comentario uk-width-1-4 uk-flex uk-flex-center">
-                                            <img src="<%= resultados.comments[i].user.user_picture %>" alt="Foto de usuario" class="fotos-comentarios">
+                                            <img src="<%= resultadosComentarios[i].user.user_picture %>" alt="Foto de usuario" class="fotos-comentarios">
                                         </div>
-                                        <h6 class="margin-left uk-margin-remove uk-width-2-4"><a class="user-comment-post" href="/user/detail/<%= resultados.comments[i].user.id %> "><%= resultados.user.comments[i].name %></a><%= resultados.user.comments[i].text_comment %></h6>
+                                        <h6 class="margin-left uk-margin-remove uk-width-2-4">
+                                            <a class="user-comment-post" href="/user/detail/<%= resultadosComentarios[i].id_user_comment %> ">
+                                                <%= resultadosComentarios[i].user.name %>
+                                            </a>
+                                        </h6>
+                                        <p>
+                                            <%= resultadosComentarios[i].text_comment %>
+                                        </p>
                                         <a href="" uk-icon="icon:heart; ratio: 0.8" class="like uk-width-1-4 uk-text-right icono-meGusta"></a>
                                     </div>
                                 </div>

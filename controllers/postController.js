@@ -1,6 +1,7 @@
 const { Sequelize } = require('../database/models');
 const db = require('../database/models');
 const post = db.Post;
+const comment = db.Comment;
 
 const op = db.Sequelize.Op;
 
@@ -20,12 +21,28 @@ let controller = {
                 {association:"comments", include: ["user"]}
             ]
         })
-            .then(function(resultados){
-                return res.render ('detailPost',{resultados});
+
+        .then(function(resultados){
+
+            comment.findAll({
+                order: [
+                    ['date_comment', 'ASC']
+                ],
+                where: [{id_post: req.params.id}],                    
+                include: [
+                    {association: "user"},
+                ],
+            })
+
+            .then(function(resultadosComentarios){
+                //return res.send(resultados)
+                //return res.send(resultadosComentarios)
+                return res.render ('detailPost',{resultados:resultados, resultadosComentarios:resultadosComentarios});
             })
             .catch(function(error){
                 console.log(error)
             })
+        })
     },
     store: function(req,res){
         if (req.session.user == undefined) {

@@ -3,7 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var session = require ('express-session')
-var logger = require('morgan');
+var logger = require('morgan'); 
+var db = require('./database/models');
+
 
 //Declaración de Rutas
 var indexRouter = require('./routes/index');
