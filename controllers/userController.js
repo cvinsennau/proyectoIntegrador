@@ -1,5 +1,6 @@
 const db = require('../database/models')
 const user = db.User; //Debe ser el alias del modelo.
+const post = db.Post;
 
 const question = db.Question;
 
@@ -60,24 +61,38 @@ let controller = {
     userDetail: function(req,res){
         let primaryKey = req.params.id;
 
-        user.findOne({
-            where: [
-                {id: primaryKey}
-            ],
-            include: [
-                {association:"posts"}
-            ]
-        })
+        user.findByPk(req.params.id)
+
             .then(function(resultados){
-                //return res.send(resultados)
-                return res.render ('detailUser',{resultados:resultados});
+
+                post.findAll({
+                    order: [
+                        ['date_post', 'ASC']
+                    ],
+                    where: [{id_user: primaryKey}],                    
+                    include: [
+                        {association: "user"},
+                        {association: "comments"}
+                ],
+            
             })
+
+                .then(function(resultadosPosteos){
+                    //return res.send(resultados)
+                    return res.render('detailUser', {
+                        resultados:resultados, resultadosPosteos:resultadosPosteos})
+                })  
             .catch(function(error){
                 console.log(error)
             })
-    },
+        })
 
-    
+        
+    }
+}
+
+module.exports = controller;
+
 
     // add: function(req,res){
     //     if (req.session.user == undefined) {
@@ -92,6 +107,3 @@ let controller = {
         //     .catch(function (error) {
         //         console.log(error);
         //     })
-    //}
-}
-module.exports = controller;
