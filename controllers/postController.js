@@ -28,6 +28,10 @@ let controller = {
             })
     },
     store: function(req,res){
+        if (req.session.user == undefined) {
+            return res.redirect("/")
+        }
+
         let newPost = {
             id_user: res.locals.user.id,
             text_post: req.body.text_post,
@@ -35,10 +39,18 @@ let controller = {
             date_post: db.sequelize.literal("CURRENT_DATE"),
         }
 
-        post.create(newPost);   //! No lo guarda
-        
+        post.create(newPost);   
+
         return res.redirect('/');
     },
+    
+    
+
+
+
+
+
+
 }
 
 module.exports = controller;

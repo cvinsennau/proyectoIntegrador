@@ -1,13 +1,8 @@
-body{
-    margin: 0px;
-    font-family: 'Poppins', sans-serif;
+.buscador-input, .buscador-button, .nav-icon.lupa, h4.nav-text{
+    display:none;
 }
-h4.nav-text{
-    color: white;
-    font-size: 15px;
-    font-family: 'Poppins', sans-serif;
-    margin-right: 20px;
-    margin-bottom: 0px;
+.logo{
+    justify-content: center;
 }
 #registro{
     text-align: center;
@@ -32,4 +27,30 @@ h4.nav-text{
     margin-bottom: 10px;
     border-radius:10px;
     border:1px solid #ccc;
+    font-size: 80%;
+}
+.form-control{
+    font-size: 20%;
+}
+.container input, .container span, .container label, .container select{
+    font-size: 80%;
+}
+
+.container label{
+    
+}
+
+
+@media (min-width:425px){
+    .container input, .container span, .container label, .container select{
+        font-size: 100%;
+    }
+}
+@media (min-width:1024px){
+
+    h4.nav-text{
+        display: block;
+    }
+    
+
 }

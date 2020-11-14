@@ -31,7 +31,6 @@ let controller = {
                     })
         
                     .then(function(resultadosPosteos){
-                        // res.send(resultadosPosteos)
                         return res.render('searchResult', {resultados:resultados, resultadosPosteos:resultadosPosteos})
                     })
         

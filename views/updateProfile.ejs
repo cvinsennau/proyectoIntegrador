@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieGram</title>
+    <link rel="icon"
+        href="images/icons/icono.ico"
+        type="image/x-icon">
+
+    <link rel="stylesheet" href="/stylesheets/detailUser.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/general.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Kumbh+Sans:wght@300;700&family=Poppins:wght@300&family=Questrial&display=swap" rel="stylesheet">
+
+    <!-- UiKit -->
+    <!-- <link rel="stylesheet" href="css/uikit.min.css">
+    <script src="js/uikit-icons.min.js"></script>
+    <script src="js/uikit.min.js"></script> -->
+    <!-- UiKit -->
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+    <%- include('./partials/header')%>
+
+    <h1>Editar mi perfil</h1>
+
+    <!-- <form action="/movies/edit/<%= movie.id %>" method="POST">
+        <p><input type="text" name="title" placeholder="Titulo" value="<%=movie.title%>" ></p>
+        <p><input type="text" name="rating" placeholder="Rating" value="<%= movie.rating %>"></p>
+        <p><input type="number" name="awards" placeholder="Premios" value="<%= movie.awards %>"></p>
+        <p><input type="date" name="release_date" placeholder="Fecha de lanzamiento" value="<%= movie.release_date%>"></p>
+        <p><input type="number" name="length" placeholder="" value="<%= movie.length %>"></p>
+        <p><input type="number" name="genre_id" placeholder="ID Genero" value="<%= movie.genre_id%>"></p>
+        
+
+        <button type="submit">Actualizar</button>
+    </form> -->
+
+
+    <form id='actualizar' action="/user/editProfile" method="POST">
+
+        <span class="logo1">foodie</span><span class="logo2">gram</span>
+        <div class="container">
+            
+            <!--Nombre de usuario-->
+            <div class="input-group flex-nowrap mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="addon-wrapping">@</span>
+                </div>
+                <input type="text" class="form-control" placeholder="usuario" name="name" required>
+            </div>
+
+            <!--Email-->
+            <div class="input-group mb-3">
+                <input type="email" class="form-control" placeholder="email" name="email" required>
+            </div>
+            
+            <!--Contraseña-->
+            <div class="input-group mb-3">
+                <input type="password" class="form-control" placeholder="contraseña" name="password" required>
+            </div>
+
+            <!--Repetir contraseña-->
+            <div class="input-group mb-3">
+                <input type="date" class="form-control" placeholder="fecha de nacimiento" name="birthdate" required>
+            </div>
+
+            <!-- Pregunta y respuesta de seguridad -->
+            <div class="input-group mb-3" class='formRegistro'>
+                <label class="form-control">pregunta de seguridad</label>
+                <select name="securityQuestion" class="custom-select" id="inputGroupSelect01">
+                    <% for (let i = 0; i < resultados.length; i++) {%>
+                        <option value="<%= resultados[i].id%>"><%= resultados[i].question%></option>
+                    <%}%>
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="respuesta" name="securityAnswer" required>
+            </div>
+
+            <button id="buttonRegistro" type="submit">Actualizar</button><br>
+
+            <div class="uk-text-small uk-text-center">
+                <label> No queres editar nada? <a href="/user/myProfile"> Volve a tu perfil</a></label>
+            </div>
+
+        </div>
+        
+    </form>
+
+
+    <%- include('./partials/footer') %> 
+</body>
+
+</html>
+

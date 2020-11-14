@@ -81,20 +81,10 @@ h4.nav-text{
     list-style: none;
     padding: 0  ;
 }
-main{
-    height: 522px;
-}
 #container{
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 2% 2%
-}
-#img{
-    width:90%;
-    height: 280px;
-    border-radius: 20px;
-    margin-left: 5%;
-    margin-right: 5%;
 }
 .listas{
     list-style: none;
@@ -111,15 +101,30 @@ main{
     padding-left: 3%;
     display: inline-block;
 }
-#userSearch{
+.usuarios{
+    color: black;
+    justify-content: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+#section1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: 3%;
+}
+#section2{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    text-align: center;
+    margin-bottom: 3%;
 }
-.usuarios{
-    text-align: center;
-    color: black;
+#section2 img{
+    width: 80%;
+    height: 240px;
+    border-radius: 20px;        
+    margin-left: 10%;
+    margin-right: 10%;
 }
-section{
+#section2 li{
+    list-style: none;
     margin-bottom: 3%;
 }

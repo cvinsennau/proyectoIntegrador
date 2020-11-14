@@ -23,6 +23,7 @@ let controller = {
                 res.send("Usuario incorrecto")
 
             } else if (bcrypt.compareSync(req.body.password, user.password) == false) {
+                
                 res.send("Contraseña incorrecta")
 
             } else if (bcrypt.compareSync(req.body.password, user.password) == true) { 
@@ -47,24 +48,44 @@ let controller = {
     },
 
     store: function(req,res){
-        let user = {
-            name: req.body.name,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password,10),
-            birthdate: req.body.birthdate, 
-            question2: req.body.securityQuestion,
-            securityAnswer: req.body.securityAnswer,
-            //created_at: db.sequelize.literal("CURRENT_DATE"),
-            //updated_at: db.sequelize.literal("CURRENT_DATE")
-        }
+        
+        // users.findOne({
+        //     where: [{email: req.body.email }] 
+        // })
+        
+        // .then(function(usuario){
 
-        users.create(user); 
+            // if(usuario){
+            //     let error = "El email ya se encuentra en uso."
+            //     return res.render("register",{error: error})
 
-        return res.redirect('/account/login') 
+            // } else {
+
+                let user = {
+                    name: req.body.name,
+                    email: req.body.email,
+                    password: bcrypt.hashSync(req.body.password,10),
+                    birthdate: req.body.birthdate,
+                    question2: req.body.securityQuestion,
+                    securityAnswer: bcrypt.hashSync(req.body.password,10),
+                    //created_at: db.sequelize.literal("CURRENT_DATE"),
+                    //updated_at: db.sequelize.literal("CURRENT_DATE")
+                }
+                    
+                users.create(user); 
+                
+                return res.redirect('/account/login') 
+            // }
+            
+        // })
+
+        // .catch(e => console.log(e))        
+        
     },   
 
     logout: function(req,res){
             req.session.destroy(); 
+            res.clearCookie('userId');
             return res.redirect("/");
     },
 
