@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 13-11-2020 a las 22:41:04
+-- Tiempo de generación: 14-11-2020 a las 18:02:58
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.4.2
 
@@ -340,7 +340,7 @@ CREATE TABLE `user` (
   `password` varchar(100) NOT NULL,
   `birthdate` datetime NOT NULL,
   `question2` int(11) NOT NULL,
-  `securityAnswer` varchar(45) DEFAULT NULL,
+  `securityAnswer` varchar(100) DEFAULT NULL,
   `user_picture` varchar(255) DEFAULT NULL,
   `following` int(11) NOT NULL DEFAULT '0',
   `followers` int(11) NOT NULL DEFAULT '0'
@@ -356,7 +356,8 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `birthdate`, `question2`,
 (3, 'CarolinaCocina123', 'caro@gmail.com', 'pollo', '2004-06-06 00:00:00', 3, 'ramona', 'https://www.mutualidadabogacia.com/wp-content/uploads/2019/03/8marzodiamujer.jpg', 2000, 4450),
 (4, 'Marita123', 'Mara123@hotmail.com', 'arroz123', '2002-08-09 00:00:00', 3, 'pecesito', 'https://www.marketingdirecto.com/wp-content/uploads/2020/03/dia-de-la-mujer-monica-moro.png', 450, 123),
 (5, 'candevinse', 'candevinse@udesa.edu.ar', 'perrito23', '2000-04-08 00:00:00', 2, 'San Jose', 'https://smoda.elpais.com/wp-content/uploads/2017/08/40mujeres14-1-635x480.jpg', 210, 4),
-(6, 'sus', 'sus@gmail.com', '$2a$10$KHgosZV3mEnvHHycpO5HJ.xCAdkgGjMueYTGmLHJpOy53xWZLDL7O', '2000-05-04 00:00:00', 1, 'ñoqui', NULL, 0, 0);
+(6, 'sus', 'sus@gmail.com', '$2a$10$KHgosZV3mEnvHHycpO5HJ.xCAdkgGjMueYTGmLHJpOy53xWZLDL7O', '2000-05-04 00:00:00', 1, 'ñoqui', NULL, 0, 0),
+(7, 'scott', 'scott@hotmail.com', '$2a$10$UgNVcP1VCOEoYnfsWzAaUefnCzyN.in.Bsg0APYYxOSQAipeOKbwi', '1997-10-29 00:00:00', 1, '$2a$10$gVIn2LWyWGNLw6E75t73E.c5M7aWkJy0yKe4VvsnqIyytgB/kFp6S', NULL, 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -389,6 +390,7 @@ ALTER TABLE `question`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email_UNIQUE` (`email`),
+  ADD UNIQUE KEY `name_UNIQUE` (`name`),
   ADD KEY `id_security_question_idx` (`question2`);
 
 --
@@ -411,7 +413,7 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
