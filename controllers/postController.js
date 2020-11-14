@@ -60,14 +60,25 @@ let controller = {
 
         return res.redirect('/');
     },
+    newComment: function(req, res){
+        // if (req.session.user == undefined) {
+        //     return res.redirect("/")
+        // }
+
+        let newComment = {
+            text_comment: req.body.text_comment,
+            id_post: req.params.id,
+            id_user_comment: res.locals.user.id,
+            date_comment: db.sequelize.literal("CURRENT_DATE"),
+        }
+        //return res.send(newComment)
+        comment.create(newComment)
+
+        var idPost = req.params.id
+
+        return res.redirect(+idPost)
+    }
     
-    
-
-
-
-
-
-
 }
 
 module.exports = controller;
