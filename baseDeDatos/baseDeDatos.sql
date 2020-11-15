@@ -1,35 +1,42 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 14-11-2020 a las 18:02:58
--- Versión del servidor: 5.7.26
--- Versión de PHP: 7.4.2
+-- Host: 127.0.0.1
+-- Generation Time: Nov 15, 2020 at 01:02 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
--- Base de datos: `proyectoIntegrador`
+-- Database: `proyectointegrador`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
   `id` int(10) UNSIGNED NOT NULL,
-  `id_post` int(10) UNSIGNED NOT NULL,
-  `id_user_comment` int(10) UNSIGNED NOT NULL,
+  `id_post` int(10) NOT NULL,
+  `id_user_comment` int(10) NOT NULL,
   `text_comment` varchar(140) DEFAULT NULL,
   `date_comment` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `comments`
+-- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `id_post`, `id_user_comment`, `text_comment`, `date_comment`) VALUES
@@ -232,12 +239,13 @@ INSERT INTO `comments` (`id`, `id_post`, `id_user_comment`, `text_comment`, `dat
 (197, 50, 1, 'SIIII', '2020-01-06'),
 (198, 50, 2, 'Genial', '2020-01-06'),
 (199, 50, 3, 'NOOO', '2020-01-06'),
-(200, 50, 4, 'FAA', '2020-01-06');
+(200, 50, 4, 'FAA', '2020-01-06'),
+(208, 23, 8, 'que rico!!', '2020-11-14');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `post`
+-- Table structure for table `post`
 --
 
 CREATE TABLE `post` (
@@ -249,7 +257,7 @@ CREATE TABLE `post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `post`
+-- Dumping data for table `post`
 --
 
 INSERT INTO `post` (`id`, `id_user`, `image_user`, `text_post`, `date_post`) VALUES
@@ -259,13 +267,13 @@ INSERT INTO `post` (`id`, `id_user`, `image_user`, `text_post`, `date_post`) VAL
 (4, 1, 'https://ep01.epimg.net/elcomidista/imagenes/2019/11/28/articulo/1574897584_677912_1574946142_media_normal.jpg', 'Para toda la familia', '2020-08-08'),
 (5, 1, 'https://www.paulinacocina.net/wp-content/uploads/2020/01/untitled-copy.jpg', 'Taquitos pa la flia', '2020-08-09'),
 (6, 1, 'https://www.vivus.es/blog/wp-content/uploads/2018/04/comida-sana-y-barata-612x408.jpg', 'Comida balanceada', '2020-07-07'),
-(7, 1, 'https://i2.wp.com/www.cocinaconpoco.com/wp-content/uploads/2018/11/Comida-sana.jpg?fit=750%2C500&ssl=1', 'Riquisimo', '2020-12-12'),
+(7, 1, 'https://i2.wp.com/www.cocinaconpoco.com/wp-content/uploads/2018/11/Comida-sana.jpg?fit=750%2C500&ssl=1', 'Riquisimo', '2020-02-12'),
 (8, 1, 'https://elviajerofeliz.com/wp-content/uploads/2020/01/Comida-t%C3%ADpica-de-Bangladesh-Platos-Imprescindibles.jpg', 'El color lo dice todo', '2020-09-12'),
 (9, 1, 'https://estaticos.miarevista.es/media/cache/1140x_thumb/uploads/images/gallery/59f6f86d5bafe8699bf7fdf3/segundosinterior.jpg', 'Un buen pollito', '2020-04-08'),
 (10, 1, 'https://www.ecestaticos.com/image/clipping/1eda44daf5f75ca868b7eb9bf93396e4/opening.jpg', 'Buen desayuno', '2020-05-05'),
 (11, 2, 'https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales-1280x720.jpg', 'Empezando dieta!', '2020-09-09'),
 (12, 2, 'https://s2.eestatic.com/2015/04/26/cocinillas/Cocinillas_28757194_116165495_855x1140.jpg', 'Caseritas!', '2020-09-12'),
-(13, 2, 'https://static.vix.com/es/sites/default/files/styles/1x1/public/imj/elgranchef/R/Recetas-que-rinden-mas-de-una-comida-10.jpg', 'Italianoo', '2020-12-12'),
+(13, 2, 'https://static.vix.com/es/sites/default/files/styles/1x1/public/imj/elgranchef/R/Recetas-que-rinden-mas-de-una-comida-10.jpg', 'Italianoo', '2020-02-12'),
 (14, 2, 'https://img.culturacolectiva.com/cdn-cgi/image/f=auto,w=1600,q=80,fit=contain/content_image/2019/5/2/1556836847320-recetas-de-comida-china-para-preparar-facil-y-rapido.001.jpeg', 'GRANDIOSO', '2020-04-08'),
 (15, 2, 'https://ep01.epimg.net/elcomidista/imagenes/2018/06/14/articulo/1528973156_950312_1528981402_media_normal.jpg', 'Facil y rico', '2020-08-09'),
 (16, 2, 'https://i.blogs.es/6a128c/pizza-glitter/450_1000.jpg', 'Pizza arcoiris', '2020-04-09'),
@@ -280,7 +288,7 @@ INSERT INTO `post` (`id`, `id_user`, `image_user`, `text_post`, `date_post`) VAL
 (25, 3, 'https://revistamundodiners.com/wp-content/uploads/2020/06/shutterstock_1488450611-scaled.jpg', 'Dieta life', '2020-11-09'),
 (26, 3, 'https://www.medialunamagazine.com/wp-content/uploads/2019/07/tacos-de-lengua-de-res-caseros-700.jpg', 'Ricooo', '2020-08-11'),
 (27, 3, 'https://tuhogar.com/cam/wp-content/uploads/sites/14/2019/07/comida-callejera-axion.jpg', '...', '2020-08-12'),
-(28, 3, 'https://live.mrf.io/statics/i/ps/www.cocinacaserayfacil.net/wp-content/uploads/2019/11/Comida-espa%C3%B1ola.jpg?width=1200&enable=upscale', 'Para chuparse los dedos', '2020-12-09'),
+(28, 3, 'https://live.mrf.io/statics/i/ps/www.cocinacaserayfacil.net/wp-content/uploads/2019/11/Comida-espa%C3%B1ola.jpg?width=1200&enable=upscale', 'Para chuparse los dedos', '2020-02-09'),
 (29, 3, 'https://okdiario.com/img/2018/06/17/hamburguesa-de-salmon-655x368.jpg', 'Muy rico', '2020-01-01'),
 (30, 3, 'https://www.cocinaconalegria.com/wp-content/uploads/2020/05/recetas-generales-comidas-1200x630-1.jpg', 'Jajaja', '2020-01-09'),
 (31, 4, 'https://blog.lewolang.com/images/340a2a5ba54afa16f3c75200a75bf96b.jpg?w=800&h=600&fit=crop', 'Frutilla season', '2020-08-09'),
@@ -294,8 +302,8 @@ INSERT INTO `post` (`id`, `id_user`, `image_user`, `text_post`, `date_post`) VAL
 (39, 4, 'https://www.crearmas.com/wp-content/uploads/2018/11/el-consumo-de-comida-rapida-en-estados-unidos.jpg', 'Buenas salchichas', '2020-02-09'),
 (40, 4, 'https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2018/03/293169-comida-china-sal.jpg?itok=ovMXsLyh', 'Hoy toco esto!', '2020-08-08'),
 (41, 5, 'https://aristeguinoticias.com/editorial/wp-content/uploads/2020/08/coronavirus-comida-sars-cov-2-oms-riesgo-contagios-muertes-empaquetado-envio-alimentos-13082020.png', 'Leenda zapi', '2020-08-12'),
-(42, 5, 'https://www.vozpopuli.com/2019/02/26/bienestar/unicos-alimentos-debes-comer-adelgazar_1222087851_14315002_1280x720.jpg', 'Balance', '2020-12-02'),
-(43, 5, 'https://travelandleisure.mx/wp-content/uploads/2019/04/iStock-640071630-1.jpg', 'Sushiii', '2020-12-12'),
+(42, 5, 'https://www.vozpopuli.com/2019/02/26/bienestar/unicos-alimentos-debes-comer-adelgazar_1222087851_14315002_1280x720.jpg', 'Balance', '2020-02-02'),
+(43, 5, 'https://travelandleisure.mx/wp-content/uploads/2019/04/iStock-640071630-1.jpg', 'Sushiii', '2020-02-12'),
 (44, 5, 'https://offloadmedia.feverup.com/madridsecreto.co/wp-content/uploads/2020/05/20115438/94556732_224190192345460_5792243782158123008_o-1-1024x597.jpg', NULL, '2020-08-09'),
 (45, 5, 'https://okdiario.com/img/2020/11/09/-hambre-a-todas-horas_-como-evitar-la-ansiedad-por-comida-1-620x373.jpg', 'Muy ricoo', '2020-08-09'),
 (46, 5, 'https://mejorconsalud.com/wp-content/uploads/2015/04/desayunar-fruta.jpg', 'Delicioso', '2020-08-07'),
@@ -303,13 +311,12 @@ INSERT INTO `post` (`id`, `id_user`, `image_user`, `text_post`, `date_post`) VAL
 (48, 5, 'https://www.recreoviral.com/wp-content/uploads/2015/05/20-comidas-para-preparar-aunque-estes-en-quiebra-17.jpg', 'Plenooo', '2020-10-10'),
 (49, 5, 'https://img-global.cpcdn.com/recipes/86c604d200ecef2e/400x400cq70/photo.jpg', 'Un salteadito', '2020-08-11'),
 (50, 5, 'https://static3.abc.es/media/familia/2018/05/23/Minevera_Pasta-k4KC--620x349@abc.jpg', 'Muy ricas!', '2020-08-12'),
-(51, 6, 'Captura de pantalla 2020-11-13 a la(s) 14.09.59.png', '!!!!', '2020-11-13'),
-(52, 6, 'Captura de pantalla 2020-11-13 a la(s) 14.01.38.png', '!!!!', '2020-11-13');
+(57, 8, 'https://www.pequerecetas.com/wp-content/uploads/2020/10/tacos-mexicanos.jpg', 'Noche de tacos! #food', '2020-11-14');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `question`
+-- Table structure for table `question`
 --
 
 CREATE TABLE `question` (
@@ -318,7 +325,7 @@ CREATE TABLE `question` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `question`
+-- Dumping data for table `question`
 --
 
 INSERT INTO `question` (`id`, `question`) VALUES
@@ -330,7 +337,7 @@ INSERT INTO `question` (`id`, `question`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -342,12 +349,12 @@ CREATE TABLE `user` (
   `question2` int(11) NOT NULL,
   `securityAnswer` varchar(100) DEFAULT NULL,
   `user_picture` varchar(255) DEFAULT NULL,
-  `following` int(11) NOT NULL DEFAULT '0',
-  `followers` int(11) NOT NULL DEFAULT '0'
+  `following` int(11) NOT NULL DEFAULT 0,
+  `followers` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `birthdate`, `question2`, `securityAnswer`, `user_picture`, `following`, `followers`) VALUES
@@ -356,15 +363,17 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `birthdate`, `question2`,
 (3, 'CarolinaCocina123', 'caro@gmail.com', 'pollo', '2004-06-06 00:00:00', 3, 'ramona', 'https://www.mutualidadabogacia.com/wp-content/uploads/2019/03/8marzodiamujer.jpg', 2000, 4450),
 (4, 'Marita123', 'Mara123@hotmail.com', 'arroz123', '2002-08-09 00:00:00', 3, 'pecesito', 'https://www.marketingdirecto.com/wp-content/uploads/2020/03/dia-de-la-mujer-monica-moro.png', 450, 123),
 (5, 'candevinse', 'candevinse@udesa.edu.ar', 'perrito23', '2000-04-08 00:00:00', 2, 'San Jose', 'https://smoda.elpais.com/wp-content/uploads/2017/08/40mujeres14-1-635x480.jpg', 210, 4),
-(6, 'sus', 'sus@gmail.com', '$2a$10$KHgosZV3mEnvHHycpO5HJ.xCAdkgGjMueYTGmLHJpOy53xWZLDL7O', '2000-05-04 00:00:00', 1, 'ñoqui', NULL, 0, 0),
-(7, 'scott', 'scott@hotmail.com', '$2a$10$UgNVcP1VCOEoYnfsWzAaUefnCzyN.in.Bsg0APYYxOSQAipeOKbwi', '1997-10-29 00:00:00', 1, '$2a$10$gVIn2LWyWGNLw6E75t73E.c5M7aWkJy0yKe4VvsnqIyytgB/kFp6S', NULL, 0, 0);
+(6, 'sus', 'sus@dhl.com', '$2a$10$KHgosZV3mEnvHHycpO5HJ.xCAdkgGjMueYTGmLHJpOy53xWZLDL7O', '2000-05-04 00:00:00', 1, 'ñoqui', NULL, 0, 0),
+(7, 'scott', 'scott@hotmail.com', '$2a$10$UgNVcP1VCOEoYnfsWzAaUefnCzyN.in.Bsg0APYYxOSQAipeOKbwi', '1997-10-29 00:00:00', 1, '$2a$10$gVIn2LWyWGNLw6E75t73E.c5M7aWkJy0yKe4VvsnqIyytgB/kFp6S', NULL, 0, 0),
+(8, 'tomy', 'tomy@gmail.com', '$2a$10$ExpY7VqvBYneGB0879bv8.W6wWIDJhRKfeJuMs4dsgSvpkgRgnA4C', '1999-08-11 00:00:00', 1, '$2a$10$IHqP3aAorMho4IiYJubnBuCz1jDJvNmmRsEHMFRKZo6EHID0EBeae', 'https://ca.slack-edge.com/TGKUAUY5N-UUZ79HZJQ-0ff2eee91e94-512', 0, 0),
+(12, 'alevivone', 'alejandro@digitalhouse.com', '$2a$10$Mp2y9ZwvqglmmKT7TmwTKeyzDx3GCrbVii2RP/f3EclQJkEJ8Yam6', '1976-08-11 00:00:00', 1, '$2a$10$JeG6wZDPqMfJ/8sx2JDde.OwfmK9GF.YUKUBYX87.jt01AZaSUhdu', 'https://ca.slack-edge.com/TGKUAUY5N-ULZ07UJMA-419887fcb18c-512', 0, 0);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
@@ -372,20 +381,20 @@ ALTER TABLE `comments`
   ADD KEY `FK_comentariouser_idx` (`id_user_comment`);
 
 --
--- Indices de la tabla `post`
+-- Indexes for table `post`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_posteousuario_idx` (`id_user`);
 
 --
--- Indices de la tabla `question`
+-- Indexes for table `question`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
@@ -394,40 +403,38 @@ ALTER TABLE `user`
   ADD KEY `id_security_question_idx` (`question2`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `comments`
+-- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
 
 --
--- AUTO_INCREMENT de la tabla `post`
+-- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT de la tabla `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `comments`
---
-ALTER TABLE `comments`
-  ADD CONSTRAINT `FK_comentario_user` FOREIGN KEY (`id_user_comment`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FK_user` FOREIGN KEY (`id_post`) REFERENCES `post` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `user`
+-- Constraints for table `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `FK_question` FOREIGN KEY (`question2`) REFERENCES `question` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
