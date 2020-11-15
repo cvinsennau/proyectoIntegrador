@@ -19,14 +19,36 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
-    <title>Validating User</title>
+    <title>FoodieGram</title>
+    <link rel="icon" href="images/icons/icono.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="/stylesheets/validatingUserQuestion.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
 </head>
 <body>
+    <div class="header-container">
+        <div class="logo-container">
+            <% if(locals.user){%>
+                <a href="/">
+                    <img class="logo" src="/images/foodiegram.png" alt="">
+                </a>
+            <% } else {%>
+                <a href="/">
+                    <img class="logo" src="/images/foodiegram.png" alt="">
+                </a>
+            <% } %>
+        </div>
+
+        <div class="nav-container">
+
+        </div>
+    </div>
     <div class="contenedorUsuario">
         <div class="arribaLogo">
-            <img src="/images/foodiegram.png" alt="">
+            <a href="/account/login"><img class="gifComida" src="https://i.pinimg.com/originals/da/4f/c2/da4fc2360e1dcc5c85cf5eeaee4b107f.gif" alt=""></a>
         </div>
-        <div>
+        <div class="cajaContenido">
             <form class="validatingUserProcess" action="/account/validatingUserQuestion" method="POST">
                 <input type="hidden" name="id" value="<%= user.id %> "> 
                 <h2>Tu pregunta es: <%= user.question.question %> </h2>
@@ -42,5 +64,6 @@
         </div>
 
     </div>
+    <%- include('./partials/footer') %>
 </body>
 </html>
