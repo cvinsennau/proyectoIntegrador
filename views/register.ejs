@@ -45,21 +45,16 @@
                     <span class="bienvenida">bienvenid@!</span>
                     <div class="container">
                         
-                        <div class="col-md-6 mb-4"></div>
-
                         <!--Foto de perfil-->
-                              <div>
-                                <div>
+                            <div>
+                                <div id="userPicture">
                                   <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
-                                    class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
+                                    class="rounded-circle z-depth-1-half avatar-pic" alt="foto de perfil">
                                 </div>
-                                <div class="d-flex justify-content-center">
-                                    <label class="filebutton"> Foto de perfil
-                                        <input type="url" name="user_picture">
-                                    </label>
-                                  
+                                <div class="input-group mb-3">
+                                    <input placeholder="URL foto de perfil" class="form-control" type="url" name="user_picture" accept="image/*">
                                 </div>
-                              </div>       
+                            </div>       
 
                         <!--Nombre de usuario-->
                         <div class="input-group flex-nowrap mb-3">
@@ -104,7 +99,7 @@
 
                         <button id="buttonRegistro" type="submit">Registrarme</button><br>
 
-                        <p class="login">¿Ya tenes una cuenta?<a href="/account/login"> Inicia sesión </a></p>
+                        <p class="login">¿Ya tenes una cuenta?<a class="login" href="/account/login"> Inicia sesión </a></p>
                     </div>
                     
                 </form>

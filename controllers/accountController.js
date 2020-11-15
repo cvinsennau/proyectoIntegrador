@@ -85,9 +85,9 @@ let controller = {
     },   
 
     logout: function(req,res){
-            req.session.destroy(); 
-            res.clearCookie('userId');
-            return res.redirect("/");
+        req.session.destroy(); 
+        res.clearCookie('userId');
+        return res.redirect("/");
     },
 
 

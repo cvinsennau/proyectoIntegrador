@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoodieGram</title>
-    <link rel="icon" href="images/icons/icono.ico" type="image/x-icon">
+    <link rel="icon" href="images/icons/icono.png" type="image/x-icon">
 
     <link rel="stylesheet" href="/stylesheets/myProfile.css">
     <link rel="stylesheet" href="/stylesheets/header.css">
@@ -14,7 +14,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Kumbh+Sans:wght@300;700&family=Poppins:wght@300&family=Questrial&display=swap" rel="stylesheet">
-
+        
     <!-- UiKit -->
     <!-- <link rel="stylesheet" href="css/uikit.min.css">
     <script src="js/uikit-icons.min.js"></script>
@@ -23,6 +23,7 @@
 
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
@@ -31,19 +32,20 @@
 
 <body>
     <%- include('./partials/header')%>
-
     <main>
+        
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-small">
-                <section class="info-usuario uk-flex uk-flex-around uk-width-1-1"> <!--Foto de Perfil-->
+                <section class="info-usuario uk-flex uk-flex-around uk-width-1-1"> 
                     
+                    <!--Foto de Perfil-->
                     <% if(resultados.user_picture == null) { %> 
                         <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
-                            <img src="./images/avatar.png" alt="foto de perfil" class="foto-perfil">
+                            <img src="/images/avatar.png" alt="foto de perfil" class="fotoPerfil">
                         </div>  
                     <% } else { %> 
                         <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
-                            <img src="<%= resultados.user_picture %>" alt="foto de perfil" class="foto-perfil">
+                            <img src="<%= resultados.user_picture %>" alt="foto de perfil" class="fotoPerfil">
                         </div>    
                     <% } %> 
                     
@@ -54,7 +56,8 @@
 
                     <div class="detalle uk-width-2-3 uk-flex uk-flex-column uk-flex-around">
 
-                        <div class="uk-flex uk-flex-middle"> <!--Botón log Out-->
+                         <!--Botón log Out-->
+                        <div class="uk-flex uk-flex-middle"> 
                             <a href="/account/login">
                                 <img class="nav-icon margin-left" src="/images/icons/logout.png" alt="">
                             </a>                  
@@ -87,7 +90,8 @@
                             </div>
                     </section>
                     <% } %> 
-
+                <% } else { %> 
+                    <h3>Sube tu primer posteo!</h3>
                <% } %> 
 
             </div>

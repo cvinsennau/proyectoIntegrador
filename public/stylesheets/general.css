@@ -5,6 +5,7 @@
 main{
     margin-bottom: 40px;
     width: 100%;
+    min-width: 100vw;
 }
 .bienvenida{
     font-family: "Kumbh Sans";

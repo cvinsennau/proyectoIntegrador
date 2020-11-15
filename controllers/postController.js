@@ -26,7 +26,7 @@ let controller = {
 
             comment.findAll({
                 order: [
-                    ['date_comment', 'ASC']
+                    ['date_comment', 'DESC']
                 ],
                 where: [{id_post: req.params.id}],                    
                 include: [

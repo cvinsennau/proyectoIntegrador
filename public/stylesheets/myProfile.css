@@ -97,10 +97,26 @@ h4.nav-text{
 p.uk-text-center{
     gap: 5%;
 }
-img.foto-perfil{
-    height: 75%;
-    width: 80%;
+img.fotoPerfil{
+    width: 90%;
 }
 #section2{
     margin-top: 50px;
+}
+
+
+@media (min-width:1024px){
+    .nav-container{
+        margin-left: 54%;
+    }
+    h4.nav-text{
+        display: inline-block;
+    }
+    .logo{
+        margin-right: 50%;
+    }
+    .login, .login a{
+        font-size: 16px;
+    }
+
 }

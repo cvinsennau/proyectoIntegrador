@@ -7,12 +7,9 @@
 #registro{
     text-align: center;
 }
-.formRegistro, #buttonRegistro ,.login, .login a{
-    font-family: "Poppins";
-}
-.login, .login a{
-    font-size: 14px;
+.login{
     display: inline;
+    font-size: 14px;
 }
 .formRegistro{    
     width:100%;
@@ -29,55 +26,35 @@
     border:1px solid #ccc;
     font-size: 80%;
 }
-.form-control{
-    font-size: 20%;
+.container{
+    margin-top: 3%;
 }
 .container input, .container span, .container label, .container select{
     font-size: 80%;
 }
-
 .avatar-pic {
     width: 100px;
     margin-top: 3%;
-}
-
-
-label.filebutton {
-    width:40%;
-    height:30px;
-    overflow:hidden;
-    position:relative;
-    background-color:#ccc;
-    margin-top: 4%;
-    border-radius: 60px;
-}
-
-label span input {
-    z-index: 999;
-    line-height: 0;
-    font-size: 50px;
-    position: absolute;
-    top: -2px;
-    left: -700px;
-    opacity: 0;
-    filter: alpha(opacity = 0);
-    -ms-filter: "alpha(opacity=0)";
-    cursor: pointer;
-    _cursor: hand;
-    margin: 0;
-    padding:0;
+    margin-bottom: 3%;
 }
 
 @media (min-width:425px){
-    .container input, .container span, .container label, .container select{
+    .container input, .container span, .container label, .container select,#buttonRegistro{
         font-size: 100%;
     }
 }
 @media (min-width:1024px){
-
-    h4.nav-text{
-        display: block;
+    .nav-container{
+        margin-left: 54%;
     }
-    
+    h4.nav-text{
+        display: inline-block;
+    }
+    .logo{
+        margin-right: 50%;
+    }
+    .login, .login a{
+        font-size: 16px;
+    }
 
 }

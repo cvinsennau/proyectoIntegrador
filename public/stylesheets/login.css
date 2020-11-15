@@ -1,20 +1,18 @@
+.buscador-input, .buscador-button, .nav-icon.lupa, h4.nav-text{
+    display:none;
+}
+.logo{
+    justify-content: center;
+}
 #inicio{
     text-align: center;
-    padding-bottom: 3%;
-}
-.formInicio, #buttonInicio,.login, .login a{
-    font-family: "Poppins";
-}
-.formInicio{    
-    width:100%;
-    padding:10px;
-    margin: 8px;
-    border-radius:10px;
-    border:1px solid #ccc;
 }
 .login, .login a{
-    font-size: 14px;
     display: inline;
+    font-size: 14px;
+}
+.container{
+    margin-top: 3%;
 }
 #buttonInicio{
     padding:10px;
@@ -22,7 +20,29 @@
     margin-bottom: 10px;
     border-radius:10px;
     border:1px solid #ccc;
+    font-size: 80%;
 }
-main{
-    height: 522px;
+.container input, .container span, .container label, .container select{
+    font-size: 80%;
+}
+
+@media (min-width:425px){
+    .container input, .container span, .container label, .container select, #buttonInicio{
+        font-size: 100%;
+    }
+}
+@media (min-width:1024px){
+    .nav-container{
+        margin-left: 54%;
+    }
+    h4.nav-text{
+        display: inline-block;
+    }
+    .logo{
+        margin-right: 50%;
+    }
+    .login, .login a{
+        font-size: 16px;
+    }
+
 }
