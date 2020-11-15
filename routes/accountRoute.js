@@ -13,4 +13,9 @@ router.get('/signup', questionController.index);
 
 router.post('/logout', accountController.logout)
 
+router.get('/validatingUser', accountController.validatingUser); 
+
+router.post('/validatingUserProcess',accountController.validatingUserProcess);
+router.post('/validatingUserQuestion', accountController.validatingUserQuestion);
+
 module.exports = router;

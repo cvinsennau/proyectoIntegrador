@@ -90,6 +90,59 @@ let controller = {
         return res.redirect("/");
     },
 
+    validatingUser: function(req,res){
+        res.render('validatingUser')
+    },
+
+    validatingUserProcess:function(req,res){
+        db.Usuario.findOne (
+            {
+                where: [
+                    {name: req.body.user}
+                ]
+            }
+        )
+        .then(function(user){
+            if (user == null){
+                res.render("validatingUser", {errorMessage: "Hubo un error"})
+            } else {
+                    if (user.question2 == 1){
+                    questionText = "Cuál es tu comida favorita?"
+                } else if (user.question2 == 2){
+                    questionText = "Cómo se llamaba tu escuela primaria?"
+                } else if (user.question2 == 3){
+                    questionText = "Cómo se llama tu mascota?"
+                } else if (user.question2 == 4){
+                    questionText = "Cuál es el apellido de tu mamá?"
+                }
+                res.render("validatingUserQuestion", {user:user, questionText:questionText})
+            }
+        })
+    },
+
+    validatingUserQuestion: function(req,res){
+        db.User.findOne(
+            {
+                where: [
+                    {
+                        id: req.body.id,
+                        securityAnswer: req.body.securityAnswer
+                    }
+                ]
+            }
+        )
+
+        .then(function(answer){
+            if (answer == null){
+                req.session.user = undefined;
+                res.render("login", {errorMessage: "Hubo un error"})
+            } else {
+                req.session.user = answer;
+                res.redirect("/user/update/" + req.session.user.id)
+            }
+        })
+    }
+
 
 }   
 
