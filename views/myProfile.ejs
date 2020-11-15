@@ -36,6 +36,7 @@
         
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-small">
+                
                 <section class="info-usuario uk-flex uk-flex-around uk-width-1-1"> 
                     
                     <!--Foto de Perfil-->
@@ -49,36 +50,34 @@
                         </div>    
                     <% } %> 
                     
-                    <h3>
-                        <%= resultados.name %> 
-                    </h3>
-
 
                     <div class="detalle uk-width-2-3 uk-flex uk-flex-column uk-flex-around">
+                        <div class="uk-flex uk-flex-middle">
+                            <h3 class="uk-margin-remove"><%= resultados.name %></h3>
+                            
+                            <!--Botón ajustes-->
+                            <a href="/user/update/<%= resultados.id %> " class="uk-icon-link" uk-icon="cog" ></a>
 
-                         <!--Botón log Out-->
-                        <div class="uk-flex uk-flex-middle"> 
-                            <a href="/account/login">
-                                <img class="nav-icon margin-left" src="/images/icons/logout.png" alt="">
-                            </a>                  
+                            <!--Botón logout-->
+                            <form action='/account/logout' method="POST"> 
+                                <button type="submit"> <span type="submit" uk-icon="sign-out"></span>Logout </button>
+                            </form>
+
                         </div>
-
-                        <div class="datosUsuario"> <!-- Info Seguidores     -->
+                        <div class="datosUsuario">
                             <ul class="red-usuario uk-flex uk-flex-between uk-width-1-2">
-                                <li class="seguidores"><%= resultados.followers %></li>
-                                <li class="seguidores"><%= resultados.following %></li>
+                                <li class="seguidores">Following: <%= resultados.following %></li>
+                                <li class="seguidores">Followers: <%= resultados.followers %></li>
                             </ul>
                         </div>
-
                     </div>
-                    
+
                </section>
 
-               
-                <% if(resultados.posts > 0){ %>
-                    <% for(let i=0; i<10; i++){ %>
-                        <section class="muro uk-flex uk-flex-middle uk-flex-center">
-                            <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
+                <section class="muro uk-flex uk-flex-middle uk-flex-center">
+                    <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
+                        <% if(resultados.posts > 0){ %>
+                            <% for(let i=0; i<resultados.length; i++){ %>
                                 <div class="div-post uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
                                     <a href="/post/detail/<%= resultados.posts[i].id %>" class="link-detalle">
                                         <div class="post">
@@ -87,12 +86,13 @@
                                         </div>
                                     </a>
                                 </div>
-                            </div>
-                    </section>
-                    <% } %> 
-                <% } else { %> 
-                    <h3>Sube tu primer posteo!</h3>
-               <% } %> 
+                            <% } %> 
+                            <% } else {%>
+                                <h3>Subí tu primer posteo!</h3>
+                                <a href="/post/add" class="uk-icon-link" uk-icon="camera"></a>
+                        <% } %> 
+                    </div>
+                </section>
 
             </div>
         </div>

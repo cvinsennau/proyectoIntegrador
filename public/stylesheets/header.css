@@ -71,9 +71,7 @@ a{
     align-items: center;
 }
 .nav-icon{
-    width: 25px;
-    height: 25px;
-    margin-right: 20px;
+    width: 15%;
 }
 .round{
     border-radius: 100px;
@@ -91,6 +89,7 @@ img.lupa{
     align-items: center;
     justify-content: space-between;
 }
+
 h4.nav-text{
     color: white;
     font-size: 15px;

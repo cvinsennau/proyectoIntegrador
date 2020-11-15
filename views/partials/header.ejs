@@ -3,11 +3,11 @@
         <div class="logo-container">
             <% if(locals.user){%>
                 <a href="/">
-                    <img class="logo" src="../images/foodiegram.png" alt="">
+                    <img class="logo" src="/images/foodiegram.png" alt="">
                 </a>
             <% } else {%>
                 <a href="/">
-                    <img class="logo" src="../images/foodiegram.png" alt="">
+                    <img class="logo" src="/images/foodiegram.png" alt="">
                 </a>
             <% } %>
         </div>
@@ -28,7 +28,7 @@
                 <a href="/user/myProfile/<%= locals.user.id %>">
                     <% if(locals.user.user_picture == null) { %> 
                         <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
-                            <img src="../images/avatar.png" alt="foto de perfil" class="nav-icon round">
+                            <img src="/images/avatar.png" alt="foto de perfil" class="nav-icon round">
                         </div>  
                     <% } else { %> 
                         <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
@@ -37,13 +37,12 @@
                     <% } %> 
                 </a>
 
-                <a href="/post/add">
-                    <img class="nav-icon" src="../images/icons/addPhoto.png" alt="">
-                </a>
+                <!-- AGREGAR POSTEO -->
+                <a href="/post/add" class="uk-icon-link" uk-icon="camera"></a>
 
-                <!-- CAMBIAR ESTE BOTON PORQUE ES HORRIBLE -->
+                <!-- LOGOUT -->
                 <form action='/account/logout' method="POST"> 
-                    <button type="submit"> Logout </button>
+                    <button type="submit"> <span type="submit" uk-icon="sign-out"></span>Logout </button>
                 </form>
 
             <% } else {%>

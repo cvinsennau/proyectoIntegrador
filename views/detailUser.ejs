@@ -39,13 +39,14 @@
             <div class="uk-container uk-container-small">
                 <section class="info-usuario uk-flex uk-flex-around uk-width-1-1">
 
+                    <!--Foto de Perfil-->
                     <% if(resultados.user_picture == null) { %> 
                         <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
-                            <img src="../images/avatar.png" alt="foto de perfil" class="foto-perfil">
+                            <img src="/images/avatar.png" alt="foto de perfil" class="fotoPerfil">
                         </div>  
                     <% } else { %> 
                         <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
-                            <img src="<%= resultados.user_picture %>" alt="foto de perfil" class="foto-perfil">
+                            <img src="<%= resultados.user_picture %>" alt="foto de perfil" class="fotoPerfil">
                         </div>    
                     <% } %> 
                     
@@ -66,20 +67,17 @@
                 </section>
                
                 <section class="muro uk-flex uk-flex-middle uk-flex-center">
-                    <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid></div>
+                    <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
                     <% if(resultadosPosteos != "" ){ %>
                         <% for(let i=0; i<resultadosPosteos.length; i++){ %>
-
-                                        <div class="div-post uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                                            <a href="/post/detail/<%= resultadosPosteos[i].id %>" class="link-detalle">
-                                                <div class="post">
-                                                    <img src="<%= resultadosPosteos[i].image_user %>" alt="foto de perfil" class="foto-post">
-                                                    <p class="uk-text-center"><%= resultadosPosteos[i].text_post %></p>
-                
-                                                </div>
-                                            </a>
-                                        </div>
-                                    
+                            <div class="div-post uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
+                                <a href="/post/detail/<%= resultadosPosteos[i].id %>" class="link-detalle">
+                                    <div class="post">
+                                        <img src="<%= resultadosPosteos[i].image_user %>" alt="foto de perfil" class="foto-post">
+                                            <p class="uk-text-center"><%= resultadosPosteos[i].text_post %></p>
+                                    </div>
+                                </a>
+                            </div>
                         <% } %> 
                     <% } else {%>
                         <p> <%= resultados.name %> todavía no ha compartido ningún post</p>

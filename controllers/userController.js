@@ -32,6 +32,18 @@ let controller = {
             })
     },
 
+    edit: function(req,res){   
+        var idUserEdit = req.params.id
+        
+        user.findByPk(idUserEdit)
+            .then(function(resultados){
+                return res.render ('updateProfile',{resultados: resultados});
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+    },
+
     update: function(req,res){
         if (req.session.user == undefined) {
             return res.redirect("/")
@@ -44,6 +56,7 @@ let controller = {
             birthdate: req.body.birthdate,
             question2: req.body.securityQuestion,
             securityAnswer: bcrypt.hashSync(req.body.password,10),
+            user_picture: req.body.user_picture,
             //created_at: db.sequelize.literal("CURRENT_DATE"),
             //updated_at: db.sequelize.literal("CURRENT_DATE")
         }
@@ -52,11 +65,11 @@ let controller = {
             mainUser
         },
         {
-            where: {id: req.params.id}
+            where: {id: idUserEdit}
         });
            
-        return res.redirect('/myProfile') 
-    }, //VER SI FUNCIONA ESTA MIERDA
+        return res.redirect('myProfile') 
+    }, 
 
     userDetail: function(req,res){
         let primaryKey = req.params.id;
@@ -66,26 +79,26 @@ let controller = {
             .then(function(resultados){
 
                 post.findAll({
-                    order: [
-                        ['date_post', 'ASC']
+                    where: [
+                        {id_user: primaryKey}
                     ],
-                    where: [{id_user: primaryKey}],                    
                     include: [
                         {association: "user"},
-                        {association: "comments"}
-                ],
-            
-            })
+                        {association: "comments"},
+                    ],
+                    order: [
+                        ['date_post', 'ASC']
+                    ],            
+                })
+                    .then(function(resultadosPosteos){
+                        //return res.send(resultados)
+                        return res.render('detailUser', {resultados:resultados, resultadosPosteos:resultadosPosteos})
+                    })  
 
-                .then(function(resultadosPosteos){
-                    //return res.send(resultados)
-                    return res.render('detailUser', {
-                        resultados:resultados, resultadosPosteos:resultadosPosteos})
-                })  
-            .catch(function(error){
-                console.log(error)
+                    .catch(function(error){
+                        console.log(error)
+                    })
             })
-        })
 
         
     }

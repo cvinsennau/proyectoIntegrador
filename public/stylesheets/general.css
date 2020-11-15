@@ -16,6 +16,21 @@ main{
     border: #393333;
     color:#d9a785;
 }
+.logo1,.logo2{
+    font-family: "Kumbh Sans";
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: 1px; 
+    text-transform: lowercase;
+    border: #393333;
+}
+.logo1{
+    color:#d9a785;
+}
+.logo2{
+    color: whitesmoke;
+    /* VER BIEN QUE COLOR ERA PORQUE NO ME ACUERDO */
+}
 .error{
     color: red;
 }
