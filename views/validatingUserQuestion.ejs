@@ -23,11 +23,22 @@
 </head>
 <body>
     <div class="contenedorUsuario">
-        <div class="arribaUsuario">
-            <span uk-icon="icon: user"></span>
+        <div class="arribaLogo">
+            <img src="/images/foodiegram.png" alt="">
         </div>
         <div>
-            <form class="validatingUser" action="/account/validatingUser"></form>
+            <form class="validatingUserProcess" action="/account/validatingUserQuestion" method="POST">
+                <input type="hidden" name="id" value="<%= user.id %> "> 
+                <h2>Tu pregunta es: <%= user.question.question %> </h2>
+                <div class="uk-margin">
+                    <div class="uk-inline">
+                        <input class="uk-input respuesta" type="text" placeholder="Respuesta..." name="securityAnswer">
+                    </div>
+                </div>    
+                
+                <input type="submit" class="uk-button uk-button-defauly botonContinuar" value="Continuar">
+
+            </form>
         </div>
 
     </div>

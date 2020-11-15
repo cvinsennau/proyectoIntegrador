@@ -58,6 +58,13 @@
                         </div>
 
                         <!--MENSAJE ERROR SI LA CONTRASENA ES INCORRECTA-->
+
+                        <% if (typeof errorMessage != 'undefined') { %>
+                            <div class="uk-alert-danger" uk-alert>
+                                <a class="uk-alert-close" ek-close></a>
+                                <h2>Respuesta incorrecta</h2>
+                            </div> 
+                        <% } %> 
     
                         <button id="buttonInicio" type="submit">Iniciar Sesión</button><br><br>
 

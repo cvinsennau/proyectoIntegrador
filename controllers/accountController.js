@@ -95,10 +95,13 @@ let controller = {
     },
 
     validatingUserProcess:function(req,res){
-        db.Usuario.findOne (
+        db.User.findOne (
             {
+                include: [
+                    {association:"question"}
+            ],
                 where: [
-                    {name: req.body.user}
+                    {name: req.body.name}
                 ]
             }
         )
@@ -123,6 +126,9 @@ let controller = {
     validatingUserQuestion: function(req,res){
         db.User.findOne(
             {
+                include: [
+                    {association:"question"}
+                ],
                 where: [
                     {
                         id: req.body.id,
@@ -131,16 +137,15 @@ let controller = {
                 ]
             }
         )
-
-        .then(function(answer){
-            if (answer == null){
-                req.session.user = undefined;
-                res.render("login", {errorMessage: "Hubo un error"})
-            } else {
-                req.session.user = answer;
-                res.redirect("/user/update/" + req.session.user.id)
-            }
-        })
+         .then(function(securityAnswer){
+             if (securityAnswer == null){
+                 req.session.user = undefined;
+                 res.render("login", {errorMessage: "Hubo un error"})
+             } else {
+                 req.session.user = securityAnswer;
+                 res.redirect("/user/update/" + req.session.user.id)
+             }
+         })
     }
 
 
