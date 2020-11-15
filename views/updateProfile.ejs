@@ -79,7 +79,7 @@
                 <!-- Pregunta y respuesta de seguridad -->
                 <div class="input-group mb-3" class='formRegistro'>
                     <label class="form-control">pregunta de seguridad</label>
-                    <select name="securityQuestion" class="custom-select" id="inputGroupSelect01">
+                    <select name="question2" class="custom-select" id="inputGroupSelect01">
                         <% for (let i = 0; i < resultados.length; i++) {%>
                             <option value="<%= resultados[i].id%>"><%= resultados[i].question%></option>
                         <%}%>

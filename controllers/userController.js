@@ -62,32 +62,23 @@ let controller = {
         if (req.session.user == undefined) {
             return res.redirect("/")
         }
-
-        if (req.session.user == undefined) {
-            return res.redirect("/")
-        }
         
         let mainUser = {
             name: req.body.name,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password,10),
             birthdate: req.body.birthdate,
-            question2: req.body.securityQuestion,
+            question2: req.body.question2,
             securityAnswer: bcrypt.hashSync(req.body.password,10),
             user_picture: req.body.user_picture,
             //created_at: db.sequelize.literal("CURRENT_DATE"),
-            //updated_at: db.sequelize.literal("CURRENT_DATE")
+            updated_at: db.sequelize.literal("CURRENT_DATE")
         }
 
-        user.update({
-            mainUser
-        },
-        {
-            where: {id: req.params.id}
-        });
+        user.update(mainUser,{where: {id: req.params.id}});
         
         var idUser = req.session.user.id;
-        console.log(idUser);
+        
         //return res.send(mainUser)
         return res.redirect('/user/myProfile/'+idUser)
     }, 

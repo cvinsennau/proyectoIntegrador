@@ -31,6 +31,7 @@ let controller = {
             ]
         })
         .then(resultados=>{
+            return res.send(resultados)
             return res.render("updateProfile", {resultados: resultados})
         })
         .catch(function(error){
