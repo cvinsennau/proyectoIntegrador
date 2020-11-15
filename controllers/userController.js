@@ -1,6 +1,9 @@
 const db = require('../database/models')
 const user = db.User; //Debe ser el alias del modelo.
 const post = db.Post;
+const bcrypt = require('bcryptjs')
+
+
 
 const question = db.Question;
 
@@ -12,7 +15,7 @@ let controller = {
             return res.redirect("/")
         }
         
-        let mainUser = req.session.user.id;
+        let mainUser = req.session.user.id
         
         user.findByPk(mainUser)
 
@@ -44,9 +47,10 @@ let controller = {
 
     edit: function(req,res){   
         var idUserEdit = req.params.id
-        
+
         user.findByPk(idUserEdit)
             .then(function(resultados){
+                //return res.send(resultados)
                 return res.render ('updateProfile',{resultados: resultados});
             })
             .catch(function(error){
@@ -55,6 +59,10 @@ let controller = {
     },
 
     update: function(req,res){
+        if (req.session.user == undefined) {
+            return res.redirect("/")
+        }
+
         if (req.session.user == undefined) {
             return res.redirect("/")
         }
@@ -75,10 +83,13 @@ let controller = {
             mainUser
         },
         {
-            where: {id: idUserEdit}
+            where: {id: req.params.id}
         });
-           
-        return res.redirect('myProfile') 
+        
+        var idUser = req.session.user.id;
+        console.log(idUser);
+        //return res.send(mainUser)
+        return res.redirect('/user/myProfile/'+idUser)
     }, 
 
     userDetail: function(req,res){
