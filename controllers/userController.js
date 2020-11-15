@@ -14,22 +14,32 @@ let controller = {
         
         let mainUser = req.session.user.id;
         
-        user.findOne({
-            where: [
-                {id: mainUser}
-            ],
-            include: [
-                {association:"posts", include: ["user"]}
-            ]
-        })
+        user.findByPk(mainUser)
+
             .then(function(resultados){
-                //return res.send(resultados)
-                req.session.user = resultados
-                return res.render('myProfile', {resultados:resultados})
-            })
-            .catch(function(error){
-                console.log(error)
-            })
+                
+                post.findAll({
+                    where: [
+                        {id_user: req.session.user.id}
+                    ],
+                    include: [
+                        {association: "user"},
+                        {association: "comments"},
+                    ],
+                    order: [
+                        ['date_post', 'ASC']
+                    ],
+                })
+            
+                .then(function(resultadosPosteos){
+                    //return res.send(resultadosPosteos)
+                    req.session.user = resultados
+                    return res.render('myProfile', {resultados:resultados, resultadosPosteos:resultadosPosteos})
+                })
+                .catch(function(error){
+                    console.log(error)
+                })
+        })
     },
 
     edit: function(req,res){   
