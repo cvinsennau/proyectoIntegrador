@@ -76,3 +76,10 @@ a.boton:focus{
     background-color: white;
     color: black;
 }
+.fotoPerfil{
+    height: 120px;
+    width: 120px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 100%;
+}

@@ -1,7 +1,9 @@
-img.fotoPerfil{
-    height: 5%;
-    width: 5%;
-    max-width: 10%;
+.fotoPerfil{
+    height: 40px;
+    width: 40px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 100%;
 }
 #fotoPerfilUsuario{
     width: 80%;
@@ -105,6 +107,7 @@ div form button.button{
 }
 #postText{
     margin-left: 5%;
+    color: black;
 }
 #piedefoto{
     margin-top: 4% ;
@@ -112,6 +115,9 @@ div form button.button{
 }
 #infoUser{
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
 }
 .editPerfil{
     text-align: right;
@@ -122,6 +128,12 @@ div form button.button{
 #fecha{
     margin-top: 5px;
 }
-#comentarioPost{
+.comentarioPost{
     margin-top: 10px;
+    color: black;
+}
+img.fotoPerfilUsuario{
+    height: 40px;
+    max-width: 80px;
+    border-radius: 100%;
 }

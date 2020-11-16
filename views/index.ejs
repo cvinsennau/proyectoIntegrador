@@ -48,7 +48,9 @@
                                 <div class="info-usuario uk-flex "> <!--Info del Ususario-->
 
                                     <div class="cajaPerfil"> <!--Foto de Perfil-->
-                                        <a class="usuarios" href="/user/detail/<%= resultados[i].user.id %>"><img class="fotoPerfilUsuario" src="<%= resultados[i].user.user_picture %>" alt=""></a>
+                                        <a class="usuarios" href="/user/detail/<%= resultados[i].user.id %>">
+                                            <div class="fotoPerfil" style="background-image: url('<%= resultados[i].user.user_picture %>');"></div>  
+                                        </a>
                                     </div>
                                     <a class="usuarios" href="/user/detail/<%= resultados[i].user.id %>"> <!--Nombre del usuario-->
                                         <h4><%= resultados[i].user.name %></h4>

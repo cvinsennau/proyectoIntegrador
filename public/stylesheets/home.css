@@ -153,9 +153,12 @@ h6.comentarios{
     font-weight: 300;
     margin-bottom: 10px;
 }
-#fotoPerfilUsuario{
+.fotoPerfil{
+    height: 60px;
+    width: 60px;
+    background-position: center;
+    background-size: cover;
     border-radius: 100%;
-    width: 100%;
 }
 .postComment{
     padding-left: 1%;
