@@ -108,14 +108,20 @@ div h5{
 div.cajaPerfil{
     width: auto;
 }
-svg{
-    color: white;
+.post-reacciones svg{
     margin-right: 10px;
+}
+#iconsReacciones{
+    padding-left: 6%;
 }
 body a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+}
+#commentsUl{
+    margin-left: 0;
+    padding-left: 0;
 }
 ul a{
     font-family: 'Open Sans', sans-serif;
@@ -133,7 +139,6 @@ ul a.ver-mas{
 }
 a.usuarios{
     font-family: 'Poppins', sans-serif;
-    width: auto;
 }
 a.main-user{
     margin-bottom: 10px;
@@ -145,11 +150,16 @@ h6.comentarios{
     font-weight: 300;
     margin-bottom: 10px;
 }
-img.fotoPerfilUsuario{
+#fotoPerfilUsuario{
     border-radius: 100%;
-    height: 48px;
-    width: 48px;
+    width: 100%;
 }
 .postComment{
-    padding-left: 3%;
+    padding-left: 6%;
+}
+#usernamePost{
+    padding-left: 6%;
+}
+article.post div.post-comentarios {
+    margin-left: 40px;
 }
