@@ -42,70 +42,88 @@
                     margin-right: 50px;">
                         <img src="<%= resultados.image_user %>" alt="Post Image" class="post-imagen">
                     </article>
-                    <div class="post-pie uk-flex">
-                        <label class="postComment"><%= resultados.text_post %></label>
-                    </div>
+                    
                     <article class="uk-width-1-3 uk-flex uk-flex-column comentarios-detalle">
                         
-                        <!--Foto de Perfil-->
-                        <% if(resultados.user_picture == null) { %> 
-                            <div id="userPicture">
-                                <a href="/user/detail/<%= resultados.user.id%>"></a><img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" id="fotoPerfilUsuario" class="rounded-circle z-depth-1-half avatar-pic" alt="foto de perfil"></a>
-                            </div>
-                        <% } else { %> 
-                            <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
-                                <a href="/user/detail/<%= resultados.user.id%>"></a><img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" id="fotoPerfilUsuario" class="rounded-circle z-depth-1-half avatar-pic" alt="foto de perfil">
-                                <img src="<%= resultados.user_picture %>" alt="foto de perfil" class="fotoPerfil"></a>
-                            </div>    
-                        <% } %> 
-                        <h3 style="margin: 0px;"><a href="/user/detail/<%= resultados.user.id%>" class="user-comment-post"><%= resultados.user.name%></a></h3>
-                        
-
-                        <% if(locals.user){%>
-
-                            <% for(let i=0; i<resultadosComentarios.length; i++){ %>
-                                <div class="lista-comentarios" >
-                                    <div class="comentario uk-flex uk-flex-middle uk-margin-small-top">
-                                        <div class="div-img-comentario uk-width-1-4 uk-flex uk-flex-center">
-                                            <img src="<%= resultadosComentarios[i].user.user_picture %>" alt="Foto de usuario" class="fotos-comentarios">
-                                        </div>
-                                        <h6 class="margin-left uk-margin-remove uk-width-2-4">
-                                            <a class="user-comment-post" href="/user/detail/<%= resultadosComentarios[i].id_user_comment %> ">
-                                                <%= resultadosComentarios[i].user.name %>
-                                            </a>
-                                            <p><%= resultadosComentarios[i].date_comment %></p>
-                                        </h6>
-                                        <p>
-                                            <%= resultadosComentarios[i].text_comment %>
-                                        </p>
-                                        <a href="" uk-icon="icon:heart; ratio: 0.8" class="like uk-width-1-4 uk-text-right icono-meGusta"></a>
-                                    </div>
+                        <div id="infoUser">
+                            <!--Foto de Perfil-->
+                            <% if(resultados.user_picture == null) { %> 
+                                <div id="userPicture">
+                                    <a href="/user/detail/<%= resultados.user.id%>"></a><img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" id="fotoPerfilUsuario" class="rounded-circle z-depth-1-half avatar-pic" alt="foto de perfil"></a>
                                 </div>
-                            <% } %> 
-
-                            <div class="agregar-comentario uk-flex uk-flex-middle">
-                                <form action="/post/detail/ <%= resultados.id %> " class="uk-text-center" method="POST">
-                                  <input type="text" class="uk-input" placeholder="Agregar comentario" name="text_comment">  
-                                  <button class="button uk-button uk-button-primary uk-margin-small-top" type="submit">Comentar</button>
-                                </form>
-                            </div>
-
-                        <% }  if( locals.user && resultados.id_user == locals.user.id) { %>
-                            <div class="editPerfil">
-
-                                <a type="submit" href="/post/editPost/<%= resultados.id %>" class="uk-icon-button" uk-icon="settings"></a>
-
-                                <br>
-
-                                <a type="submit" href="/post/deletePost/<%= resultados.id %>" class="uk-icon-button" uk-icon="trash"></a>
+                            <% } else { %> 
+                                <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
+                                    <a href="/user/detail/<%= resultados.user.id%>"></a><img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" id="fotoPerfilUsuario" class="rounded-circle z-depth-1-half avatar-pic" alt="foto de perfil">
+                                    <img src="<%= resultados.user_picture %>" alt="foto de perfil" class="fotoPerfil"></a>
+                                    
+                                </div>  
                                 
+                            <% } %> 
+                            <div id="piedefoto" class="post-pie uk-flex">
+                                <label class="username"><a class="username" href="/user/detail/<%= resultados.user.id%>" class="user-comment-post"><%= resultados.user.name%></a></label><label id="postText"><%= resultados.text_post %></label>
                             </div>
+                        </div>
                         
-                        <% } else if(locals.user = undefined) {%>
+                        
+                        <div class="container">
+                            <% if(locals.user){%>
 
-                            <label> Inicia sesión para ver los comentarios </label> 
-
-                        <% } %>
+                                <% for(let i=0; i<resultadosComentarios.length; i++){ %>
+                                    <div class="lista-comentarios" >
+                                        <div class="comentario uk-flex uk-flex-middle uk-margin-small-top">
+                                            <div class="div-img-comentario uk-width-1-4 uk-flex uk-flex-center">
+    
+                                                <% if(resultados.user_picture == null) { %> 
+                                                    <div id="userPicture">
+                                                        <a href="/user/detail/<%= resultadosComentarios[i].user.id%>"></a><img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" id="fotoPerfilUsuario" class="rounded-circle z-depth-1-half avatar-pic" alt="foto de perfil"></a>
+                                                    </div>
+                                                <% } else { %> 
+                                                    <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
+                                                        <a href="/user/detail/<%= resultadosComentarios[i].user.id%>"></a><img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" id="fotoPerfilUsuario" class="rounded-circle z-depth-1-half avatar-pic" alt="foto de perfil">
+                                                        <img src="<%= resultadosComentarios[i].user.user_picture %>" alt="foto de perfil" class="fotoPerfil"></a>
+                                                        
+                                                    </div>  
+                                                <% } %> 
+    
+                                            </div>
+    
+                                            <h6 class="margin-left uk-margin-remove uk-width-2-4">
+                                                <a id="usuarioPost" class="user-comment-post" href="/user/detail/<%= resultadosComentarios[i].id_user_comment %> ">
+                                                    <%= resultadosComentarios[i].user.name %>
+                                                </a>
+                                                <p id="fecha"><%= resultadosComentarios[i].date_comment %></p>
+                                            </h6>
+                                            <p id="comentarioPost">
+                                                <%= resultadosComentarios[i].text_comment %>
+                                            </p>
+                                            <a href="" uk-icon="icon:heart; ratio: 0.8" class="like uk-width-1-4 uk-text-right icono-meGusta"></a>
+                                        </div>
+                                    </div>
+                                <% } %> 
+    
+                                <div class="agregar-comentario uk-flex uk-flex-middle">
+                                    <form action="/post/detail/ <%= resultados.id %> " class="uk-text-center" method="POST">
+                                      <input id="addComment" type="text" class="uk-input" placeholder="Agregar un comentario..." name="text_comment">  
+                                      <button id="buttonComment" type="submit">Comentar</button>
+                                    </form>
+                                </div>
+    
+                            <% }  if( locals.user && resultados.id_user == locals.user.id) { %>
+                                <div class="editPerfil">
+    
+                                    <label> <a type="submit" href="/post/editPost/<%= resultados.id %>" class="uk-icon-button" uk-icon="settings"></a> </label>
+    
+                                    <label> <a type="submit" href="/post/deletePost/<%= resultados.id %>" class="uk-icon-button" uk-icon="trash"></a></label>
+                                    
+                                </div>
+                            
+                            <% } else if(locals.user = undefined) {%>
+    
+                                <label> Inicia sesión para ver los comentarios </label> 
+    
+                            <% } %>
+                        </div>
+                       
 
                         
                     </article>

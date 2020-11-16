@@ -15,7 +15,7 @@ input, button,.login, .login a, .titlePost{
     border-radius:10px;
     border:1px solid #ccc;
 }
-#postear{
+#postear,.postear{
     padding:10px;
     margin-top: 15px;
     margin-bottom: 10px;
@@ -28,6 +28,11 @@ main{
 }
 .container{
     text-align: center;
+}
+.containerDelete{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 #imageEdit{
     margin-left: 120px;

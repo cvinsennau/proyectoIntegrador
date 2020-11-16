@@ -5,7 +5,7 @@ img.fotoPerfil{
 }
 #fotoPerfilUsuario{
     width: 80%;
-    max-width: 100px;
+    max-width: 80px;
 }
 .section.detalle-container{
     border: 1px solid lightgray;
@@ -88,4 +88,40 @@ div h6.margin-left{
 }
 div form button.button{
     font-family: 'Open Sans', sans-serif;
+}
+#buttonComment{
+    padding:10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+#addComment{
+    font-size: 80%;
+}
+.username{
+    color: black;
+    letter-spacing: 1px;
+}
+#postText{
+    margin-left: 5%;
+}
+#piedefoto{
+    margin-top: 4% ;
+    margin-bottom: 6%;
+}
+#infoUser{
+    text-align: center;
+}
+.editPerfil{
+    text-align: right;
+}
+#usuarioPost{
+    font-weight: 600;
+}
+#fecha{
+    margin-top: 5px;
+}
+#comentarioPost{
+    margin-top: 10px;
 }

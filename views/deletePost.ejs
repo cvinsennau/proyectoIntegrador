@@ -24,6 +24,7 @@
     
         <!-- UIkit CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+
     
         <!-- UIkit JS -->
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
@@ -31,12 +32,29 @@
     </head>
 <body>
     <%- include('./partials/header')%>
-    <h2>Estas seguro que queres borrar?</h2>
-    <form action="/post/deletePost/<%= resultados.id %>" method="POST">
-    <button>Si, quiero borrar</button>
-    </form>
-    <br>
-    <a href="/post/detail/<%= resultados.id %>"><button>No, no quiero</button></a>
+
+    <main>
+        <div class="uk-section uk-section-small">
+            
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+                <div>
+                    <h2 class="title">estas seguro que queres borrar este post?</h2>
+                
+                    <div class="containerDelete">
+                        <form action="/post/deletePost/<%= resultados.id %>" method="POST">
+                        
+                            <button id="postear" type="submit">Si, quiero borrarlo</button><br>                    
+                       
+                        </form>
+                        <a href="/post/detail/<%= resultados.id %>"><button class="postear">No. Volver al post</button></a>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </main>
+    
     
     <%- include('./partials/footer') %> 
 </body>

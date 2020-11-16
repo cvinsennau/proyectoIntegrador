@@ -105,6 +105,36 @@ p.uk-text-center{
     width: 100%;
     border-radius: 10px;
 }
+a.boton{
+    display: block;
+    font-size: 15px;
+    border-radius: 5px;
+    line-height: 30px;
+    background-color: #393333;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    margin-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-weight: bold;
+}
+a.boton:hover{
+    text-decoration: none;
+    color:white;
+}
+a.boton:active{
+    background-color: white;
+    color: black;
+}
+a.boton:target{
+    background-color: white;
+    color: black;
+}
+a.boton:focus{
+    background-color: white;
+    color: black;
+}
 
 
 @media (min-width:1024px){
