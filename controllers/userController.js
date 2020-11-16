@@ -50,12 +50,23 @@ let controller = {
 
         user.findByPk(idUserEdit)
             .then(function(resultados){
+                question.findAll({
+                    order:[
+                        ["id", "ASC"]
+                    ],
+                    include: [
+                        {association:"users"},
+                    ]
+                })
+
+            .then(function(preguntas){
                 //return res.send(resultados)
-                return res.render ('updateProfile',{resultados: resultados});
+                return res.render ('updateProfile',{resultados: resultados, preguntas:preguntas});
             })
             .catch(function(error){
                 console.log(error)
             })
+        })
     },
 
     update: function(req,res){
@@ -79,13 +90,13 @@ let controller = {
             mainUser
         },
         {
-            where: {id: req.params.id}
+            where: {id: req.session.user.id}
         });
 
         
         var idUser = req.session.user.id;
         
-        return res.send(mainUser)
+        //return res.send(mainUser)
         return res.redirect('/user/myProfile/'+idUser)
     }, 
 

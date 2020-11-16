@@ -80,8 +80,8 @@
                 <div class="input-group mb-3" class='formRegistro'>
                     <label class="form-control">pregunta de seguridad</label>
                     <select name="question2" class="custom-select" id="inputGroupSelect01">
-                        <% for (let i = 0; i < resultados.length; i++) {%>
-                            <option value="<%= resultados[i].id%>"><%= resultados[i].question%></option>
+                        <% for (let i = 0; i < preguntas.length; i++) {%>
+                            <option value="<%= preguntas[i].id%>"><%= preguntas[i].question%></option>
                         <%}%>
                     </select>
                 </div>
