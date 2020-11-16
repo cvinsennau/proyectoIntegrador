@@ -32,14 +32,6 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.STRING,
             allowNull: true
         },
-        created_at: {
-            type: dataTypes.DATE,
-            allowNull: true
-        },
-        updated_at: {
-            type: dataTypes.DATE,
-            allowNull: true
-        },
         user_picture:{
             type: dataTypes.STRING
         },
