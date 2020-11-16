@@ -46,6 +46,7 @@
                         
                             <!--Foto de perfil-->
                             <div> 
+                                <div>
                                 <% if(resultados.user_picture == null) { %> 
                                     <div id="userPicture" >
                                         <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
@@ -56,6 +57,10 @@
                                         <img src="<%= resultados.user_picture %>" alt="foto de perfil" class="fotoPerfil">
                                     </div>    
                                 <% } %> 
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input placeholder="URL foto de perfil" class="form-control" type="url" name="user_picture" accept="image/*">
+                                </div>
                             </div>
 
                             <!--Nombre de usuario-->
