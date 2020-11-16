@@ -111,7 +111,7 @@
                                 <% } %> 
     
                                 <div class="agregar-comentario uk-flex uk-flex-middle">
-                                    <form action="/post/detail/ <%= resultados.id %> " class="uk-text-center" method="POST">
+                                    <form action="/post/detail/<%= resultados.id %>" class="uk-text-center" method="POST">
                                       <input id="addComment" type="text" class="uk-input" placeholder="Agregar un comentario..." name="text_comment">  
                                       <button id="buttonComment" type="submit">Comentar</button>
                                     </form>
@@ -126,7 +126,7 @@
                                     
                                 </div>
                             
-                            <% } else if(locals.user = undefined) {%>
+                            <% } else if(locals.user == undefined) {%>
     
                                 <label> Inicia sesión para ver los comentarios </label> 
     

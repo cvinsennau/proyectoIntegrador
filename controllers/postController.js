@@ -60,10 +60,6 @@ let controller = {
         return res.redirect('/');
     },
     newComment: function(req, res){
-        // if (req.session.user == undefined) {
-        //     return res.redirect("/")
-        // }
-
         let newComment = {
             text_comment: req.body.text_comment,
             id_post: req.params.id,
@@ -75,7 +71,7 @@ let controller = {
 
         var idPost = req.params.id
 
-        return res.redirect(+idPost)
+        return res.redirect(idPost)
     },
     editPost: function(req, res){
         if(req.session.user) {

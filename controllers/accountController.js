@@ -49,24 +49,13 @@ let controller = {
 
     store: function(req,res){
         
-        // users.findOne({
-        //     where: [{email: req.body.email }] 
-        // })
-        
-        // .then(function(usuario){
-
-            // if(usuario){
-            //     let error = "El email ya se encuentra en uso."
-            //     return res.render("register",{error: error})
-
-            // } else {
 
                 let user = {
                     name: req.body.name,
                     email: req.body.email,
                     password: bcrypt.hashSync(req.body.password,10),
                     birthdate: req.body.birthdate,
-                    question2: req.body.securityQuestion,
+                    question2: req.body.question2,
                     securityAnswer: bcrypt.hashSync(req.body.password,10),
                     user_picture: req.body.user_picture,
                     //created_at: db.sequelize.literal("CURRENT_DATE"),
@@ -75,13 +64,9 @@ let controller = {
                         
                 users.create(user); 
                 
+                
                 return res.redirect('/account/login') 
-            // }
-            
-        // })
 
-        // .catch(e => console.log(e))        
-        
     },   
 
     logout: function(req,res){
