@@ -78,7 +78,7 @@
                             </div>
 
                         <% } else if(locals.user.id == post.id_user) { %>
-                            <div class="borrarPost">
+                            <div class="postEditing">
                                 <form action="/post/deletePost" method="POST">
                                     <input type="hidden" name="id" value="<%= post.id %> ">
                                     <input type="hidden" name="id_user" value="<%= post.id_user %> ">

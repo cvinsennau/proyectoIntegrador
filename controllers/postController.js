@@ -93,8 +93,6 @@ let controller = {
             res.redirect('/')
         }
 
-      
-
     },
     updatingPost: function(req, res) {
         
@@ -103,10 +101,6 @@ let controller = {
 
        if (req.body.newText != undefined) {
             newData.text_post = req.body.newText
-        }
-
-        if (req.body.newImage != undefined) {
-            newData.image_user = req.body.newImage
         }
 
         db.Post.update(newData, {
@@ -123,7 +117,7 @@ let controller = {
 
     },
     deletePost: function(req,res){
-        if(req.session.user.id == req.body.user){
+        if(req.session.user.id == req.body.id_user){
             let idPostToDelete = req.body.id
             db.Post.destroy({
                 where:{
