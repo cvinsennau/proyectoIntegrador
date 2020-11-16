@@ -75,11 +75,17 @@ let controller = {
             updated_at: db.sequelize.literal("CURRENT_DATE")
         }
 
-        user.update(mainUser,{where: {id: req.params.id}});
+        user.update({    
+            mainUser
+        },
+        {
+            where: {id: req.params.id}
+        });
+
         
         var idUser = req.session.user.id;
         
-        //return res.send(mainUser)
+        return res.send(mainUser)
         return res.redirect('/user/myProfile/'+idUser)
     }, 
 

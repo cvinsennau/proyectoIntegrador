@@ -23,6 +23,10 @@ module.exports = function (sequelize, dataTypes){
         date_post: {
             type: dataTypes.DATE,
             allowNull: false
+        },
+        updated_at: {
+            type: dataTypes.DATE,
+            allowNull: false
         }
     } 
 
