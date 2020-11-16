@@ -42,6 +42,9 @@
                     margin-right: 50px;">
                         <img src="<%= resultados.image_user %>" alt="Post Image" class="post-imagen">
                     </article>
+                    <div class="post-pie uk-flex">
+                        <label class="postComment"><%= resultados.text_post %></label>
+                    </div>
                     <article class="uk-width-1-3 uk-flex uk-flex-column comentarios-detalle">
                         <div class="info-post uk-flex uk-flex-middle" style="padding-bottom: 20px;">
                             <a href="/user/detail/<%= resultados.user.id%>"><img  class="fotoPerfilUsuario" src="<%= resultados.user.user_picture %>" alt="Foto del usuario"></a> 
@@ -77,16 +80,15 @@
                                 </form>
                             </div>
 
-                        <% } if(locals.user && locals.user.id == post.id_user) { %>
-                            <div class="postEditing">
-                                <form action="/post/deletePost" method="POST">
-                                    <input type="text" name="id" value="<%= post.id %> ">
-                                    <input type="text" name="id_user" value="<%= post.id_user %> ">
-                                    <button type="submit">Borrar Post</button>
-                                </form>
-                                <a href="/post/editPost/<%= post.id %> "></a>
+                        <% }  if( locals.user && resultados.id_user == locals.user.id) { %>
+                            <div class="editPerfil">
+                                    <a href="/post/editPost/<%= resultados.id %>"><button type="submit">Editar</button></a>
+                                <br>
+                                <a href="/post/deletePost/<%= resultados.id %>"><button class="borrar" type="submit">Borrar</button></a>
+                                
                             </div>
-                        <% } else {%>
+                        
+                        <% } else if(locals.user = undefined) {%>
 
                             <label> Inicia sesión para ver los comentarios </label> 
 

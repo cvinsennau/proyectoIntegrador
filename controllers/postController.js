@@ -78,54 +78,57 @@ let controller = {
         return res.redirect(+idPost)
     },
     editPost: function(req, res){
-
-        if(req.session.user != undefined) {
-
-
+        if(req.session.user) {
           db.Post.findByPk(req.params.id)
           .then(function(editPost){
-            res.render("editPost",{editPost:editPost})
-
+            if(req.session.user.id==editPost.id_user){
+                return res.render("editPost",{editPost:editPost})
+            }
           })
-
+          .catch(function (error) {
+            console.log(error);
+        })
         } else {
             res.redirect('/')
         }
 
     },
     updatingPost: function(req, res) {
-
-        db.Post.update({
-            texto_post: req.body.texto_post
-        }, {
-            where: {
-                id: req.params.id
-            }
+        let text_post = {
+            text_post: req.body.text_post
+        }
+        db.Post.update(
+            text_post, {
+            where: {id: req.params.id}
         })
-
-        .then(function() {
-                
-        res.redirect("/post/detail/" + req.body.Post);
-        })
+        // return res.send(text_post)
+        return res.redirect("/post/detail/" + req.params.id);
 
 
     },
     deletePost: function(req,res){
-        if(req.session.user.id == req.body.id_user){
-            let idPostToDelete = req.body.id
+        // if(req.session.user.id == req.body.id_user){
+            let idPostToDelete = req.params.id
             db.Post.destroy({
                 where:{
                     id:idPostToDelete
                 }
             })
-            .then(function(){
-                res.redirect("/")
+            return res.redirect("/")
+        // } else {
+        //     return res.redirect("/account/login")
+        //     // return res.redirect("/post/detail/" + req.body.id)
+        // }
+    },
+    deleteView: function(req,res){
+        db.Post.findByPk(req.params.id)
+            .then(function(resultados){
+                return res.render ('deletePost',{resultados});
             })
-        } else {
-            res.redirect("/post/detail/" + req.body.id)
-        }
+            .catch(function(error){
+                console.log(error)
+            })
     }
-    
 }
 
 module.exports = controller;
