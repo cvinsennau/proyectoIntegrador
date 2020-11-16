@@ -22,14 +22,15 @@ h5 a:hover{
 article.post{
     border: 1px solid lightgray;
     border-radius: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     background-color: #393333;
     color: white;
 }
 
 article.post div.info-usuario{
     padding: 10px;
-    padding-left: 20px;
+    padding-left: 40px;
+    padding-top: 20px;
     border-bottom: 1px solid lightgray;
     margin-bottom: 5px;
 }
@@ -66,6 +67,7 @@ article.post div.post-reacciones div.post-pie p{
 article.post div.post-comentarios {
     margin-top: 10px;
     margin-left: 20px;
+    margin-bottom: 20px;
 }
 article.post div.post-comentarios h6{
     margin-bottom: 0;
@@ -139,6 +141,7 @@ ul a.ver-mas{
 }
 a.usuarios{
     font-family: 'Poppins', sans-serif;
+    margin-bottom: 8px;
 }
 a.main-user{
     margin-bottom: 10px;
@@ -155,11 +158,20 @@ h6.comentarios{
     width: 100%;
 }
 .postComment{
-    padding-left: 6%;
+    padding-left: 1%;
 }
 #usernamePost{
-    padding-left: 6%;
+    padding-left: 40px;
 }
 article.post div.post-comentarios {
     margin-left: 40px;
+}
+.comentarios-title{
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 900;
+    color: #aaaaaa;
+}
+a:hover{
+    color: white;
 }
