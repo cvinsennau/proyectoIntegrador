@@ -77,6 +77,65 @@ let controller = {
         var idPost = req.params.id
 
         return res.redirect(+idPost)
+    },
+    editPost: function(req, res){
+
+        if(req.session.user != undefined) {
+
+
+          db.Post.findByPk(req.params.id)
+          .then(function(editPost){
+            res.render("editPost",{editPost:editPost})
+
+          })
+
+        } else {
+            res.redirect('/')
+        }
+
+      
+
+    },
+    updatingPost: function(req, res) {
+        
+
+        let newData ={}
+
+       if (req.body.newText != undefined) {
+            newData.text_post = req.body.newText
+        }
+
+        if (req.body.newImage != undefined) {
+            newData.image_user = req.body.newImage
+        }
+
+        db.Post.update(newData, {
+            where: {
+                id: req.body.id,
+            }
+ 
+        })
+        .then(function() {
+                
+        res.redirect("/post/detail/" + req.body.Post);
+        })
+
+
+    },
+    deletePost: function(req,res){
+        if(req.session.user.id == req.body.user){
+            let idPostToDelete = req.body.id
+            db.Post.destroy({
+                where:{
+                    id:idPostToDelete
+                }
+            })
+            .then(function(){
+                res.redirect("/")
+            })
+        } else {
+            res.redirect("/post/detail/" + req.body.id)
+        }
     }
     
 }

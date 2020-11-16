@@ -68,7 +68,7 @@
                                         <a href="" uk-icon="icon:heart; ratio: 0.8" class="like uk-width-1-4 uk-text-right icono-meGusta"></a>
                                     </div>
                                 </div>
-                            <% } %>
+                            <% } %> 
 
                             <div class="agregar-comentario uk-flex uk-flex-middle">
                                 <form action="/post/detail/ <%= resultados.id %> " class="uk-text-center" method="POST">
@@ -77,6 +77,15 @@
                                 </form>
                             </div>
 
+                        <% } else if(locals.user.id == post.id_user) { %>
+                            <div class="borrarPost">
+                                <form action="/post/deletePost" method="POST">
+                                    <input type="hidden" name="id" value="<%= post.id %> ">
+                                    <input type="hidden" name="id_user" value="<%= post.id_user %> ">
+                                    <button type="submit">Borrar Post</button>
+                                </form>
+                                <a href="/post/editPost/<%= post.id %> "></a>
+                            </div>
                         <% } else {%>
 
                             <label> Inicia sesión para ver los comentarios </label> 

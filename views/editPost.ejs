@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <%- include("head") %> 
+        <link rel="stylesheet" href="/stylesheets/editarPerfil.css">
+    </head>
+
+    <body>
+        <%- include("headerLogueado") %> 
+
+        <main>
+            <div class="contenedorPrincipal uk-section uk-section-small ">
+                   <h1 class="titulo"> Editando post <h2 class="nombreUsuario"><%=editarPost.nombre_usuario %> </h2></h1>
+    
+                 <div class="contenedor  uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+
+                    <div class="editarPerfil">
+                        <div class="gifLogin"> <img src="https://media.giphy.com/media/7YCkJI21J3ugBePTbo/giphy.gif" alt=""></div>
+
+                         <form class="editarPerfil" action="/home/editandoPost" method="POST">
+                            <input type="hidden" name="idPost" value="<%=editarPost.id%>" >
+                            <p class="opcional"> Opcional</p>
+                            <div class="uk-margin all">
+                                <div class="uk-inline">
+                                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                    <input class="uk-input usuario " type="text" placeholder="Nuevo texto" name="textoNuevo" value="">
+                                </div>
+                            </div>
+                            
+                            <p class="opcional">Opcional</p>
+                            <div class="uk-margin all">
+                            <div class="uk-inline">
+                                <span ></span>
+                                <input class="uk-input contrasena" type="text" placeholder="Nueva foto" name="urlNuevo" value="">
+                            </div>
+                            </div>
+
+                            <input type="submit" class="uk-button uk-button-default botonIngresa" value="Submit">
+                         </form>
+                               
+                        </div>
+    
+                </div>
+            </div>
+        </main>
+
+        
+    
+        <%- include("footer") %> 
+    </body>
+
+</html>
