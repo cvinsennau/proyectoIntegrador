@@ -82,16 +82,9 @@ let controller = {
             question2: req.body.question2,
             securityAnswer: bcrypt.hashSync(req.body.password,10),
             user_picture: req.body.user_picture,
-            //created_at: db.sequelize.literal("CURRENT_DATE"),
-            updated_at: db.sequelize.literal("CURRENT_DATE")
         }
 
-        user.update({    
-            mainUser
-        },
-        {
-            where: {id: req.session.user.id}
-        });
+        user.update(mainUser,{where: {id: req.params.id}});
 
         
         var idUser = req.session.user.id;
