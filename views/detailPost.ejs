@@ -77,11 +77,11 @@
                                 </form>
                             </div>
 
-                        <% } else if(locals.user.id == post.id_user) { %>
-                            <div class="borrarPost">
+                        <% } if(locals.user && locals.user.id == post.id_user) { %>
+                            <div class="postEditing">
                                 <form action="/post/deletePost" method="POST">
-                                    <input type="hidden" name="id" value="<%= post.id %> ">
-                                    <input type="hidden" name="id_user" value="<%= post.id_user %> ">
+                                    <input type="text" name="id" value="<%= post.id %> ">
+                                    <input type="text" name="id_user" value="<%= post.id_user %> ">
                                     <button type="submit">Borrar Post</button>
                                 </form>
                                 <a href="/post/editPost/<%= post.id %> "></a>
