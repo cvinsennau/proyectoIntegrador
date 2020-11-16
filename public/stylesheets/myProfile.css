@@ -31,16 +31,10 @@ a{
     height: auto;
     margin-top: 10px;
 }
-.search-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
 .nav-icon{
     width: 25px;
     height: 25px;
     margin-right: 20px;
-    /* color: black; NO SE VE POR EL COLOR - CAMBIAR */
 }
 img.lupa{
     margin-right: 5px;
@@ -103,6 +97,14 @@ img.fotoPerfil{
 }
 #section2{
     margin-top: 50px;
+}
+#firstPost{
+    text-align: center;
+}
+#firstPostText{
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 600;
 }
 
 

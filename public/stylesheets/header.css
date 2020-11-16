@@ -56,6 +56,7 @@ a{
     height: auto;
     margin: 0;
     margin-top: 10px;
+    margin-right: 3%;
 }
 .logo a{
     font-family: 'Fjalla One', sans-serif;
@@ -65,10 +66,14 @@ a{
     text-decoration: none;
     color: white;
 }
-.search-container{
+.buscador-form{
+    text-align: center;
+}
+#search-container{
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-right: 3%;
 }
 .nav-icon{
     width: 15%;
@@ -83,13 +88,13 @@ img.lupa{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-right: 2%;
 }
 .nav-container2{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
 h4.nav-text{
     color: white;
     font-size: 15px;
@@ -102,24 +107,53 @@ h4.nav-text{
 }
 #hello{
     color: whitesmoke;
+    font-size: 14px;
+    font-family: Kumbh Sans;
+    font-weight: 600;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+#buscador-input{
+    height: 30px;
+    padding-right: 0;
+}
+#formSearch{
+    width: 100px;
+}
+#logoutButton{
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+.icon{
+    margin-bottom: 10%;
+}
+#menu, #imageUser{
+    text-align: center;
+    justify-content: center;
+}
+#dropdown{
+    padding: 5px 0;
+    border-radius: 10px;
 }
 
 @media (min-width:1024px){
-    .buscador-input{
-        width: 15vw;
-        height: 25px;
-        border-radius: 5px;
-        border: 0px;
-        padding-left: 10px;
-        font-family: 'Poppins', sans-serif;
+    .nav-container{
+        margin-left: 50%;
     }
-    .buscador-button{
-        width: 60px;
-        height: 25px;
-        border-radius: 5px;
-        border: 0px;
-        margin-left: 5px;
-        font-family: 'Poppins', sans-serif;
+    .search-container{
+        margin:0
     }
-
+    #formSearch{
+        width: 150px;
+    }
+    #buscador-input{
+        font-size: 100%;
+    }
+    #hello{
+        font-size: 18px;
+        margin-right: 5%;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
 }

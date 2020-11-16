@@ -7,7 +7,7 @@ main{
     width: 100%;
     min-width: 100vw;
 }
-.bienvenida{
+.title{
     font-family: "Kumbh Sans";
     font-weight: 600;
     font-size: 30px;

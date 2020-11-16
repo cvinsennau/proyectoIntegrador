@@ -1,7 +1,7 @@
 .logo{
     justify-content: center;
 }
-#registro{
+#actualizar{
     text-align: center;
 }
 .login{
@@ -36,13 +36,13 @@
 }
 
 @media (min-width:425px){
-    .container input, .container span, .container label, .container select,#buttonRegistro{
+    .container input, .container span, .container label, .container select, #buttonRegistro{
         font-size: 100%;
     }
 }
 @media (min-width:1024px){
-    .nav-container{
-        margin-left: 54%;
+    h4.nav-text{
+        display: inline-block;
     }
     .logo{
         margin-right: 50%;
@@ -50,5 +50,4 @@
     .login, .login a{
         font-size: 16px;
     }
-
 }

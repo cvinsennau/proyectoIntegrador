@@ -75,8 +75,8 @@
                </section>
 
                 <section class="muro uk-flex uk-flex-middle uk-flex-center">
-                    <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
                         <% if(resultadosPosteos != "" ){ %>
+                            <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
                             <% for(let i=0; i<resultadosPosteos.length; i++){ %>
                                 <div class="div-post uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
                                     <a href="/post/detail/<%= resultadosPosteos[i].id %>" class="link-detalle">
@@ -87,15 +87,20 @@
                                     </a>
                                 </div>
                             <% } %> 
-                            <% } else {%>
-                                <h3>Subí tu primer posteo!</h3>
-                                <a href="/post/add" class="uk-icon-link" uk-icon="camera"></a>
+                            </div>
+                        <% } else {%>
+                            <div id="firstPost"> 
+                                <h3 id="firstPostText">Subí tu primer posteo!</h3>
+                                <a href="/post/add" class="uk-icon-button" uk-icon="camera"></a>
+                            </div>
                         <% } %> 
-                    </div>
+                    
                 </section>
+                   
 
             </div>
         </div>
+       
     </main>
 
     <%- include('./partials/footer') %> 
