@@ -57,7 +57,6 @@ let controller = {
         }
 
         post.create(newPost);   
-
         return res.redirect('/');
     },
     newComment: function(req, res){
@@ -95,20 +94,15 @@ let controller = {
 
     },
     updatingPost: function(req, res) {
-        
 
-        let newData ={}
-
-       if (req.body.newText != undefined) {
-            newData.text_post = req.body.newText
-        }
-
-        db.Post.update(newData, {
+        db.Post.update({
+            texto_post: req.body.texto_post
+        }, {
             where: {
-                id: req.body.id,
+                id: req.params.id
             }
- 
         })
+
         .then(function() {
                 
         res.redirect("/post/detail/" + req.body.Post);
