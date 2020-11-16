@@ -22,10 +22,15 @@ input, button,.login, .login a, .titlePost{
     border-radius:10px;
     border:1px solid #ccc;
 }
-div.uk-section.uk-section-small{
-    margin-left: 35%;
-}
 main{
     margin-bottom: 0%;
     height: 522px;
+}
+.container{
+    text-align: center;
+}
+#imageEdit{
+    margin-left: 120px;
+    margin-right: 120px;
+    max-width: 500px;
 }

@@ -70,9 +70,6 @@ h4.nav-text{
     color: gray;
     text-decoration: none;
 }
-.link-detalle{
-    width: 65%;
-}
 p.uk-text-center{
     gap: 5%;
 }
@@ -104,6 +101,11 @@ p.uk-text-center{
     font-size: 70%;
     max-width: 100px;
 }
+.foto-post{
+    width: 100%;
+    border-radius: 10px;
+}
+
 
 @media (min-width:1024px){
     .nav-container{

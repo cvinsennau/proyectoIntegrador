@@ -3,6 +3,10 @@ img.fotoPerfil{
     width: 5%;
     max-width: 10%;
 }
+#fotoPerfilUsuario{
+    width: 80%;
+    max-width: 100px;
+}
 .section.detalle-container{
     border: 1px solid lightgray;
 };

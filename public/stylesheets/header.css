@@ -97,9 +97,9 @@ img.lupa{
 }
 h4.nav-text{
     color: white;
-    font-size: 15px;
+    font-size: 12px;
     font-family: 'Poppins', sans-serif;
-    margin-right: 20px;
+    margin-right: 15%;
     margin-bottom: 0px;
 }
 .registrarse-text{
@@ -155,5 +155,11 @@ h4.nav-text{
         margin-right: 5%;
         font-weight: 500;
         letter-spacing: 1px;
+    }
+    #loginSession{
+        margin-left: 10%;
+    }
+    h4.nav-text{
+        font-size: 16px;
     }
 }

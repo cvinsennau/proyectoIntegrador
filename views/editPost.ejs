@@ -32,32 +32,33 @@
 <body>
     <%- include('./partials/header')%>
 
-    <main>
-        <div class="uk-section uk-section-small">
-            
-            <div class="uk-container uk-container-large uk-flex">
 
 
-                
-                <form action="/post/editPost/ <%= editPost.id %>" method="POST">
-                    <h2 class="titlePost">Edita tu Post!</h2>
-
-                    <article class="uk-width-2-3 uk-flex uk-flex-center uk-flex-middle detalle-post" style="
-                    margin-right: 50px;">
-                        <img src="<%= editPost.image_user %>" alt="Post Image" class="post-imagen">
-                    </article>
+        <main>
+            <div class="uk-section uk-section-small">
+                <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+                    
+                    <form action="/post/editPost/ <%= editPost.id %>" method="POST">
+                        
+                        <h2 class="title">edita tu post</h2>
+                        <div class="container">
                             
-                        <!-- <input class='formPosteo' type="file" name="image_user" accept="image/*" required/> <br> -->
-
-                        <input class='formPosteo' type="text" placeholder="Edita tu descripción!" name="text_post"><br>
-
-                        <button id="postear" type="submit">Edita</button><br>
-
-                </form>
-
+                            <article id="imageEdit" class="uk-width-2-3 uk-flex uk-flex-center " style="margin-right: 50px;">
+                                <img src="<%= editPost.image_user %>" alt="Post Image" class="post-imagen">
+                            </article>
+    
+                            <input class='formPosteo' type="text" placeholder="Edita tu descripción..." name="text_post"><br>
+    
+                            <button id="postear" type="submit">Editar</button><br>
+    
+                        </div>
+                           
+                    </form>
+                    
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
+
     
     <%- include('./partials/footer') %> 
 </body>

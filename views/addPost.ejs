@@ -36,20 +36,23 @@
 
     <main>
         <div class="uk-section uk-section-small">
-            
-            <div class="uk-container uk-container-large uk-flex">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 
-                <form action="" method="POST">
-                    <h2 class="titlePost">Agrega un post</h2>
-                            
+                <form action="/post/add" method="POST">
+                    
+                    <h2 class="title">agrega un post</h2>
+                    <div class="container">
+                        
                         <input type="url" id="url" name="image_user"> <br>
 
-                        <input class='formPosteo' type="text" placeholder="Agrega una descripción" name="text_post"><br>
+                        <input class='formPosteo' type="text" placeholder="Agrega una descripción..." name="text_post"><br>
 
                         <button id="postear" type="submit">Postear</button><br>
 
+                    </div>
+                       
                 </form>
-
+                
             </div>
         </div>
     </main>
