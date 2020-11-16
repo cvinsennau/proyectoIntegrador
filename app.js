@@ -48,7 +48,7 @@ app.use(function(req, res, next){
   return next()
 })
 
-.catch(c => console.log(e))
+.catch(c => console.log("error"))
 } else {
   return next();
 }
