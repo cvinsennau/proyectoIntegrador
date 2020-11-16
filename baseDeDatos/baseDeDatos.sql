@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 16-11-2020 a las 03:18:12
+-- Tiempo de generación: 16-11-2020 a las 03:58:18
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.4.2
 
@@ -244,7 +244,6 @@ INSERT INTO `comments` (`id`, `id_post`, `id_user_comment`, `text_comment`, `dat
 
 CREATE TABLE `post` (
   `id` int(10) UNSIGNED NOT NULL,
-  `updated_at` date DEFAULT NULL,
   `id_user` int(10) UNSIGNED NOT NULL,
   `image_user` varchar(255) NOT NULL,
   `text_post` varchar(140) DEFAULT NULL,
@@ -255,58 +254,58 @@ CREATE TABLE `post` (
 -- Volcado de datos para la tabla `post`
 --
 
-INSERT INTO `post` (`id`, `updated_at`, `id_user`, `image_user`, `text_post`, `date_post`) VALUES
-(1, NULL, 1, 'https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2018/08/09173312/asado.jpg', 'Un rico asaduki!', '2020-04-08'),
-(2, NULL, 1, 'https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg', 'Caseritas y ricas!', '2020-01-01'),
-(3, NULL, 1, 'https://dam.cocinafacil.com.mx/wp-content/uploads/2020/04/comida-china-tipica.jpg', 'Comida china <3', '2020-02-02'),
-(4, NULL, 1, 'https://ep01.epimg.net/elcomidista/imagenes/2019/11/28/articulo/1574897584_677912_1574946142_media_normal.jpg', 'Para toda la familia', '2020-08-08'),
-(5, NULL, 1, 'https://www.paulinacocina.net/wp-content/uploads/2020/01/untitled-copy.jpg', 'Taquitos pa la flia', '2020-08-09'),
-(6, NULL, 1, 'https://www.vivus.es/blog/wp-content/uploads/2018/04/comida-sana-y-barata-612x408.jpg', 'Comida balanceada', '2020-07-07'),
-(7, NULL, 1, 'https://i2.wp.com/www.cocinaconpoco.com/wp-content/uploads/2018/11/Comida-sana.jpg?fit=750%2C500&ssl=1', 'Riquisimo', '2020-02-12'),
-(8, NULL, 1, 'https://elviajerofeliz.com/wp-content/uploads/2020/01/Comida-t%C3%ADpica-de-Bangladesh-Platos-Imprescindibles.jpg', 'El color lo dice todo', '2020-09-12'),
-(9, NULL, 1, 'https://estaticos.miarevista.es/media/cache/1140x_thumb/uploads/images/gallery/59f6f86d5bafe8699bf7fdf3/segundosinterior.jpg', 'Un buen pollito', '2020-04-08'),
-(10, NULL, 1, 'https://www.ecestaticos.com/image/clipping/1eda44daf5f75ca868b7eb9bf93396e4/opening.jpg', 'Buen desayuno', '2020-05-05'),
-(11, NULL, 2, 'https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales-1280x720.jpg', 'Empezando dieta!', '2020-09-09'),
-(12, NULL, 2, 'https://s2.eestatic.com/2015/04/26/cocinillas/Cocinillas_28757194_116165495_855x1140.jpg', 'Caseritas!', '2020-09-12'),
-(13, NULL, 2, 'https://static.vix.com/es/sites/default/files/styles/1x1/public/imj/elgranchef/R/Recetas-que-rinden-mas-de-una-comida-10.jpg', 'Italianoo', '2020-02-12'),
-(14, NULL, 2, 'https://img.culturacolectiva.com/cdn-cgi/image/f=auto,w=1600,q=80,fit=contain/content_image/2019/5/2/1556836847320-recetas-de-comida-china-para-preparar-facil-y-rapido.001.jpeg', 'GRANDIOSO', '2020-04-08'),
-(15, NULL, 2, 'https://ep01.epimg.net/elcomidista/imagenes/2018/06/14/articulo/1528973156_950312_1528981402_media_normal.jpg', 'Facil y rico', '2020-08-09'),
-(16, NULL, 2, 'https://i.blogs.es/6a128c/pizza-glitter/450_1000.jpg', 'Pizza arcoiris', '2020-04-09'),
-(17, NULL, 2, 'https://www.ecestaticos.com/image/clipping/1200/675/3db21f0346f8894c7f3682834c13f54a/por-que-la-comida-sabe-mas-dulce-cuando-tiene-forma-redonda.jpg?mtime=1579565836', '<3', '2020-08-12'),
-(18, NULL, 2, 'https://www.clara.es/medio/2019/10/15/que-comer-hoy-recetas-improvisadas_b33e2a5b_1200x630.jpg', 'La nueva moda', '2020-08-09'),
-(19, NULL, 2, 'https://staticsnews.medsbla.com/news-es/wp-content/uploads/2018/12/09072545/740f75b9643820069e3c8564e0d1431bd3aa5d06-1024x576.jpg', 'RIQUISIMA', '2020-08-11'),
-(20, NULL, 2, 'https://media.cnnchile.com/2019/08/papas-fritas-02-740x430.jpg', '100% VEGANAS', '2020-05-09'),
-(21, NULL, 3, 'https://cdn.ticbeat.com/src/uploads/2019/11/comida-china-600x315.jpg', 'Un lujo', '2020-06-09'),
-(22, NULL, 3, 'https://www.65ymas.com/uploads/s1/30/59/19/comida-halal.jpeg', 'A pura dieta', '2020-09-09'),
-(23, NULL, 3, 'https://dam.ngenespanol.com/wp-content/uploads/2019/09/comida-chatarra-ciego.png', 'Placerrr', '2020-10-09'),
-(24, NULL, 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSPoUF9sdlS9NBp2EdObFUsZ3VmPX0B6vjWuw&usqp=CAU', 'Ricarrdoo', '2020-08-10'),
-(25, NULL, 3, 'https://revistamundodiners.com/wp-content/uploads/2020/06/shutterstock_1488450611-scaled.jpg', 'Dieta life', '2020-11-09'),
-(26, NULL, 3, 'https://www.medialunamagazine.com/wp-content/uploads/2019/07/tacos-de-lengua-de-res-caseros-700.jpg', 'Ricooo', '2020-08-11'),
-(27, NULL, 3, 'https://tuhogar.com/cam/wp-content/uploads/sites/14/2019/07/comida-callejera-axion.jpg', '...', '2020-08-12'),
-(28, NULL, 3, 'https://live.mrf.io/statics/i/ps/www.cocinacaserayfacil.net/wp-content/uploads/2019/11/Comida-espa%C3%B1ola.jpg?width=1200&enable=upscale', 'Para chuparse los dedos', '2020-02-09'),
-(29, NULL, 3, 'https://okdiario.com/img/2018/06/17/hamburguesa-de-salmon-655x368.jpg', 'Muy rico', '2020-01-01'),
-(30, NULL, 3, 'https://www.cocinaconalegria.com/wp-content/uploads/2020/05/recetas-generales-comidas-1200x630-1.jpg', 'Jajaja', '2020-01-09'),
-(31, NULL, 4, 'https://blog.lewolang.com/images/340a2a5ba54afa16f3c75200a75bf96b.jpg?w=800&h=600&fit=crop', 'Frutilla season', '2020-08-09'),
-(32, NULL, 4, 'https://content.skyscnr.com/m/6a67db0e3d859594/original/eyeem_69444284-jpg.jpg', 'A puro queso', '2020-03-09'),
-(33, NULL, 4, 'https://assets.afcdn.com/story/20150820/743004_w980h638c1cx511cy250.jpg', 'Viva!', '2020-08-07'),
-(34, NULL, 4, 'https://www.elfinancierocr.com/resizer/2Cj8pNxbgPe0mW76B3QsULo9iqs=/600x0/center/middle/filters:quality(100)/arc-anglerfish-arc2-prod-gruponacion.s3.amazonaws.com/public/ZZ3PI4S72ZC5HPAAWDUJDB7UAI.jpg', 'Balance', '2020-08-05'),
-(35, NULL, 4, 'https://www.cataloniahotels.com/es/blog/wp-content/uploads/2020/01/comida-tipica-dominicana-sancocho-destacada-1920x1280.jpg', NULL, '2020-08-11'),
-(36, NULL, 4, 'https://cdn-3.expansion.mx/dims4/default/ab3b054/2147483647/strip/true/crop/630x500+0+0/resize/800x635!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2Fgex.lifeandstyle%2Fuploads%2Fasset%2Fasset_file%2F11038%2Fsandiwch-carru.jpg', NULL, '2020-08-12'),
-(37, NULL, 4, 'https://e.rpp-noticias.io/normal/2019/05/14/513851_789110.jpg', 'Explosion de sabor', '2020-08-02'),
-(38, NULL, 4, 'https://www.viajarlosangeles.com/img/gastonomia-los-angeles.jpg', 'Muy ricoo', '2020-01-09'),
-(39, NULL, 4, 'https://www.crearmas.com/wp-content/uploads/2018/11/el-consumo-de-comida-rapida-en-estados-unidos.jpg', 'Buenas salchichas', '2020-02-09'),
-(40, NULL, 4, 'https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2018/03/293169-comida-china-sal.jpg?itok=ovMXsLyh', 'Hoy toco esto!', '2020-08-08'),
-(41, NULL, 5, 'https://aristeguinoticias.com/editorial/wp-content/uploads/2020/08/coronavirus-comida-sars-cov-2-oms-riesgo-contagios-muertes-empaquetado-envio-alimentos-13082020.png', 'Leenda zapi', '2020-08-12'),
-(42, NULL, 5, 'https://www.vozpopuli.com/2019/02/26/bienestar/unicos-alimentos-debes-comer-adelgazar_1222087851_14315002_1280x720.jpg', 'Balance', '2020-02-02'),
-(43, NULL, 5, 'https://travelandleisure.mx/wp-content/uploads/2019/04/iStock-640071630-1.jpg', 'Sushiii', '2020-02-12'),
-(44, NULL, 5, 'https://offloadmedia.feverup.com/madridsecreto.co/wp-content/uploads/2020/05/20115438/94556732_224190192345460_5792243782158123008_o-1-1024x597.jpg', NULL, '2020-08-09'),
-(45, NULL, 5, 'https://okdiario.com/img/2020/11/09/-hambre-a-todas-horas_-como-evitar-la-ansiedad-por-comida-1-620x373.jpg', 'Muy ricoo', '2020-08-09'),
-(46, NULL, 5, 'https://mejorconsalud.com/wp-content/uploads/2015/04/desayunar-fruta.jpg', 'Delicioso', '2020-08-07'),
-(47, NULL, 5, 'https://cdn7.kiwilimon.com/galeriahome/829/1280x400/829.jpg.webp', 'Paso receta!', '2020-10-09'),
-(48, NULL, 5, 'https://www.recreoviral.com/wp-content/uploads/2015/05/20-comidas-para-preparar-aunque-estes-en-quiebra-17.jpg', 'Plenooo', '2020-10-10'),
-(49, NULL, 5, 'https://img-global.cpcdn.com/recipes/86c604d200ecef2e/400x400cq70/photo.jpg', 'Un salteadito', '2020-08-11'),
-(50, NULL, 5, 'https://static3.abc.es/media/familia/2018/05/23/Minevera_Pasta-k4KC--620x349@abc.jpg', 'Muy ricas!', '2020-08-12'),
-(57, NULL, 8, 'https://www.pequerecetas.com/wp-content/uploads/2020/10/tacos-mexicanos.jpg', 'Noche de tacos! #food', '2020-11-14');
+INSERT INTO `post` (`id`, `id_user`, `image_user`, `text_post`, `date_post`) VALUES
+(1, 1, 'https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2018/08/09173312/asado.jpg', 'Un rico asaduki!', '2020-04-08'),
+(2, 1, 'https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg', 'Caseritas y ricas!', '2020-01-01'),
+(3, 1, 'https://dam.cocinafacil.com.mx/wp-content/uploads/2020/04/comida-china-tipica.jpg', 'Comida china <3', '2020-02-02'),
+(4, 1, 'https://ep01.epimg.net/elcomidista/imagenes/2019/11/28/articulo/1574897584_677912_1574946142_media_normal.jpg', 'Para toda la familia', '2020-08-08'),
+(5, 1, 'https://www.paulinacocina.net/wp-content/uploads/2020/01/untitled-copy.jpg', 'Taquitos pa la flia', '2020-08-09'),
+(6, 1, 'https://www.vivus.es/blog/wp-content/uploads/2018/04/comida-sana-y-barata-612x408.jpg', 'Comida balanceada', '2020-07-07'),
+(7, 1, 'https://i2.wp.com/www.cocinaconpoco.com/wp-content/uploads/2018/11/Comida-sana.jpg?fit=750%2C500&ssl=1', 'Riquisimo', '2020-02-12'),
+(8, 1, 'https://elviajerofeliz.com/wp-content/uploads/2020/01/Comida-t%C3%ADpica-de-Bangladesh-Platos-Imprescindibles.jpg', 'El color lo dice todo', '2020-09-12'),
+(9, 1, 'https://estaticos.miarevista.es/media/cache/1140x_thumb/uploads/images/gallery/59f6f86d5bafe8699bf7fdf3/segundosinterior.jpg', 'Un buen pollito', '2020-04-08'),
+(10, 1, 'https://www.ecestaticos.com/image/clipping/1eda44daf5f75ca868b7eb9bf93396e4/opening.jpg', 'Buen desayuno', '2020-05-05'),
+(11, 2, 'https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales-1280x720.jpg', 'Empezando dieta!', '2020-09-09'),
+(12, 2, 'https://s2.eestatic.com/2015/04/26/cocinillas/Cocinillas_28757194_116165495_855x1140.jpg', 'Caseritas!', '2020-09-12'),
+(13, 2, 'https://static.vix.com/es/sites/default/files/styles/1x1/public/imj/elgranchef/R/Recetas-que-rinden-mas-de-una-comida-10.jpg', 'Italianoo', '2020-02-12'),
+(14, 2, 'https://img.culturacolectiva.com/cdn-cgi/image/f=auto,w=1600,q=80,fit=contain/content_image/2019/5/2/1556836847320-recetas-de-comida-china-para-preparar-facil-y-rapido.001.jpeg', 'GRANDIOSO', '2020-04-08'),
+(15, 2, 'https://ep01.epimg.net/elcomidista/imagenes/2018/06/14/articulo/1528973156_950312_1528981402_media_normal.jpg', 'Facil y rico', '2020-08-09'),
+(16, 2, 'https://i.blogs.es/6a128c/pizza-glitter/450_1000.jpg', 'Pizza arcoiris', '2020-04-09'),
+(17, 2, 'https://www.ecestaticos.com/image/clipping/1200/675/3db21f0346f8894c7f3682834c13f54a/por-que-la-comida-sabe-mas-dulce-cuando-tiene-forma-redonda.jpg?mtime=1579565836', '<3', '2020-08-12'),
+(18, 2, 'https://www.clara.es/medio/2019/10/15/que-comer-hoy-recetas-improvisadas_b33e2a5b_1200x630.jpg', 'La nueva moda', '2020-08-09'),
+(19, 2, 'https://staticsnews.medsbla.com/news-es/wp-content/uploads/2018/12/09072545/740f75b9643820069e3c8564e0d1431bd3aa5d06-1024x576.jpg', 'RIQUISIMA', '2020-08-11'),
+(20, 2, 'https://media.cnnchile.com/2019/08/papas-fritas-02-740x430.jpg', '100% VEGANAS', '2020-05-09'),
+(21, 3, 'https://cdn.ticbeat.com/src/uploads/2019/11/comida-china-600x315.jpg', 'Un lujo', '2020-06-09'),
+(22, 3, 'https://www.65ymas.com/uploads/s1/30/59/19/comida-halal.jpeg', 'A pura dieta', '2020-09-09'),
+(23, 3, 'https://dam.ngenespanol.com/wp-content/uploads/2019/09/comida-chatarra-ciego.png', 'Placerrr', '2020-10-09'),
+(24, 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSPoUF9sdlS9NBp2EdObFUsZ3VmPX0B6vjWuw&usqp=CAU', 'Ricarrdoo', '2020-08-10'),
+(25, 3, 'https://revistamundodiners.com/wp-content/uploads/2020/06/shutterstock_1488450611-scaled.jpg', 'Dieta life', '2020-11-09'),
+(26, 3, 'https://www.medialunamagazine.com/wp-content/uploads/2019/07/tacos-de-lengua-de-res-caseros-700.jpg', 'Ricooo', '2020-08-11'),
+(27, 3, 'https://tuhogar.com/cam/wp-content/uploads/sites/14/2019/07/comida-callejera-axion.jpg', '...', '2020-08-12'),
+(28, 3, 'https://live.mrf.io/statics/i/ps/www.cocinacaserayfacil.net/wp-content/uploads/2019/11/Comida-espa%C3%B1ola.jpg?width=1200&enable=upscale', 'Para chuparse los dedos', '2020-02-09'),
+(29, 3, 'https://okdiario.com/img/2018/06/17/hamburguesa-de-salmon-655x368.jpg', 'Muy rico', '2020-01-01'),
+(30, 3, 'https://www.cocinaconalegria.com/wp-content/uploads/2020/05/recetas-generales-comidas-1200x630-1.jpg', 'Jajaja', '2020-01-09'),
+(31, 4, 'https://blog.lewolang.com/images/340a2a5ba54afa16f3c75200a75bf96b.jpg?w=800&h=600&fit=crop', 'Frutilla season', '2020-08-09'),
+(32, 4, 'https://content.skyscnr.com/m/6a67db0e3d859594/original/eyeem_69444284-jpg.jpg', 'A puro queso', '2020-03-09'),
+(33, 4, 'https://assets.afcdn.com/story/20150820/743004_w980h638c1cx511cy250.jpg', 'Viva!', '2020-08-07'),
+(34, 4, 'https://www.elfinancierocr.com/resizer/2Cj8pNxbgPe0mW76B3QsULo9iqs=/600x0/center/middle/filters:quality(100)/arc-anglerfish-arc2-prod-gruponacion.s3.amazonaws.com/public/ZZ3PI4S72ZC5HPAAWDUJDB7UAI.jpg', 'Balance', '2020-08-05'),
+(35, 4, 'https://www.cataloniahotels.com/es/blog/wp-content/uploads/2020/01/comida-tipica-dominicana-sancocho-destacada-1920x1280.jpg', NULL, '2020-08-11'),
+(36, 4, 'https://cdn-3.expansion.mx/dims4/default/ab3b054/2147483647/strip/true/crop/630x500+0+0/resize/800x635!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2Fgex.lifeandstyle%2Fuploads%2Fasset%2Fasset_file%2F11038%2Fsandiwch-carru.jpg', NULL, '2020-08-12'),
+(37, 4, 'https://e.rpp-noticias.io/normal/2019/05/14/513851_789110.jpg', 'Explosion de sabor', '2020-08-02'),
+(38, 4, 'https://www.viajarlosangeles.com/img/gastonomia-los-angeles.jpg', 'Muy ricoo', '2020-01-09'),
+(39, 4, 'https://www.crearmas.com/wp-content/uploads/2018/11/el-consumo-de-comida-rapida-en-estados-unidos.jpg', 'Buenas salchichas', '2020-02-09'),
+(40, 4, 'https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2018/03/293169-comida-china-sal.jpg?itok=ovMXsLyh', 'Hoy toco esto!', '2020-08-08'),
+(41, 5, 'https://aristeguinoticias.com/editorial/wp-content/uploads/2020/08/coronavirus-comida-sars-cov-2-oms-riesgo-contagios-muertes-empaquetado-envio-alimentos-13082020.png', 'Leenda zapi', '2020-08-12'),
+(42, 5, 'https://www.vozpopuli.com/2019/02/26/bienestar/unicos-alimentos-debes-comer-adelgazar_1222087851_14315002_1280x720.jpg', 'Balance', '2020-02-02'),
+(43, 5, 'https://travelandleisure.mx/wp-content/uploads/2019/04/iStock-640071630-1.jpg', 'Sushiii', '2020-02-12'),
+(44, 5, 'https://offloadmedia.feverup.com/madridsecreto.co/wp-content/uploads/2020/05/20115438/94556732_224190192345460_5792243782158123008_o-1-1024x597.jpg', NULL, '2020-08-09'),
+(45, 5, 'https://okdiario.com/img/2020/11/09/-hambre-a-todas-horas_-como-evitar-la-ansiedad-por-comida-1-620x373.jpg', 'Muy ricoo', '2020-08-09'),
+(46, 5, 'https://mejorconsalud.com/wp-content/uploads/2015/04/desayunar-fruta.jpg', 'Delicioso', '2020-08-07'),
+(47, 5, 'https://cdn7.kiwilimon.com/galeriahome/829/1280x400/829.jpg.webp', 'Paso receta!', '2020-10-09'),
+(48, 5, 'https://www.recreoviral.com/wp-content/uploads/2015/05/20-comidas-para-preparar-aunque-estes-en-quiebra-17.jpg', 'Plenooo', '2020-10-10'),
+(49, 5, 'https://img-global.cpcdn.com/recipes/86c604d200ecef2e/400x400cq70/photo.jpg', 'Un salteadito', '2020-08-11'),
+(50, 5, 'https://static3.abc.es/media/familia/2018/05/23/Minevera_Pasta-k4KC--620x349@abc.jpg', 'Muy ricas!', '2020-08-12'),
+(57, 8, 'https://www.pequerecetas.com/wp-content/uploads/2020/10/tacos-mexicanos.jpg', 'Noche de tacos! #food', '2020-11-14');
 
 -- --------------------------------------------------------
 
@@ -337,8 +336,6 @@ INSERT INTO `question` (`id`, `question`) VALUES
 
 CREATE TABLE `user` (
   `id` int(10) UNSIGNED NOT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
   `name` varchar(20) NOT NULL,
   `email` varchar(45) NOT NULL,
   `password` varchar(100) NOT NULL,
@@ -354,16 +351,16 @@ CREATE TABLE `user` (
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id`, `created_at`, `updated_at`, `name`, `email`, `password`, `birthdate`, `question2`, `securityAnswer`, `user_picture`, `following`, `followers`) VALUES
-(1, NULL, NULL, 'davidbaastidas', 'dbastidasvelez@udesa.edu.ar', 'hola', '2000-03-08 00:00:00', 1, 'sushi', 'https://quierocuidarme.dkvsalud.es/sites/default/files/styles/vivelasalud_ficha_825x464/public/imagen/2017-09/shutterstock_92854117_0.jpg?itok=pnbGDCQp', 5, 500),
-(2, NULL, NULL, 'ale_robot1', 'ale@dh.com', 'chau', '1998-03-05 00:00:00', 1, 'pancho', 'https://img.freepik.com/foto-gratis/hombre-guapo-caucasico-aislado-pared-beige-dando-gesto-pulgares-arriba_1368-92335.jpg?size=626&ext=jpg', 13, 56),
-(3, NULL, NULL, 'CarolinaCocina123', 'caro@gmail.com', 'pollo', '2004-06-06 00:00:00', 3, 'ramona', 'https://www.mutualidadabogacia.com/wp-content/uploads/2019/03/8marzodiamujer.jpg', 2000, 4450),
-(4, NULL, NULL, 'Marita123', 'Mara123@hotmail.com', 'arroz123', '2002-08-09 00:00:00', 3, 'pecesito', 'https://www.marketingdirecto.com/wp-content/uploads/2020/03/dia-de-la-mujer-monica-moro.png', 450, 123),
-(5, NULL, NULL, 'candevinse', 'candevinse@udesa.edu.ar', 'perrito23', '2000-04-08 00:00:00', 2, 'San Jose', 'https://smoda.elpais.com/wp-content/uploads/2017/08/40mujeres14-1-635x480.jpg', 210, 4),
-(6, NULL, NULL, 'sus', 'sus@dhl.com', '$2a$10$KHgosZV3mEnvHHycpO5HJ.xCAdkgGjMueYTGmLHJpOy53xWZLDL7O', '2000-05-04 00:00:00', 1, 'ñoqui', NULL, 0, 0),
-(7, NULL, NULL, 'scott', 'scott@hotmail.com', '$2a$10$UgNVcP1VCOEoYnfsWzAaUefnCzyN.in.Bsg0APYYxOSQAipeOKbwi', '1997-10-29 00:00:00', 1, '$2a$10$gVIn2LWyWGNLw6E75t73E.c5M7aWkJy0yKe4VvsnqIyytgB/kFp6S', NULL, 0, 0),
-(8, NULL, NULL, 'tomy', 'tomy@gmail.com', '$2a$10$ExpY7VqvBYneGB0879bv8.W6wWIDJhRKfeJuMs4dsgSvpkgRgnA4C', '1999-08-11 00:00:00', 1, '$2a$10$IHqP3aAorMho4IiYJubnBuCz1jDJvNmmRsEHMFRKZo6EHID0EBeae', 'https://ca.slack-edge.com/TGKUAUY5N-UUZ79HZJQ-0ff2eee91e94-512', 0, 0),
-(12, NULL, NULL, 'alevivone', 'alejandro@digitalhouse.com', '$2a$10$Mp2y9ZwvqglmmKT7TmwTKeyzDx3GCrbVii2RP/f3EclQJkEJ8Yam6', '1976-08-11 00:00:00', 1, '$2a$10$JeG6wZDPqMfJ/8sx2JDde.OwfmK9GF.YUKUBYX87.jt01AZaSUhdu', 'https://ca.slack-edge.com/TGKUAUY5N-ULZ07UJMA-419887fcb18c-512', 0, 0);
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `birthdate`, `question2`, `securityAnswer`, `user_picture`, `following`, `followers`) VALUES
+(1, 'davidbaastidas', 'dbastidasvelez@udesa.edu.ar', 'hola', '2000-03-08 00:00:00', 1, 'sushi', 'https://quierocuidarme.dkvsalud.es/sites/default/files/styles/vivelasalud_ficha_825x464/public/imagen/2017-09/shutterstock_92854117_0.jpg?itok=pnbGDCQp', 5, 500),
+(2, 'ale_robot1', 'ale@dh.com', 'chau', '1998-03-05 00:00:00', 1, 'pancho', 'https://img.freepik.com/foto-gratis/hombre-guapo-caucasico-aislado-pared-beige-dando-gesto-pulgares-arriba_1368-92335.jpg?size=626&ext=jpg', 13, 56),
+(3, 'CarolinaCocina123', 'caro@gmail.com', 'pollo', '2004-06-06 00:00:00', 3, 'ramona', 'https://www.mutualidadabogacia.com/wp-content/uploads/2019/03/8marzodiamujer.jpg', 2000, 4450),
+(4, 'Marita123', 'Mara123@hotmail.com', 'arroz123', '2002-08-09 00:00:00', 3, 'pecesito', 'https://www.marketingdirecto.com/wp-content/uploads/2020/03/dia-de-la-mujer-monica-moro.png', 450, 123),
+(5, 'candevinse', 'candevinse@udesa.edu.ar', 'perrito23', '2000-04-08 00:00:00', 2, 'San Jose', 'https://smoda.elpais.com/wp-content/uploads/2017/08/40mujeres14-1-635x480.jpg', 210, 4),
+(6, 'sus', 'sus@dhl.com', '$2a$10$KHgosZV3mEnvHHycpO5HJ.xCAdkgGjMueYTGmLHJpOy53xWZLDL7O', '2000-05-04 00:00:00', 1, 'ñoqui', NULL, 0, 0),
+(7, 'scott', 'scott@hotmail.com', '$2a$10$UgNVcP1VCOEoYnfsWzAaUefnCzyN.in.Bsg0APYYxOSQAipeOKbwi', '1997-10-29 00:00:00', 1, '$2a$10$gVIn2LWyWGNLw6E75t73E.c5M7aWkJy0yKe4VvsnqIyytgB/kFp6S', NULL, 0, 0),
+(8, 'tomy', 'tomy@gmail.com', '$2a$10$ExpY7VqvBYneGB0879bv8.W6wWIDJhRKfeJuMs4dsgSvpkgRgnA4C', '1999-08-11 00:00:00', 1, '$2a$10$IHqP3aAorMho4IiYJubnBuCz1jDJvNmmRsEHMFRKZo6EHID0EBeae', 'https://ca.slack-edge.com/TGKUAUY5N-UUZ79HZJQ-0ff2eee91e94-512', 0, 0),
+(12, 'alevivone', 'alejandro@digitalhouse.com', '$2a$10$Mp2y9ZwvqglmmKT7TmwTKeyzDx3GCrbVii2RP/f3EclQJkEJ8Yam6', '1976-08-11 00:00:00', 1, '$2a$10$JeG6wZDPqMfJ/8sx2JDde.OwfmK9GF.YUKUBYX87.jt01AZaSUhdu', 'https://ca.slack-edge.com/TGKUAUY5N-ULZ07UJMA-419887fcb18c-512', 0, 0);
 
 --
 -- Índices para tablas volcadas
